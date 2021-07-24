@@ -1,0 +1,93 @@
+{
+  "icons":[
+    {
+      "name": "facebook",
+      "class": "bi bi-facebook"
+    },
+    {
+      "name": "twitter",
+      "class": "bi bi-twitter"
+    },
+    {
+      "name": "instagram",
+      "class": "bi bi-instagram"
+    },
+    {
+      "name": "linkedin",
+      "class": "bi bi-linkedin"
+    }
+  ],
+
+  "allies": [
+    [
+      {
+        "name": "Denti Spa",
+        "image": "https://i.imgur.com/jFJEnfb.png"
+      },
+      {
+        "name": "Art World",
+        "image": "https://i.imgur.com/0XRkvdn.png"
+      },
+      {
+        "name": "Conceptos",
+        "image": "https://i.imgur.com/dakTw2D.png"
+      }
+    ],
+    [
+      {
+        "name": "Bro-Tech",
+        "image": "https://i.imgur.com/83ttGyt.png"
+      },
+      {
+        "name": "Colibrí",
+        "image": "https://i.imgur.com/y78XAXz.png"
+      },
+      {
+        "name": "CoffeCol",
+        "image": "https://i.imgur.com/UTkFyXu.png"
+      }
+    ],
+    [
+      {
+        "name": "Químicos Labs",
+        "image": "https://i.imgur.com/F8TiMHZ.png"
+      },
+      {
+        "name": "Clear Beauty",
+        "image": "https://i.imgur.com/YqmA8Xh.png"
+      },
+      {
+        "name": "Pulido Bacters",
+        "image": "https://i.imgur.com/zWihSUY.jpg"
+      }
+    ],
+    [
+      {
+        "name": "Green Power",
+        "image": "https://i.imgur.com/ldquGhf.png"
+      },
+      {
+        "name": "Estilos Inoxidables",
+        "image": "https://i.imgur.com/pe4hJas.png"
+      },
+      {
+        "name": "Sueños de papel",
+        "image": "https://i.imgur.com/MPAc0lN.png"
+      }
+    ],
+    [
+      {
+        "name": "Novo Arquitectos",
+        "image": "https://i.imgur.com/GqNtwmi.png"
+      },
+      {
+        "name": "Rocket Ltda",
+        "image": "https://i.imgur.com/4bqJJvn.png"
+      },
+      {
+        "name": "Industrias Molly",
+        "image": "https://i.imgur.com/Kz38KWF.png"
+      }
+    ]
+  ]
+}
