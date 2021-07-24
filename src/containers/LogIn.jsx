@@ -1,9 +1,15 @@
 import React from 'react';
-import { Form, Button, Container, Image } from 'react-bootstrap';
+import { Form, Button, Container, FloatingLabel } from 'react-bootstrap';
 import { useForm } from '../hook/useForm';
 import { useDispatch } from 'react-redux';
 import { login } from '../action/action';
-import { ArrowBack } from '../components/LogIn/Login';
+import {
+  ArrowBack,
+  LoginContainer,
+  ProfileIcon,
+  AltLoginContainer,
+  AltIconContainer,
+} from '../components/LogIn/Login';
 import { useHistory } from 'react-router-dom';
 import { loginGoogle } from '../action/action';
 
@@ -32,66 +38,62 @@ const LogIn = () => {
   };
 
   return (
-    <div>
-      <Container>
-        <div className='mt-3'>
-          <ArrowBack
-            className='bi bi-arrow-left-circle'
-            onClick={handleReturn}
-          ></ArrowBack>
-        </div>
-        <h2 className='text-center mt-2'>Iniciar Sesión</h2>
-        <div className='d-flex justify-content-center my-5'>
-          <Image
-            style={{ width: '100px' }}
-            roundedCircle={true}
-            className='fluid'
-            src='https://www.wrkbemanning.no/wp-content/uploads/2017/04/profile-pic-dummy.jpg'
-            alt='foto de perfil'
-          />
+    <>
+      <div className='mt-3 ms-3'>
+        <ArrowBack
+          className='bi bi-arrow-left-circle'
+          onClick={handleReturn}
+        ></ArrowBack>
+      </div>
+      <LoginContainer>
+        <h1 className='text-center'>Iniciar Sesión</h1>
+        <div className='d-flex justify-content-center my-1'>
+          <ProfileIcon className='bi bi-person-circle'></ProfileIcon>
         </div>
         <Form onSubmit={handleLogIn}>
           <Form.Group className='mb-3' controlId='formBasicEmail'>
-            <Form.Label>Correo electrónico</Form.Label>
-            <Form.Control
-              type='email'
-              placeholder='Correo electrónico'
-              name='email'
-              value={email}
-              onChange={handleInputChange}
-            />
-            <Form.Text className='text-muted'></Form.Text>
+            <FloatingLabel controlId='floatingEmail' label='Correo electrónico'>
+              <Form.Control
+                type='email'
+                placeholder='Correo electrónico'
+                name='email'
+                required
+                value={email}
+                onChange={handleInputChange}
+              />
+            </FloatingLabel>
           </Form.Group>
           <Form.Group className='mb-3' controlId='formBasicPassword'>
-            <Form.Label>Contraseña</Form.Label>
-            <Form.Control
-              type='password'
-              placeholder='Contraseña'
-              name='password'
-              value={password}
-              onChange={handleInputChange}
-            />
+            <FloatingLabel controlId='floatingPassword' label='Contraseña'>
+              <Form.Control
+                type='password'
+                placeholder='Contraseña'
+                name='password'
+                required
+                value={password}
+                onChange={handleInputChange}
+              />
+            </FloatingLabel>
           </Form.Group>
-          <div className='d-flex justify-content-center'>
+          <div className='d-flex justify-content-center my-5'>
             <Button size='lg' variant='warning' type='submit'>
               Iniciar Sesión
             </Button>
           </div>
-          <Container className='auth__social-networks'>
-            <Container className='google-btn' onClick={handleLoginGoogle}>
-              <Container className='google-icon-wrapper'>
-                <img
-                  className='google-icon'
-                  src='https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg'
-                  alt='google button'
-                />
-              </Container>
-            </Container>
+          <Container>
+            <p className='text-center'>O ingresa con</p>
+            <AltLoginContainer>
+              <AltIconContainer>
+                <i onClick={handleLoginGoogle} className='bi bi-google'></i>
+              </AltIconContainer>
+              <AltIconContainer>
+                <i className='bi bi-facebook'></i>
+              </AltIconContainer>
+            </AltLoginContainer>
           </Container>
         </Form>
-        {/* iconos de google y facebook */}
-      </Container>
-    </div>
+      </LoginContainer>
+    </>
   );
 };
 
