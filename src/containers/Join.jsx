@@ -39,6 +39,10 @@ const Join = () => {
     dispatch(loginGoogle());
   };
 
+  const handleSession = () => {
+    history.push("/Register");
+  }
+
   return (
     <>
       <div className='mt-3 ms-3'>
@@ -83,7 +87,7 @@ const Join = () => {
             </Button>
           </div>
           <AlternativeText>
-            ¿No tienes una cuenta? <AlternativeTextLink>Regístrate</AlternativeTextLink>
+            ¿No tienes una cuenta? <AlternativeTextLink onClick={handleSession}>Regístrate</AlternativeTextLink>
           </AlternativeText>
           <Container>
             <p className='text-center'>O ingresa con</p>
