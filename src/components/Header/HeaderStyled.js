@@ -7,10 +7,14 @@ export const HeaderContent = styled.div`
     padding: 10px;
     display: flex;
     justify-content: space-between;
+    position:fixed;
+    box-shadow: 0px 3px 25px 0px rgba(0,0,0,0.5);
+    -webkit-box-shadow: 0px 3px 25px 0px rgba(0,0,0,0.5);
+    -moz-box-shadow: 0px 3px 25px 0px rgba(0,0,0,0.5);
 `;
 
 export const ButtonHead = styled.button`
-    background:#ffc107;
+    background:#23396C;
     border: 0px;
     border: 2px solid #ffc107;
     border-radius: .15rem;

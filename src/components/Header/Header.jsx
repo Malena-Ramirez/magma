@@ -14,13 +14,10 @@ const Header = () => {
       </ContentLogo>
       <ContentButtons>
           <ButtonHead>
-            <Link to="/login" style={{textDecoration:'none', color: '#23396C'}}>
-            Iniciar sesión
+            <Link to="/Join" style={{textDecoration:'none', color: '#ffc107'}}>
+            Ingresar
             </Link> 
           </ButtonHead>
-        <ButtonSignUp >
-          Registrarse
-        </ButtonSignUp>
       </ContentButtons>
     </HeaderContent>
   )
