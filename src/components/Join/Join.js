@@ -26,3 +26,14 @@ export const AltIconContainer = styled.div`
     font-size: 35px;
     color: #23396C;
 `;
+
+export const AlternativeText=styled.p`
+    text-align: center;
+    font-size: 0.875rem;
+`;
+
+export const AlternativeTextLink = styled.span`
+    text-decoration: underline;
+    cursor: pointer;
+    color: #23396C;
+`;

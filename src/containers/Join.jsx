@@ -9,11 +9,13 @@ import {
   ProfileIcon,
   AltLoginContainer,
   AltIconContainer,
-} from '../components/LogIn/Login';
+  AlternativeText,
+  AlternativeTextLink
+} from '../components/Join/Join';
 import { useHistory } from 'react-router-dom';
 import { loginGoogle } from '../action/action';
 
-const LogIn = () => {
+const Join = () => {
   const dispatch = useDispatch();
 
   const [formValues, handleInputChange] = useForm({
@@ -75,11 +77,14 @@ const LogIn = () => {
               />
             </FloatingLabel>
           </Form.Group>
-          <div className='d-flex justify-content-center my-5'>
+          <div className='d-flex justify-content-center my-3'>
             <Button size='lg' variant='warning' type='submit'>
               Iniciar Sesión
             </Button>
           </div>
+          <AlternativeText>
+            ¿No tienes una cuenta? <AlternativeTextLink>Regístrate</AlternativeTextLink>
+          </AlternativeText>
           <Container>
             <p className='text-center'>O ingresa con</p>
             <AltLoginContainer>
@@ -97,4 +102,4 @@ const LogIn = () => {
   );
 };
 
-export default LogIn;
+export default Join;

@@ -1,21 +1,21 @@
 import React from 'react'
 import { Route, Switch, Redirect } from 'react-router-dom'
-import LogIn from '../containers/LogIn'
+import Join from '../containers/Join'
 
 const AuthenticRouter = () => {
     return (
         <Switch>
             <Route 
                 exact
-                path="/auth/login"
-                component={LogIn}
+                path="/auth/Join"
+                component={Join}
             />
             <Route 
                 exact
                 path="/auth/register"
-                component={ LogIn }
+                component={ Join }
             />
-            <Redirect to="/auth/login" />
+            <Redirect to="/auth/Join" />
         </Switch>
     )
 }
