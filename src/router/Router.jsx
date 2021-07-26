@@ -10,6 +10,7 @@ import AuthenticRouter from './AuthenticRouter'
 import {PublicRoute} from './PublicRoute'
 import {PrivateRoute} from './PrivateRoute'
 import Join from '../containers/Join'
+import SignUp from '../components/Signup/SignUp'
 
 const Router = () => {
     return (
@@ -17,6 +18,7 @@ const Router = () => {
                 <Switch>
                     <Route exact path='/' component={App}/>
                     <Route exact path='/Join' component={Join}/>
+                    <Route exact path='/Register' component={SignUp}/>
                     {/* <PublicRoute
                         path="/auth"
                         component={AuthenticRouter}
