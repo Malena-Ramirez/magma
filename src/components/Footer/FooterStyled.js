@@ -3,7 +3,7 @@ import { color } from "../GlobalStyles/color";
 
 export const FooterContent = styled.div`
     background: ${color.dark};
-    border-top: 35px solid ${color.secondary};
+    border-top: 20px solid ${color.secondary};
     display: flex;
     flex-direction: column;
     align-items: center;
