@@ -1,8 +1,8 @@
 import React from 'react';
 import { Form, Button, Container, FloatingLabel } from 'react-bootstrap';
-import { useForm } from '../hook/useForm';
+import { useForm } from '../../hook/useForm';
 import { useDispatch } from 'react-redux';
-import { login } from '../action/action';
+import { login } from '../../action/action';
 import {
   ArrowBack,
   LoginContainer,
@@ -11,9 +11,9 @@ import {
   AltIconContainer,
   AlternativeText,
   AlternativeTextLink
-} from '../components/Join/Join';
+} from './JoinStyled';
 import { useHistory } from 'react-router-dom';
-import { loginGoogle } from '../action/action';
+import { loginGoogle } from '../../action/action';
 
 const Join = () => {
   const dispatch = useDispatch();
@@ -53,9 +53,6 @@ const Join = () => {
       </div>
       <LoginContainer>
         <h1 className='text-center'>Iniciar Sesión</h1>
-        <div className='d-flex justify-content-center my-1'>
-          <ProfileIcon className='bi bi-person-circle'></ProfileIcon>
-        </div>
         <Form onSubmit={handleLogIn}>
           <Form.Group className='mb-3' controlId='formBasicEmail'>
             <FloatingLabel controlId='floatingEmail' label='Correo electrónico'>
@@ -105,5 +102,4 @@ const Join = () => {
     </>
   );
 };
-
 export default Join;

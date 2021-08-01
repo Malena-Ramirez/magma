@@ -7,8 +7,8 @@ import {
     AltIconContainer,
     AlternativeText,
     AlternativeTextLink
-  } from '../Join/Join';
-import { Form, Button, Container, FloatingLabel } from 'react-bootstrap';
+  } from '../Join/JoinStyled';
+import { Form, Button, Container, FloatingLabel, DropdownButton, Dropdown } from 'react-bootstrap';
 import { useHistory } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { loginGoogle } from '../../action/action';
@@ -40,9 +40,6 @@ const SignUp = () => {
       </div>
       <LoginContainer>
         <h1 className='text-center'>Registrarse</h1>
-        <div className='d-flex justify-content-center my-1'>
-          <ProfileIcon className='bi bi-person-circle'></ProfileIcon>
-        </div>
         <Form>
         <Form.Group className='mb-3' controlId='formName'>
             <FloatingLabel controlId='floatingName' label='Nombres y Apellidos'>
@@ -91,6 +88,12 @@ const SignUp = () => {
                 // onChange={handleInputChange}
               />
             </FloatingLabel>
+          </Form.Group>
+          <Form.Group>
+          <DropdownButton id="dropdown-item-button bg-light" title="Tipo de Perfil">
+            <Dropdown.Item as="button">Aspirantes</Dropdown.Item>
+            <Dropdown.Item as="button">Empresas</Dropdown.Item>
+          </DropdownButton>
           </Form.Group>
           <div className='d-flex justify-content-center my-3'>
             <Button size='lg' variant='warning' type='submit'>

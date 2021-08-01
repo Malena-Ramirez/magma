@@ -9,8 +9,8 @@ import App from '../containers/App'
 import AuthenticRouter from './AuthenticRouter'
 import {PublicRoute} from './PublicRoute'
 import {PrivateRoute} from './PrivateRoute'
-import Join from '../containers/Join'
-import SignUp from '../components/Signup/SignUp'
+import Join from "../components/Join/Join";
+import SignUp from "../components/Signup/SignUp"
 
 const Router = () => {
     return (
