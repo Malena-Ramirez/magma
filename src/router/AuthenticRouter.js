@@ -5,17 +5,12 @@ import Join from '../containers/Join'
 const AuthenticRouter = () => {
     return (
         <Switch>
-            <Route 
+            <Route
                 exact
-                path="/auth/Join"
+                path="/ingresar"
                 component={Join}
             />
-            <Route 
-                exact
-                path="/auth/register"
-                component={ Join }
-            />
-            <Redirect to="/auth/Join" />
+            <Redirect to="/landingpage" />
         </Switch>
     )
 }
