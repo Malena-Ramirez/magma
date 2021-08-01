@@ -1,8 +1,9 @@
-import styled from "styled-components"
+import styled from "styled-components";
+import { color } from "../GlobalStyles/color";
 
 export const FooterContent = styled.div`
-    background: #0F182E;
-    border-top: 35px solid #FCA311;
+    background: ${color.dark};
+    border-top: 35px solid ${color.secondary};
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -28,7 +29,7 @@ export const IconsContainer = styled.div`
     justify-content: center;
     align-items: center;
     width:100%;
-    color: #EBEBEB; 
+    color: ${color.light}; 
 `;
 
 export const RRSS = styled.i`
@@ -37,12 +38,12 @@ export const RRSS = styled.i`
     font-size: 1.2rem;
     cursor: pointer;
     &:hover{
-        color: #FCA311;
+        color: ${color.secondary};
     }
 `;
 
 export const AboutUs = styled.p`
-    color: #EBEBEB; 
+    color: ${color.light}; 
     margin: 0;
     margin-top: 10px;
 `

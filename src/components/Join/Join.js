@@ -1,9 +1,10 @@
 import styled from "styled-components"
+import { color } from "../GlobalStyles/color";
 
 export const ArrowBack = styled.i`
     font-size: 28px;
     cursor: pointer;
-    color: #0F182E;
+    color: ${color.dark};
 `;
 
 export const LoginContainer = styled.div`
@@ -14,7 +15,7 @@ export const LoginContainer = styled.div`
 
 export const ProfileIcon = styled.i`
     font-size: 130px;
-    color: #23396C;
+    color: ${color.main};
 `;
 
 export const AltLoginContainer = styled.div`
@@ -24,10 +25,10 @@ export const AltLoginContainer = styled.div`
 
 export const AltIconContainer = styled.div`
     font-size: 35px;
-    color: #23396C;
+    color: ${color.main};
 `;
 
-export const AlternativeText=styled.p`
+export const AlternativeText = styled.p`
     text-align: center;
     font-size: 0.875rem;
 `;
@@ -35,5 +36,5 @@ export const AlternativeText=styled.p`
 export const AlternativeTextLink = styled.span`
     text-decoration: underline;
     cursor: pointer;
-    color: #23396C;
+    color: ${color.main};
 `;
