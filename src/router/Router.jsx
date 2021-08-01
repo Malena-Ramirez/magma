@@ -9,6 +9,7 @@ import { PrivateRoute } from './PrivateRoute';
 import { login } from '../action/action';
 import home from '../containers/home';
 import { Spinner } from 'react-bootstrap';
+import AboutUs from '../containers/AboutUs/AboutUs';
 
 const Router = () => {
   const dispatch = useDispatch();
@@ -45,8 +46,14 @@ const Router = () => {
         />
         <PublicRoute
           exact
-          path='/landingpage'
+          path='/magma'
           component={App}
+          isAuthenticated={isLooggedIn}
+        />
+        <PublicRoute
+          exact
+          path='/nosotros'
+          component={AboutUs}
           isAuthenticated={isLooggedIn}
         />
         <PrivateRoute
@@ -55,7 +62,7 @@ const Router = () => {
           component={home}
           isAuthenticated={isLooggedIn}
         />
-        <Redirect to='/landingpage' />
+        <Redirect to='/magma' />
       </Switch>
     </BrowserRouter>
   );
