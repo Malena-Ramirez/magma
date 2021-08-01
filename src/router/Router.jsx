@@ -10,6 +10,7 @@ import { login } from '../action/action';
 import home from '../containers/home';
 import { Spinner } from 'react-bootstrap';
 import AboutUs from '../containers/AboutUs/AboutUs';
+import GlobalStyle from '../components/GlobalStyles/globalStyles';
 
 const Router = () => {
   const dispatch = useDispatch();
@@ -38,6 +39,7 @@ const Router = () => {
 
   return (
     <BrowserRouter>
+      <GlobalStyle />
       <Switch>
         <PublicRoute
           path='/ingresar'
