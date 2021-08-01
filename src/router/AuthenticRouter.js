@@ -10,7 +10,7 @@ const AuthenticRouter = () => {
                 path="/ingresar"
                 component={Join}
             />
-            <Redirect to="/landingpage" />
+            <Redirect to="/magma" />
         </Switch>
     )
 }
