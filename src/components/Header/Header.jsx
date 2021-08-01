@@ -1,26 +1,30 @@
-import React from 'react'
-import { HeaderContent, ButtonHead, ButtonSignUp, ContentButtons, LogoImg, ContentLogo } from './HeaderStyled.js'
-import { Link } from 'react-router-dom'
+import React from 'react';
+import {
+  HeaderContent,
+  ButtonHeader,
+  ContentButtons,
+  LogoImg,
+  ContentLogo,
+} from './HeaderStyled.js';
+import { useHistory } from 'react-router';
 
 const Header = () => {
-
+  const history = useHistory();
+  const handleClick = (path) => {
+    history.push(path);
+  };
   return (
-    
     <HeaderContent>
       <ContentLogo>
-        <LogoImg 
-        src="https://i.imgur.com/qGLdQ5r.png" 
-        alt="Logo Magma"/>
+        <LogoImg src='https://i.imgur.com/qGLdQ5r.png' alt='Logo Magma' />
       </ContentLogo>
       <ContentButtons>
-          <ButtonHead>
-            <Link to="/Join" style={{textDecoration:'none', color: '#ffc107'}}>
-            Ingresar
-            </Link> 
-          </ButtonHead>
+        <ButtonHeader onClick={() => handleClick('ingresar')}>
+          Ingresar
+        </ButtonHeader>
       </ContentButtons>
     </HeaderContent>
-  )
-}
+  );
+};
 
-export default Header
+export default Header;
