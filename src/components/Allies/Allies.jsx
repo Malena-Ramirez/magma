@@ -20,7 +20,7 @@ const Allies = () => {
       <Container>
         <Row className='col-sm-11 col-md-8 mx-auto'>
           {isLoaded ? (
-            <Carousel className='carousel-dark' nextLabel='' prevLabel=''>
+            <Carousel className='carousel-light' nextLabel='' prevLabel=''>
               {allies.map((group, index) => (
                 <Carousel.Item key={index} interval={10000}>
                   <Row xs={3} className='g-4'>

@@ -5,9 +5,11 @@ import {
   IconsContainer,
   RRSS,
   ContentLogo,
+  AboutUs,
 } from './FooterStyled';
 import axios from 'axios';
 import { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 
 const Footer = () => {
   const [icons, setIcons] = useState([]);
@@ -31,6 +33,11 @@ const Footer = () => {
           ))}
         </IconsContainer>
       )}
+      <AboutUs>
+        <Link to='/nosotros' style={{ color: '#EBEBEB' }}>
+          Sobre nosotros
+        </Link>{' '}
+      </AboutUs>
     </FooterContent>
   );
 };
