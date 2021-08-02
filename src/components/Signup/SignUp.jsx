@@ -1,6 +1,5 @@
 import React from 'react'
 import {
-    ArrowBack,
     LoginContainer,
     AltLoginContainer,
     AltIconContainer,
@@ -10,30 +9,45 @@ import {
 import { Form, Button, Container, FloatingLabel, DropdownButton, Dropdown } from 'react-bootstrap';
 import { useHistory } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import { loginGoogle } from '../../action/action';
+import { loginGoogle, registroEmailPasswordName } from '../../action/action';
+import { useForm } from '../../hook/useForm';
 
 const SignUp = () => {
 
-    const dispatch = useDispatch();
+  const dispatch = useDispatch();
 
-    const history = useHistory();
-    const handleReturn = (e) => {
-      history.goBack();
-    };
+  const history = useHistory();
 
-    const handleJoin = () => {
-        history.push("/ingresar");
-      }
+  const handleJoin = () => {
+      history.push("/ingresar");
+    }
 
-      const handleLoginGoogle = () => {
-        dispatch(loginGoogle());
-      };
+  const handleLoginGoogle = () => {
+    dispatch(loginGoogle());
+  };
+
+  const [formValues, handleInputChange] = useForm({
+    name: '',
+    email: '',
+    password: '',
+    password2: '',
+  });
+    
+  const { name, email, password, password2 } = formValues;
+    
+  const handleRegister = (e) => {
+    e.preventDefault();
+      // formik.handleSubmit();
+    console.log(name, password, password2);
+    dispatch(registroEmailPasswordName(email, password, name));
+  };
+    
 
     return (
         <>
       <LoginContainer>
         <h1 className='text-center'>Registrarse</h1>
-        <Form>
+        <Form onSubmit={handleRegister}>
         <Form.Group className='mb-3' controlId='formName'>
             <FloatingLabel controlId='floatingName' label='Nombres y Apellidos'>
               <Form.Control
@@ -41,8 +55,8 @@ const SignUp = () => {
                 placeholder='Nombres y Apellidos'
                 name='name'
                 required
-                // value={email}
-                // onChange={handleInputChange}
+                value={name}
+                onChange={handleInputChange}
               />
             </FloatingLabel>
           </Form.Group>
@@ -53,8 +67,8 @@ const SignUp = () => {
                 placeholder='Correo electrónico'
                 name='email'
                 required
-                // value={email}
-                // onChange={handleInputChange}
+                value={email}
+                onChange={handleInputChange}
               />
             </FloatingLabel>
           </Form.Group>
@@ -65,20 +79,20 @@ const SignUp = () => {
                 placeholder='Contraseña'
                 name='password'
                 required
-                // value={password}
-                // onChange={handleInputChange}
+                value={password}
+                onChange={handleInputChange}
               />
             </FloatingLabel>
           </Form.Group>
           <Form.Group className='mb-3' controlId='formBasicPassword'>
             <FloatingLabel controlId='floatingPassword2' label='Confirmar Contraseña'>
               <Form.Control
-                type='password2'
+                type='password'
                 placeholder='Confirmar Contraseña'
                 name='password2'
                 required
-                // value={password}
-                // onChange={handleInputChange}
+                value={password2}
+                onChange={handleInputChange}
               />
             </FloatingLabel>
           </Form.Group>

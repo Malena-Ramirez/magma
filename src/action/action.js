@@ -17,20 +17,18 @@ export const loginGoogle = () =>{
 }
 
 export const loginEmailPassword = (email, password) => {
-
-    return (dispatch) =>{
-
+    //devuelve un callback
+    return (dispatch) => {
         firebase.auth().signInWithEmailAndPassword(email, password)
-        .then(({user})=>{
-            dispatch(
-                login(user.uid,user.displayName)
-            )
-        })
-        .catch(e=>{
-            console.log(e)
-        })
+            .then(({ user }) => {
+                dispatch(
+                    login(user.uid, user.displayName)
+                )
+            })
+            .catch(e => {
+                console.log(e)
+            })
     }
-
 }
 
 export const login = (id, displayName)=>{
@@ -42,3 +40,23 @@ export const login = (id, displayName)=>{
         }
     }
 }
+
+export const registroEmailPasswordName = (email, pass, name) => {
+    return (dispatch) => {
+        firebase.auth().createUserWithEmailAndPassword(email, pass)
+            .then(async ({ user }) => {
+                console.log(user);
+
+                await user.updateProfile({ displayName: name })
+
+                dispatch(
+                    login(user.uid, user.displayName)
+                )
+            })
+            .catch(e => {
+                console.log(e);
+            })
+    }
+}
+
+

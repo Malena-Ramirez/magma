@@ -38,3 +38,12 @@ export const AlternativeTextLink = styled.span`
     cursor: pointer;
     color: ${color.main};
 `;
+
+export const ContainerImg = styled.div`
+    display: flex;
+`;
+
+export const ImageLogin =styled.img`
+    width: 366px;
+    height: 389px;
+`;
