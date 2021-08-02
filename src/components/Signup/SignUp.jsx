@@ -2,7 +2,6 @@ import React from 'react'
 import {
     ArrowBack,
     LoginContainer,
-    ProfileIcon,
     AltLoginContainer,
     AltIconContainer,
     AlternativeText,
@@ -23,7 +22,7 @@ const SignUp = () => {
     };
 
     const handleJoin = () => {
-        history.push("/Join");
+        history.push("/ingresar");
       }
 
       const handleLoginGoogle = () => {
@@ -32,12 +31,6 @@ const SignUp = () => {
 
     return (
         <>
-      <div className='mt-3 ms-3'>
-        <ArrowBack
-          className='bi bi-arrow-left-circle'
-          onClick={handleReturn}
-        ></ArrowBack>
-      </div>
       <LoginContainer>
         <h1 className='text-center'>Registrarse</h1>
         <Form>
