@@ -16,7 +16,7 @@ const HeaderLandingPage = () => {
   return (
     <HeaderContent>
       <ContentLogo>
-        <LogoImg src='https://i.imgur.com/qGLdQ5r.png' alt='Logo Magma' />
+        <LogoImg src='https://i.imgur.com/8saUX2R.png' alt='Logo Magma' />
       </ContentLogo>
       <ContentButtons>
         <ButtonHeader onClick={() => handleClick('ingresar')}>
