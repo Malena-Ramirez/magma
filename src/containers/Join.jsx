@@ -62,7 +62,7 @@ const Join = (props) => {
             !show ?
             ( <LoginContainer className="col-6 mt-3">
                 <Container>
-                  <h1 className='text-center'>Iniciar Sesión</h1>
+                  <h1 className='text-center'>Iniciar sesión</h1>
                   <Form onSubmit={handleLogIn}>
                     <Form.Group className='mb-3' controlId='formBasicEmail'>
                       <FloatingLabel controlId='floatingEmail' label='Correo electrónico'>
