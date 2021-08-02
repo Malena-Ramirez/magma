@@ -7,10 +7,11 @@ import AuthenticRouter from './AuthenticRouter';
 import { PublicRoute } from './PublicRoute';
 import { PrivateRoute } from './PrivateRoute';
 import { login } from '../action/action';
-import home from '../containers/home';
+import Home from '../containers/Home/Home';
 import { Spinner } from 'react-bootstrap';
 import AboutUs from '../containers/AboutUs/AboutUs';
 import GlobalStyle from '../components/GlobalStyles/globalStyles';
+import Contact from '../components/Contact/Contact';
 
 const Router = () => {
   const dispatch = useDispatch();
@@ -61,7 +62,13 @@ const Router = () => {
         <PrivateRoute
           exact
           path='/'
-          component={home}
+          component={Home}
+          isAuthenticated={isLooggedIn}
+        />
+        <PrivateRoute
+          exact
+          path='/contact'
+          component={Contact}
           isAuthenticated={isLooggedIn}
         />
         <Redirect to='/magma' />
