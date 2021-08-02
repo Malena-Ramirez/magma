@@ -41,6 +41,7 @@ export const AlternativeTextLink = styled.span`
 
 export const ContainerImg = styled.div`
     display: flex;
+    justify-content: space-around;
 `;
 
 export const ImageLogin =styled.img`
