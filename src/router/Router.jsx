@@ -67,7 +67,7 @@ const Router = () => {
         />
         <PrivateRoute
           exact
-          path='/contact'
+          path='/contacto'
           component={Contact}
           isAuthenticated={isLooggedIn}
         />
