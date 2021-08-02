@@ -1,18 +1,3 @@
-<<<<<<< HEAD
-import React from 'react'
-import {
-    BrowserRouter ,
-    Switch,
-    Route,
-    Redirect
-  } from 'react-router-dom';  
-import App from '../containers/App'
-import AuthenticRouter from './AuthenticRouter'
-import {PublicRoute} from './PublicRoute'
-import {PrivateRoute} from './PrivateRoute'
-import Join from "../components/Join/Join";
-import SignUp from "../components/Signup/SignUp"
-=======
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter, Switch, Redirect } from 'react-router-dom';
 import { firebase } from '../firebase/firebaseConfig';
@@ -24,7 +9,6 @@ import { PrivateRoute } from './PrivateRoute';
 import { login } from '../action/action';
 import home from '../containers/home';
 import { Spinner } from 'react-bootstrap';
->>>>>>> 7e7c61a5516f53aa974d08e158a80f73ed19a13c
 
 const Router = () => {
   const dispatch = useDispatch();
