@@ -1,15 +1,13 @@
 import React from 'react'
 import {
     LoginContainer,
-    AltLoginContainer,
-    AltIconContainer,
     AlternativeText,
     AlternativeTextLink
   } from '../Join/JoinStyled';
-import { Form, Button, Container, FloatingLabel, DropdownButton, Dropdown } from 'react-bootstrap';
+import { Form, Button,  FloatingLabel, DropdownButton, Dropdown } from 'react-bootstrap';
 import { useHistory } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import { loginGoogle, registroEmailPasswordName } from '../../action/action';
+import { registroEmailPasswordName } from '../../action/action';
 import { useForm } from '../../hook/useForm';
 
 const SignUp = () => {
@@ -21,10 +19,6 @@ const SignUp = () => {
   const handleJoin = () => {
       history.push("/ingresar");
     }
-
-  const handleLoginGoogle = () => {
-    dispatch(loginGoogle());
-  };
 
   const [formValues, handleInputChange] = useForm({
     name: '',
@@ -110,17 +104,6 @@ const SignUp = () => {
           <AlternativeText>
             ¿Ya tienes una cuenta? <AlternativeTextLink onClick={handleJoin}>Inicia seción</AlternativeTextLink>
           </AlternativeText>
-          <Container>
-            <p className='text-center'>O ingresa con</p>
-            <AltLoginContainer>
-              <AltIconContainer>
-                <i onClick={handleLoginGoogle} className='bi bi-google'></i>
-              </AltIconContainer>
-              <AltIconContainer>
-                <i className='bi bi-facebook'></i>
-              </AltIconContainer>
-            </AltLoginContainer>
-          </Container>
         </Form>
       </LoginContainer>
     </>
