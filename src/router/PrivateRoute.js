@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Route, Redirect } from 'react-router-dom';
-import Header from '../components/Header/Header'
+import Header from '../components/Header/Header';
 import Footer from '../components/Footer/Footer'
 
 export const PrivateRoute = ({
