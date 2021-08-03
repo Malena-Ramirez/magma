@@ -1,0 +1,39 @@
+#costum-navbar-container {
+  background-color: #23396c;
+  padding: 10px;
+  box-shadow: 0px 3px 25px 0px rgba(0, 0, 0, 0.5);
+  -webkit-box-shadow: 0px 3px 25px 0px rgba(0, 0, 0, 0.5);
+  -moz-box-shadow: 0px 3px 25px 0px rgba(0, 0, 0, 0.5);
+}
+
+#navbar-logo {
+  width: 75px;
+  height: auto;
+}
+#costum-navbar-container .navbar-nav > a {
+  color: #ebebeb;
+  font-size: 0.875rem;
+}
+
+#items-navbar > .nav-link {
+  margin-left: 10px;
+}
+
+#items-navbar > .nav-link:hover {
+  color: #ffc107;
+}
+
+@media (min-width: 768px) {
+  #costum-navbar-container {
+    padding: 15px;
+  }
+}
+
+@media (min-width: 992px) {
+  #costum-navbar-container {
+    padding: 15px 25px;
+  }
+  #items-navbar > .nav-link {
+    margin-left: 50px;
+  }
+}

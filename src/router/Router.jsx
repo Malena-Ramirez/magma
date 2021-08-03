@@ -12,6 +12,7 @@ import { Spinner } from 'react-bootstrap';
 import AboutUs from '../containers/AboutUs/AboutUs';
 import GlobalStyle from '../components/GlobalStyles/globalStyles';
 import Contact from '../components/Contact/Contact';
+import Jobs from '../components/Jobs/Jobs';
 
 const Router = () => {
   const dispatch = useDispatch();
@@ -67,8 +68,14 @@ const Router = () => {
         />
         <PrivateRoute
           exact
-          path='/contact'
+          path='/contacto'
           component={Contact}
+          isAuthenticated={isLooggedIn}
+        />
+        <PrivateRoute
+          exact
+          path='/empleos'
+          component={Jobs}
           isAuthenticated={isLooggedIn}
         />
         <Redirect to='/magma' />

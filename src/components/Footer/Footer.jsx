@@ -24,7 +24,7 @@ const Footer = () => {
   return (
     <FooterContent>
       <ContentLogo>
-        <LogoImg src='https://i.imgur.com/mGynpSv.png' alt='Logo Magma' />
+        <LogoImg src='https://i.imgur.com/mqZOdpV.png' alt='Logo Magma' />
       </ContentLogo>
       {isLoaded && (
         <IconsContainer>
