@@ -13,6 +13,7 @@ import AboutUs from '../containers/AboutUs/AboutUs';
 import GlobalStyle from '../components/GlobalStyles/globalStyles';
 import Contact from '../components/Contact/Contact';
 import Jobs from '../components/Jobs/Jobs';
+import Training from '../components/Training/Training';
 
 const Router = () => {
   const dispatch = useDispatch();
@@ -76,6 +77,12 @@ const Router = () => {
           exact
           path='/empleos'
           component={Jobs}
+          isAuthenticated={isLooggedIn}
+        />
+        <PrivateRoute
+          exact
+          path='/capacitaciones'
+          component={Training}
           isAuthenticated={isLooggedIn}
         />
         <Redirect to='/magma' />
