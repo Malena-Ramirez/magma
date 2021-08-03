@@ -14,6 +14,7 @@ import GlobalStyle from '../components/GlobalStyles/globalStyles';
 import Contact from '../components/Contact/Contact';
 import Jobs from '../components/Jobs/Jobs';
 import Training from '../components/Training/Training';
+import Profile from '../components/Profile/Profile';
 
 const Router = () => {
   const dispatch = useDispatch();
@@ -83,6 +84,12 @@ const Router = () => {
           exact
           path='/capacitaciones'
           component={Training}
+          isAuthenticated={isLooggedIn}
+        />
+        <PrivateRoute
+          exact
+          path='/perfil'
+          component={Profile}
           isAuthenticated={isLooggedIn}
         />
         <Redirect to='/magma' />
