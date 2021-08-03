@@ -18,35 +18,42 @@ export const ImgTop = styled.div`
 export const ContainerInfoJobs = styled.div`
     display: flex;
     flex-wrap: wrap;
-    align-items: center;
     justify-content: space-around;
     flex-direction: row;
+    margin: 2em;
 `;
 
 export const ChoicePlace = styled.select`
-    width: 25em;
+    width: 100%;
     height: 3.5em;
     border: 0.1em solid #cecece;
     border-radius: 0.25rem;
-    @media (max-width: 420px){
-        width: 100%;
-    }    
+      
 `;
 
 export const LogoBusiness = styled.img`
     width: 8em;
+    height: 8em;
     margin: 0.8em;
+    @media (max-width: 600px){
+        width: 5em;
+        height: 5em;
+    };
+    @media (max-width: 400px){
+        width: 4em;
+        height: 4em;
+    };
 `;
 
 export const ChooseTheJob = styled.div`
     display: flex;
     flex-direction: row;
-    /* background: #ffffff; */
     width: 96.5%;
     margin: 0.5em;
     border-top: 0.1em solid #cecece;
-    /* border-radius: 0.2em; */
-    
+    @media (max-width: 400px){
+        flex-wrap: wrap;
+    }
 `;
 
 export const BusinessName = styled.h3`
@@ -62,7 +69,18 @@ export const ContainerText = styled.span`
 `;
 
 export const TitlePages = styled.h2`
-    color: ${color.secondary};
+    color: ${color.dark};
     text-align: center;
-    font-size: 6em;
+    font-size: 4em;
+    @media (max-width: 500px){
+        font-size: 3em;
+    };
+`;
+
+export const ContainerInputs = styled.div`
+    width: 20%;
+`;
+
+export const ContainerJobs = styled.div`
+    
 `;
