@@ -10,17 +10,15 @@ export const ImgTop = styled.div`
     background-position: center;
     filter: brightness(40%); // Más oscura
     margin-bottom: 2em;
-    display: flex;
-    align-items: center;
-  justify-content: center;
 `;
 
 export const ContainerInfoJobs = styled.div`
     display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
     flex-direction: row;
     margin: 2em;
+    @media (max-width: 650px){
+        flex-wrap: wrap;
+    }
 `;
 
 export const ChoicePlace = styled.select`
@@ -51,7 +49,7 @@ export const ChooseTheJob = styled.div`
     width: 96.5%;
     margin: 0.5em;
     border-top: 0.1em solid #cecece;
-    @media (max-width: 400px){
+    @media (max-width: 800px){
         flex-wrap: wrap;
     }
 `;
@@ -75,9 +73,10 @@ export const TitlePages = styled.h2`
 `;
 
 export const ContainerInputs = styled.div`
-    width: 20%;
+    width: 50%;
+    display: inline-block;
 `;
 
 export const ContainerJobs = styled.div`
-    
+    display: inline-block;
 `;

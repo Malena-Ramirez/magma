@@ -18,8 +18,8 @@ const Jobs = () => {
             <ImgTop>           
             </ImgTop>
             <TitlePages>Empleos</TitlePages> 
-            <ContainerInfoJobs className="row">
-                <ContainerInputs className="col-3">
+            <ContainerInfoJobs>
+                <ContainerInputs>
                     <Form.Group controlId='formBasicSearch'>
                         <FloatingLabel controlId='floatingSearch' label='Buscar empleo'>
                             <Form.Control
@@ -47,7 +47,7 @@ const Jobs = () => {
                         </Form.Select>
                     </FloatingLabel>
                 </ContainerInputs>
-                <ContainerJobs className="col-9">
+                <ContainerJobs>
                     <ChooseTheJob>
                         <LogoBusiness src="https://i.imgur.com/NQDgHj8.png" alt="Enercontrol"/>
                         <ContainerText>                        
