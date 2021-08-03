@@ -69,12 +69,9 @@ export const ContainerText = styled.span`
 `;
 
 export const TitlePages = styled.h2`
-    color: ${color.dark};
+    color: ${color.main};
     text-align: center;
-    font-size: 4em;
-    @media (max-width: 500px){
-        font-size: 3em;
-    };
+    font-weight: 800;
 `;
 
 export const ContainerInputs = styled.div`
