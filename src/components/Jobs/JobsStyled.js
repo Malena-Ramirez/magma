@@ -1,4 +1,5 @@
 import styled from "styled-components"
+import { color } from "../GlobalStyles/color";
 
 export const ImgTop = styled.div`
     background-image: url('https://i.imgur.com/OGS6Kqd.jpg');
@@ -9,6 +10,9 @@ export const ImgTop = styled.div`
     background-position: center;
     filter: brightness(40%); // Más oscura
     margin-bottom: 2em;
+    display: flex;
+    align-items: center;
+  justify-content: center;
 `;
 
 export const ContainerInfoJobs = styled.div`
@@ -31,18 +35,17 @@ export const ChoicePlace = styled.select`
 
 export const LogoBusiness = styled.img`
     width: 8em;
-
     margin: 0.8em;
 `;
 
 export const ChooseTheJob = styled.div`
     display: flex;
     flex-direction: row;
-    background: #ffffff;
+    /* background: #ffffff; */
     width: 96.5%;
     margin: 0.5em;
-    border: 0.1em solid #cecece;
-    border-radius: 0.2em;
+    border-top: 0.1em solid #cecece;
+    /* border-radius: 0.2em; */
     
 `;
 
@@ -56,4 +59,10 @@ export const BusinessDescription = styled.p`
 
 export const ContainerText = styled.span`
     padding: 0.5em;
+`;
+
+export const TitlePages = styled.h2`
+    color: ${color.secondary};
+    text-align: center;
+    font-size: 6em;
 `;

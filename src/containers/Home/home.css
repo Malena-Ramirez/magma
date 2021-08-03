@@ -1,6 +1,6 @@
 .src{
     flex-direction: row;
-    
+    justify-items: center;
     flex-wrap: wrap;
     align-items: flex-start;
     grid-template-columns: 1fr 1fr;

@@ -7,14 +7,15 @@ import {
     LogoBusiness, 
     BusinessName, 
     BusinessDescription,
-    ContainerText } from "./JobsStyled";
+    ContainerText,
+    TitlePages } from "./JobsStyled";
 import { Form, FloatingLabel } from 'react-bootstrap';
 
 const Jobs = () => {
     return (
         <>
-            <ImgTop>
-            <h2>Empleos</h2>
+            <ImgTop>          
+                <TitlePages>Empleos</TitlePages>  
             </ImgTop>
             <ContainerInfoJobs>
                 <ChoicePlace name="lugar" id="lugar">
