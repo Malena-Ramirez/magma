@@ -14,6 +14,7 @@ const Jobs = () => {
     return (
         <>
             <ImgTop>
+            <h2>Empleos</h2>
             </ImgTop>
             <ContainerInfoJobs>
                 <ChoicePlace name="lugar" id="lugar">
