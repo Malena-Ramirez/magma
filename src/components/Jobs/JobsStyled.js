@@ -13,11 +13,47 @@ export const ImgTop = styled.div`
 
 export const ContainerInfoJobs = styled.div`
     display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-around;
+    flex-direction: row;
 `;
 
 export const ChoicePlace = styled.select`
     width: 25em;
+    height: 3.5em;
+    border: 0.1em solid #cecece;
+    border-radius: 0.25rem;
     @media (max-width: 420px){
         width: 100%;
     }    
+`;
+
+export const LogoBusiness = styled.img`
+    width: 8em;
+
+    margin: 0.8em;
+`;
+
+export const ChooseTheJob = styled.div`
+    display: flex;
+    flex-direction: row;
+    background: #ffffff;
+    width: 96.5%;
+    margin: 0.5em;
+    border: 0.1em solid #cecece;
+    border-radius: 0.2em;
+    
+`;
+
+export const BusinessName = styled.h3`
+    text-align: center;
+`;
+
+export const BusinessDescription = styled.p`
+    text-align: justify;
+`;
+
+export const ContainerText = styled.span`
+    padding: 0.5em;
 `;
