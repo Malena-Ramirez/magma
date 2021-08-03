@@ -1,10 +1,12 @@
 import React from 'react';
+import { TrainingHero, TrainingTitle } from './TrainingStyled';
 
 const Training = () => {
   return (
-    <div>
-      <h1>Capacitaciones</h1>
-    </div>
+    <>
+      <TrainingHero></TrainingHero>
+      <TrainingTitle>Capacitaciones</TrainingTitle>
+    </>
   );
 };
 
