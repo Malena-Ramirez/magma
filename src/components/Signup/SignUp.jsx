@@ -1,24 +1,29 @@
-import React from 'react'
+import React from 'react';
 import {
-    LoginContainer,
-    AlternativeText,
-    AlternativeTextLink
-  } from '../Join/JoinStyled';
-import { Form, Button,  FloatingLabel, DropdownButton, Dropdown } from 'react-bootstrap';
+  LoginContainer,
+  AlternativeText,
+  AlternativeTextLink,
+} from '../Join/JoinStyled';
+import {
+  Form,
+  Button,
+  FloatingLabel,
+  DropdownButton,
+  Dropdown,
+} from 'react-bootstrap';
 import { useHistory } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { registroEmailPasswordName } from '../../action/action';
 import { useForm } from '../../hook/useForm';
 
 const SignUp = () => {
-
   const dispatch = useDispatch();
 
   const history = useHistory();
 
   const handleJoin = () => {
-      history.push("/ingresar");
-    }
+    history.push('/ingresar');
+  };
 
   const [formValues, handleInputChange] = useForm({
     name: '',
@@ -26,23 +31,22 @@ const SignUp = () => {
     password: '',
     password2: '',
   });
-    
+
   const { name, email, password, password2 } = formValues;
-    
+
   const handleRegister = (e) => {
     e.preventDefault();
-      // formik.handleSubmit();
+    // formik.handleSubmit();
     console.log(name, password, password2);
     dispatch(registroEmailPasswordName(email, password, name));
   };
-    
 
-    return (
-        <>
+  return (
+    <>
       <LoginContainer>
         <h1 className='text-center'>Registrarse</h1>
         <Form onSubmit={handleRegister}>
-        <Form.Group className='mb-3' controlId='formName'>
+          <Form.Group className='mb-3' controlId='formName'>
             <FloatingLabel controlId='floatingName' label='Nombres y Apellidos'>
               <Form.Control
                 type='text'
@@ -79,7 +83,10 @@ const SignUp = () => {
             </FloatingLabel>
           </Form.Group>
           <Form.Group className='mb-3' controlId='formBasicPassword'>
-            <FloatingLabel controlId='floatingPassword2' label='Confirmar Contraseña'>
+            <FloatingLabel
+              controlId='floatingPassword2'
+              label='Confirmar Contraseña'
+            >
               <Form.Control
                 type='password'
                 placeholder='Confirmar Contraseña'
@@ -91,10 +98,13 @@ const SignUp = () => {
             </FloatingLabel>
           </Form.Group>
           <Form.Group>
-          <DropdownButton id="dropdown-item-button bg-light" title="Tipo de Perfil">
-            <Dropdown.Item as="button">Aspirantes</Dropdown.Item>
-            <Dropdown.Item as="button">Empresas</Dropdown.Item>
-          </DropdownButton>
+            <DropdownButton
+              id='dropdown-item-button bg-light'
+              title='Tipo de Perfil'
+            >
+              <Dropdown.Item as='button'>Aspirantes</Dropdown.Item>
+              <Dropdown.Item as='button'>Empresas</Dropdown.Item>
+            </DropdownButton>
           </Form.Group>
           <div className='d-flex justify-content-center my-3'>
             <Button size='lg' variant='warning' type='submit'>
@@ -102,12 +112,15 @@ const SignUp = () => {
             </Button>
           </div>
           <AlternativeText>
-            ¿Ya tienes una cuenta? <AlternativeTextLink onClick={handleJoin}>Inicia seción</AlternativeTextLink>
+            ¿Ya tienes una cuenta?{' '}
+            <AlternativeTextLink onClick={handleJoin}>
+              Inicia sesión
+            </AlternativeTextLink>
           </AlternativeText>
         </Form>
       </LoginContainer>
     </>
-    )
-}
+  );
+};
 
-export default SignUp
+export default SignUp;
