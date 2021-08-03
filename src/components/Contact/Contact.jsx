@@ -1,10 +1,13 @@
 import React from 'react';
+import { ImgTop,TitlePages } from "./ContactStyled";
 
 const Contact = () => {
   return (
-    <div style={{ marginTop: '500px' }}>
-      <h1>Página de contacto</h1>
-    </div>
+    <>
+      <ImgTop>        
+      </ImgTop>
+      <TitlePages>Contáctanos</TitlePages>
+    </>
   );
 };
 
