@@ -6,8 +6,3 @@ export const ContainerNamePhoto = styled.div`
     align-items: center;
     margin-top: 2em;
 `;
-
-export const PhotoProfile = styled.img`
-    width: 50%;
-    height: 50%;
-`;

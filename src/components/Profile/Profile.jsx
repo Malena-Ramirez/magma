@@ -1,5 +1,5 @@
 import React from 'react'
-import { ContainerNamePhoto, PhotoProfile } from "./ProfileStyled";
+import { ContainerNamePhoto } from "./ProfileStyled";
 import { Image } from 'react-bootstrap'
 
 const Profile = () => {
@@ -14,8 +14,9 @@ const Profile = () => {
                     alt="foto de perfil"
                 />
                 <h2>Pepito Martinez</h2>
+                <p>Infomarción</p>
+                
             </ContainerNamePhoto>
-
         </>
     )
 }
