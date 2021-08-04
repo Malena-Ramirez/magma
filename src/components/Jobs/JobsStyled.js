@@ -66,7 +66,7 @@ export const ContainerText = styled.span`
     padding: 0.5em;
 `;
 
-export const TitlePages = styled.h2`
+export const TitlePages = styled.h1`
     color: ${color.main};
     text-align: center;
     font-weight: 800;

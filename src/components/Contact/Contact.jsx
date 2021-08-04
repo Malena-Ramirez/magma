@@ -5,8 +5,7 @@ import { FormContainer, ContactTitle, ImgTop } from './ContactStyled';
 const Contact = () => {
   return (
     <>
-      <ImgTop>        
-      </ImgTop>
+      <ImgTop></ImgTop>
       <ContactTitle>Contáctanos</ContactTitle>
       <FormContainer>
         <Form>
@@ -34,7 +33,7 @@ const Contact = () => {
             <Form.Control
               as='textarea'
               placeholder='Escribe tu mensaje'
-              style={{ height: '100px' }}
+              style={{ height: '150px' }}
             />
           </FloatingLabel>
           <div className='d-flex justify-content-center'>
