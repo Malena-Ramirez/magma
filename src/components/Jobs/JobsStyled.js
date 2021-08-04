@@ -80,3 +80,26 @@ export const ContainerInputs = styled.div`
 export const ContainerJobs = styled.div`
     display: inline-block;
 `;
+
+export const ButtonJobs =styled.button`
+    border: 1px solid ${color.dark};
+    color: ${color.dark};
+    border-radius: 0.2em;
+    display: flex;
+    flex-direction: column;
+    width: 8em;
+    height: 3.5em;
+    margin: 0.5em;
+    justify-content: center;
+    align-items: center;    
+    &:hover{
+        background-color: ${color.secondary};
+        color: ${color.dark};
+        border-color: ${color.secondary};
+        transition: 100ms;
+    }
+`;
+export const ContentButton = styled.div`
+    display: flex;
+    flex-wrap: wrap;
+`;

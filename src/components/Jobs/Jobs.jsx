@@ -9,8 +9,10 @@ import {
     ContainerText,
     TitlePages,
     ContainerInputs,
-    ContainerJobs } from "./JobsStyled";
-import { Form, FloatingLabel } from 'react-bootstrap';
+    ContainerJobs,
+    ButtonJobs,
+    ContentButton } from "./JobsStyled";
+import { Form, FloatingLabel, Accordion } from 'react-bootstrap';
 
 const Jobs = () => {
     return (
@@ -29,23 +31,68 @@ const Jobs = () => {
                             />
                         </FloatingLabel>
                     </Form.Group>
-                    <FloatingLabel controlId="floatingSelect" label="Horario">
-                        <Form.Select aria-label="Floating label select example">
-                            <option value=''>Elige un horario</option>                            
-                            <option value="diurno">Diurno</option>
-                            <option value="nocturno">Nocturno</option>
-                            <option value="remoto">Remoto</option>
-                            <option value="mixto">Mixto</option>
-                        </Form.Select>
-                    </FloatingLabel>
-                    <FloatingLabel controlId="floatingSelect" label="Ciudad">
-                        <Form.Select aria-label="Floating label select example">
-                            <option value=''>Elige una ciudad</option>
-                            <option value="Bogotá">Bogotá</option>
-                            <option value="Cartagena">Cartagena</option>
-                            <option value="Medellin">Medellin</option>
-                        </Form.Select>
-                    </FloatingLabel>
+                    <Accordion defaultActiveKey='0'>
+                        <Accordion.Item eventKey='0'>
+                        <Accordion.Header>Horario</Accordion.Header>
+                        <Accordion.Body>
+                            <Form>
+                            <Form.Check
+                                type='checkbox'
+                                id='category-1'
+                                label='Diurno'
+                            />
+                            <Form.Check 
+                                type='checkbox' 
+                                id='category-2' 
+                                label='Nocturno' />
+                            <Form.Check
+                                type='checkbox'
+                                id='category-3'
+                                label='Mixto'
+                            />
+                            <Form.Check
+                                type='checkbox'
+                                id='category-4'
+                                label='Remoto'
+                            />
+                            
+                            </Form>
+                        </Accordion.Body>
+                        </Accordion.Item>
+                    </Accordion>
+                    <Accordion defaultActiveKey='0'>
+                        <Accordion.Item eventKey='0'>
+                        <Accordion.Header>Ciudad</Accordion.Header>
+                        <Accordion.Body>
+                            <Form>
+                            <Form.Check
+                                type='checkbox'
+                                id='category-1'
+                                label='Medellin'
+                            />
+                            <Form.Check 
+                                type='checkbox' 
+                                id='category-2' 
+                                label='Bogotá' />
+                            <Form.Check
+                                type='checkbox'
+                                id='category-3'
+                                label='Cartagena'
+                            />
+                            <Form.Check
+                                type='checkbox'
+                                id='category-4'
+                                label='Arauca'
+                            />
+                            <Form.Check
+                                type='checkbox'
+                                id='category-5'
+                                label='Cali'
+                            />
+                            </Form>
+                        </Accordion.Body>
+                        </Accordion.Item>
+                    </Accordion>
                 </ContainerInputs>
                 <ContainerJobs>
                     <ChooseTheJob>
@@ -54,6 +101,14 @@ const Jobs = () => {
                         <BusinessName>Enercontrol</BusinessName>
                         <BusinessDescription>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In posuere eu sapien vitae viverra. Phasellus justo mauris, pharetra a venenatis vitae, ultricies vulputate tellus. Suspendisse potenti. In egestas tortor eget dui commodo vehicula. Nulla facilisi. Nullam sollicitudin leo nec urna sagittis volutpat. Duis hendrerit libero non ex semper, a sagittis sapien malesuada.</BusinessDescription>
                         </ContainerText>
+                        <ContentButton>
+                            <ButtonJobs>
+                                Postular directamente
+                            </ButtonJobs>
+                            <ButtonJobs>
+                                ver más
+                            </ButtonJobs>                  
+                        </ContentButton>
                     </ChooseTheJob>
                     <ChooseTheJob>
                         <LogoBusiness src="https://i.imgur.com/SY2GsO0.png" alt="LogoIndustries"/>
@@ -61,6 +116,14 @@ const Jobs = () => {
                         <BusinessName>Logo Industries</BusinessName>
                         <BusinessDescription>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In posuere eu sapien vitae viverra. Phasellus justo mauris, pharetra a venenatis vitae, ultricies vulputate tellus. Suspendisse potenti. In egestas tortor eget dui commodo vehicula. Nulla facilisi. Nullam sollicitudin leo nec urna sagittis volutpat. Duis hendrerit libero non ex semper, a sagittis sapien malesuada.</BusinessDescription>
                         </ContainerText>
+                        <ContentButton>
+                            <ButtonJobs>
+                                Postular directamente
+                            </ButtonJobs>
+                            <ButtonJobs>
+                                ver más
+                            </ButtonJobs>                  
+                        </ContentButton>
                     </ChooseTheJob>
                     <ChooseTheJob>
                         <LogoBusiness src="https://i.imgur.com/zL3I65j.jpg" alt="Textiles"/>
@@ -68,6 +131,14 @@ const Jobs = () => {
                         <BusinessName>Aritex</BusinessName>
                         <BusinessDescription>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In posuere eu sapien vitae viverra. Phasellus justo mauris, pharetra a venenatis vitae, ultricies vulputate tellus. Suspendisse potenti. In egestas tortor eget dui commodo vehicula. Nulla facilisi. Nullam sollicitudin leo nec urna sagittis volutpat. Duis hendrerit libero non ex semper, a sagittis sapien malesuada.</BusinessDescription>
                         </ContainerText>
+                        <ContentButton>
+                            <ButtonJobs>
+                                Postular directamente
+                            </ButtonJobs>
+                            <ButtonJobs>
+                                ver más
+                            </ButtonJobs>                  
+                        </ContentButton>
                     </ChooseTheJob>
                 </ContainerJobs>
             </ContainerInfoJobs>
