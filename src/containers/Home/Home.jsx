@@ -21,8 +21,6 @@ const Home = () => {
       <ContainerTopHome>
       </ContainerTopHome>
       <ContainerAll >
-
-
         <ContainerJobandLessons onClick={handleClickJobs}>
           <ImageCard src="https://i.imgur.com/ef8jGHF.jpg" alt="Buscar empleo"/>
           <span>
@@ -30,7 +28,6 @@ const Home = () => {
             <TextHome>Descubre nuestras ofertas de empleo</TextHome>
           </span>          
         </ContainerJobandLessons>
-
         <ContainerJobandLessons onClick={handleClick}>
           <ImageCard src="https://i.imgur.com/UF5sES4.jpg" alt="Buscar capacitación"/>
           <span>            
@@ -38,7 +35,6 @@ const Home = () => {
             <TextHome>Nunca dejes de aprender akenkrnvr</TextHome>
           </span>        
         </ContainerJobandLessons>
-
       </ContainerAll>
     </>
   );
