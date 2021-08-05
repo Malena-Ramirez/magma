@@ -66,7 +66,7 @@ const Training = () => {
           </Accordion>
         </AsideBar>
         <MainContent>
-          <Row xs={1} md={2} lg={4} className='g-4'>
+          <Row xs={1} md={2} lg={3} xl={4} className='g-4'>
             {imagesArray.map((image, index) => (
               <TrainingCards key={index} image={image} />
             ))}
