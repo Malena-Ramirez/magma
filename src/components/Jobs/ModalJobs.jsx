@@ -36,4 +36,3 @@ const MyVerticallyCenteredModal = (props) => {
   }
   
 export default MyVerticallyCenteredModal;
-
