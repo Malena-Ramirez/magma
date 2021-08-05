@@ -2,19 +2,30 @@ import React from 'react'
 import { 
     ImgTop, 
     ContainerInfoJobs, 
-    ChooseTheJob, 
-    LogoBusiness, 
-    BusinessName, 
-    BusinessDescription,
-    ContainerText,
     TitlePages,
     ContainerInputs,
-    ContainerJobs,
-    ButtonJobs,
-    ContentButton } from "./JobsStyled";
+    ContainerJobs } from "./JobsStyled";
 import { Form, FloatingLabel, Accordion } from 'react-bootstrap';
+import JobCards from "./JobCards";
 
 const Jobs = () => {
+
+    const arrayBusiness = [
+        {
+            "name": "Denti Spa",
+            "image": "https://i.imgur.com/jFJEnfb.png"
+        },
+        {
+            "name": "Art World",
+            "image": "https://i.imgur.com/0XRkvdn.png"
+        },
+        {
+            "name": "Conceptos",
+            "image": "https://i.imgur.com/dakTw2D.png"
+        }
+    ];
+    
+    
     return (
         <>
             <ImgTop>           
@@ -22,7 +33,7 @@ const Jobs = () => {
             <TitlePages>Empleos</TitlePages> 
             <ContainerInfoJobs>
                 <ContainerInputs>
-                    <Form.Group controlId='formBasicSearch'>
+                    <Form.Group controlId='formBasicSearch' className="mb-3">
                         <FloatingLabel controlId='floatingSearch' label='Buscar empleo'>
                             <Form.Control
                             type='search' 
@@ -32,7 +43,7 @@ const Jobs = () => {
                         </FloatingLabel>
                     </Form.Group>
                     <Accordion defaultActiveKey='0'>
-                        <Accordion.Item eventKey='0'>
+                        <Accordion.Item eventKey='0' className="mb-3">
                         <Accordion.Header>Horario</Accordion.Header>
                         <Accordion.Body>
                             <Form>
@@ -58,90 +69,82 @@ const Jobs = () => {
                             
                             </Form>
                         </Accordion.Body>
+                        </Accordion.Item>                
+                        <Accordion.Item eventKey='0' className="mb-3">
+                        <Accordion.Header>Sector</Accordion.Header>
+                        <Accordion.Body>
+                            <Form>
+                            <Form.Check
+                                type='checkbox'
+                                id='category-5'
+                                label='Ingenieria'
+                            />
+                            <Form.Check 
+                                type='checkbox' 
+                                id='category-6' 
+                                label='Marketing' />
+                            <Form.Check
+                                type='checkbox'
+                                id='category-7'
+                                label='Diseño'
+                            />
+                            <Form.Check
+                                type='checkbox'
+                                id='category-8'
+                                label='Textil'
+                            />
+                            <Form.Check
+                                type='checkbox'
+                                id='category-9'
+                                label='AgroIndustria'
+                            />
+                            </Form>
+                        </Accordion.Body>
                         </Accordion.Item>
-                    </Accordion>
-                    <Accordion defaultActiveKey='0'>
                         <Accordion.Item eventKey='0'>
                         <Accordion.Header>Ciudad</Accordion.Header>
                         <Accordion.Body>
                             <Form>
                             <Form.Check
                                 type='checkbox'
-                                id='category-1'
+                                id='category-10'
                                 label='Medellin'
                             />
                             <Form.Check 
                                 type='checkbox' 
-                                id='category-2' 
+                                id='category-11' 
                                 label='Bogotá' />
                             <Form.Check
                                 type='checkbox'
-                                id='category-3'
+                                id='category-12'
                                 label='Cartagena'
                             />
                             <Form.Check
                                 type='checkbox'
-                                id='category-4'
+                                id='category-13'
                                 label='Arauca'
                             />
                             <Form.Check
                                 type='checkbox'
-                                id='category-5'
+                                id='category-14'
                                 label='Cali'
                             />
                             </Form>
                         </Accordion.Body>
                         </Accordion.Item>
                     </Accordion>
-                </ContainerInputs>
-                <ContainerJobs>
-                    <ChooseTheJob>
-                        <LogoBusiness src="https://i.imgur.com/NQDgHj8.png" alt="Enercontrol"/>
-                        <ContainerText>                        
-                        <BusinessName>Enercontrol</BusinessName>
-                        <BusinessDescription>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In posuere eu sapien vitae viverra. Phasellus justo mauris, pharetra a venenatis vitae, ultricies vulputate tellus. Suspendisse potenti. In egestas tortor eget dui commodo vehicula. Nulla facilisi. Nullam sollicitudin leo nec urna sagittis volutpat. Duis hendrerit libero non ex semper, a sagittis sapien malesuada.</BusinessDescription>
-                        </ContainerText>
-                        <ContentButton>
-                            <ButtonJobs>
-                                Postular directamente
-                            </ButtonJobs>
-                            <ButtonJobs>
-                                ver más
-                            </ButtonJobs>                  
-                        </ContentButton>
-                    </ChooseTheJob>
-                    <ChooseTheJob>
-                        <LogoBusiness src="https://i.imgur.com/SY2GsO0.png" alt="LogoIndustries"/>
-                        <ContainerText>                        
-                        <BusinessName>Logo Industries</BusinessName>
-                        <BusinessDescription>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In posuere eu sapien vitae viverra. Phasellus justo mauris, pharetra a venenatis vitae, ultricies vulputate tellus. Suspendisse potenti. In egestas tortor eget dui commodo vehicula. Nulla facilisi. Nullam sollicitudin leo nec urna sagittis volutpat. Duis hendrerit libero non ex semper, a sagittis sapien malesuada.</BusinessDescription>
-                        </ContainerText>
-                        <ContentButton>
-                            <ButtonJobs>
-                                Postular directamente
-                            </ButtonJobs>
-                            <ButtonJobs>
-                                ver más
-                            </ButtonJobs>                  
-                        </ContentButton>
-                    </ChooseTheJob>
-                    <ChooseTheJob>
-                        <LogoBusiness src="https://i.imgur.com/zL3I65j.jpg" alt="Textiles"/>
-                        <ContainerText>                        
-                        <BusinessName>Aritex</BusinessName>
-                        <BusinessDescription>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In posuere eu sapien vitae viverra. Phasellus justo mauris, pharetra a venenatis vitae, ultricies vulputate tellus. Suspendisse potenti. In egestas tortor eget dui commodo vehicula. Nulla facilisi. Nullam sollicitudin leo nec urna sagittis volutpat. Duis hendrerit libero non ex semper, a sagittis sapien malesuada.</BusinessDescription>
-                        </ContainerText>
-                        <ContentButton>
-                            <ButtonJobs>
-                                Postular directamente
-                            </ButtonJobs>
-                            <ButtonJobs>
-                                ver más
-                            </ButtonJobs>                  
-                        </ContentButton>
-                    </ChooseTheJob>
-                </ContainerJobs>
+                </ContainerInputs>  
+                <ContainerJobs>               
+                    {
+                        arrayBusiness.map((element) => (
+                            <JobCards 
+                            key={element.index} 
+                            image={element.image} name={element.name} />
+                        )) 
+                    }      
+                </ContainerJobs> 
             </ContainerInfoJobs>
+            
         </>
     )
 }
