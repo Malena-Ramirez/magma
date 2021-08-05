@@ -1,10 +1,11 @@
 import React from 'react';
+import { TrainingDetailContainer } from './TrainingDetailStyled';
 
 const TrainingDetail = () => {
   return (
-    <div>
-      <h1>Detalle de capacitaciones</h1>
-    </div>
+    <TrainingDetailContainer>
+      <h1>Título de la capacitaciones</h1>
+    </TrainingDetailContainer>
   );
 };
 
