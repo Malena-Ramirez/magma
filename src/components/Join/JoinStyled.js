@@ -1,21 +1,32 @@
 import styled from "styled-components"
 import { color } from "../GlobalStyles/color";
 
+export const JoinContainer = styled.div`
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    height: calc(100vh - 20px);
+`;
+
+export const MainContainer = styled.div`
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-items: center;
+    height: 100%;
+`;
+
 export const ArrowBack = styled.i`
     font-size: 28px;
     cursor: pointer;
     color: ${color.dark};
+    margin:10px;
 `;
 
 export const LoginContainer = styled.div`
     width: 40vw;
-    min-width: 250px;
-    margin: 0 auto;
-`;
-
-export const ProfileIcon = styled.i`
-    font-size: 130px;
-    color: ${color.main};
+    min-width: 300px;
+    max-width: 550px;
 `;
 
 export const AltLoginContainer = styled.div`
@@ -39,12 +50,13 @@ export const AlternativeTextLink = styled.span`
     color: ${color.main};
 `;
 
-export const ContainerImg = styled.div`
-    display: flex;
-    justify-content: space-around;
-`;
-
-export const ImageLogin =styled.img`
-    width: 366px;
-    height: 389px;
+export const ImageLogin = styled.img`
+    width: 380px;
+    height: auto;
+    @media(min-width: 768px){
+        width: 450px;
+    }
+    @media(min-width: 1100px){
+        width: 600px;
+    }
 `;

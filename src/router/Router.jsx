@@ -15,6 +15,7 @@ import Contact from '../components/Contact/Contact';
 import Jobs from '../components/Jobs/Jobs';
 import Training from '../components/Training/Training';
 import Profile from '../components/Profile/Profile';
+import TrainingDetail from '../components/Training/TrainingDetail/TrainingDetail';
 
 const Router = () => {
   const dispatch = useDispatch();
@@ -41,6 +42,32 @@ const Router = () => {
     );
   }
 
+  const privateRoutes = [
+    {
+      path: '/',
+      component: Home,
+    },
+    {
+      path: '/contacto',
+      component: Contact,
+    },
+    {
+      path: '/empleos',
+      component: Jobs,
+    },
+    {
+      path: '/capacitaciones',
+      component: Training,
+    },
+    {
+      path: '/perfil',
+      component: Profile,
+    },
+    {
+      path: '/detalle-capacitacion',
+      component: TrainingDetail,
+    },
+  ];
   return (
     <BrowserRouter>
       <GlobalStyle />
@@ -62,36 +89,14 @@ const Router = () => {
           component={AboutUs}
           isAuthenticated={isLooggedIn}
         />
-        <PrivateRoute
-          exact
-          path='/'
-          component={Home}
-          isAuthenticated={isLooggedIn}
-        />
-        <PrivateRoute
-          exact
-          path='/contacto'
-          component={Contact}
-          isAuthenticated={isLooggedIn}
-        />
-        <PrivateRoute
-          exact
-          path='/empleos'
-          component={Jobs}
-          isAuthenticated={isLooggedIn}
-        />
-        <PrivateRoute
-          exact
-          path='/capacitaciones'
-          component={Training}
-          isAuthenticated={isLooggedIn}
-        />
-        <PrivateRoute
-          exact
-          path='/perfil'
-          component={Profile}
-          isAuthenticated={isLooggedIn}
-        />
+        {privateRoutes.map((route) => (
+          <PrivateRoute
+            exact
+            path={route.path}
+            component={route.component}
+            isAuthenticated={isLooggedIn}
+          />
+        ))}
         <Redirect to='/magma' />
       </Switch>
     </BrowserRouter>

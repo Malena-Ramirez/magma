@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import { Form, Button, Container, FloatingLabel } from 'react-bootstrap';
 import { useForm } from '../hook/useForm';
 import { useDispatch } from 'react-redux';
@@ -10,14 +10,15 @@ import {
   AltIconContainer,
   AlternativeText,
   AlternativeTextLink,
-  ContainerImg,
-  ImageLogin
+  ImageLogin,
+  JoinContainer,
+  MainContainer,
 } from '../components/Join/JoinStyled';
 import { useHistory } from 'react-router-dom';
 import { loginGoogle } from '../action/action';
-import SignUp from "../components/Signup/SignUp";
+import SignUp from '../components/Signup/SignUp';
 
-const Join = (props) => {
+const Join = () => {
   const dispatch = useDispatch();
 
   const [formValues, handleInputChange] = useForm({
@@ -41,79 +42,90 @@ const Join = (props) => {
     dispatch(loginGoogle());
   };
 
-  const [show, setShow] = useState(false)
+  const [show, setShow] = useState(false);
 
-  const handleClick = () =>{
+  const handleClick = () => {
     setShow(true);
     console.log('Hola');
-  }
+  };
 
   return (
     <>
-        <div className='mt-3 ms-3 row'>
-          <ArrowBack
-            className='bi bi-arrow-left-circle'
-            onClick={handleReturn}
-          />
-          <ContainerImg className="col-6 mt-3">
-            <ImageLogin src='https://i.imgur.com/nlvt5Gl.png' alt='Imagen de login'></ImageLogin>
-          </ContainerImg>
-          {
-            !show ?
-            ( <LoginContainer className="col-6 mt-3">
-                <Container>
-                  <h1 className='text-center'>Iniciar sesión</h1>
-                  <Form onSubmit={handleLogIn}>
-                    <Form.Group className='mb-3' controlId='formBasicEmail'>
-                      <FloatingLabel controlId='floatingEmail' label='Correo electrónico'>
-                        <Form.Control
-                          type='email'
-                          placeholder='Correo electrónico'
-                          name='email'
-                          required
-                          value={email}
-                          onChange={handleInputChange}
-                        />
-                      </FloatingLabel>
-                    </Form.Group>
-                    <Form.Group className='mb-3' controlId='formBasicPassword'>
-                      <FloatingLabel controlId='floatingPassword' label='Contraseña'>
-                        <Form.Control
-                          type='password'
-                          placeholder='Contraseña'
-                          name='password'
-                          required
-                          value={password}
-                          onChange={handleInputChange}
-                        />
-                      </FloatingLabel>
-                    </Form.Group>
-                    <div className='d-flex justify-content-center my-3'>
-                      <Button size='lg' variant='warning' type='submit'>
-                        Iniciar Sesión
-                      </Button>
-                    </div>
-                    <AlternativeText>
-                      ¿No tienes una cuenta? <AlternativeTextLink onClick={handleClick}>Regístrate</AlternativeTextLink>
-                    </AlternativeText>
-                    <Container>
-                      <p className='text-center'>O ingresa con</p>
-                      <AltLoginContainer>
-                        <AltIconContainer>
-                          <i onClick={handleLoginGoogle} className='bi bi-google'></i>
-                        </AltIconContainer>
-                        <AltIconContainer>
-                          <i className='bi bi-facebook'></i>
-                        </AltIconContainer>
-                      </AltLoginContainer>
-                    </Container>
-                  </Form>
-                </Container>
-              </LoginContainer>)
-            : 
-            ( <SignUp /> )
-          }
-        </div>   
+      <JoinContainer>
+        <ArrowBack className='bi bi-arrow-left-circle' onClick={handleReturn} />
+        <MainContainer>
+          <ImageLogin
+            src='https://i.imgur.com/qi2sJKX.png'
+            alt='Imagen de login'
+          ></ImageLogin>
+          {!show ? (
+            <LoginContainer>
+              <Container>
+                <h1 className='text-center'>Iniciar sesión</h1>
+                <Form onSubmit={handleLogIn}>
+                  <Form.Group className='mb-3' controlId='formBasicEmail'>
+                    <FloatingLabel
+                      controlId='floatingEmail'
+                      label='Correo electrónico'
+                    >
+                      <Form.Control
+                        type='email'
+                        placeholder='Correo electrónico'
+                        name='email'
+                        required
+                        value={email}
+                        onChange={handleInputChange}
+                      />
+                    </FloatingLabel>
+                  </Form.Group>
+                  <Form.Group className='mb-3' controlId='formBasicPassword'>
+                    <FloatingLabel
+                      controlId='floatingPassword'
+                      label='Contraseña'
+                    >
+                      <Form.Control
+                        type='password'
+                        placeholder='Contraseña'
+                        name='password'
+                        required
+                        value={password}
+                        onChange={handleInputChange}
+                      />
+                    </FloatingLabel>
+                  </Form.Group>
+                  <div className='d-flex justify-content-center my-3'>
+                    <Button size='lg' variant='warning' type='submit'>
+                      Iniciar sesión
+                    </Button>
+                  </div>
+                  <AlternativeText>
+                    ¿No tienes una cuenta?{' '}
+                    <AlternativeTextLink onClick={handleClick}>
+                      Regístrate
+                    </AlternativeTextLink>
+                  </AlternativeText>
+                  <Container>
+                    <p className='text-center'>O ingresa con</p>
+                    <AltLoginContainer>
+                      <AltIconContainer>
+                        <i
+                          onClick={handleLoginGoogle}
+                          className='bi bi-google'
+                        ></i>
+                      </AltIconContainer>
+                      <AltIconContainer>
+                        <i className='bi bi-facebook'></i>
+                      </AltIconContainer>
+                    </AltLoginContainer>
+                  </Container>
+                </Form>
+              </Container>
+            </LoginContainer>
+          ) : (
+            <SignUp />
+          )}
+        </MainContainer>
+      </JoinContainer>
     </>
   );
 };

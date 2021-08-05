@@ -43,3 +43,13 @@ padding-top: 10px;
 export const MainContent = styled.main`
   padding: 10px;
 `;
+
+export const CardContainer = styled.div`
+  cursor: pointer;
+  text-decoration: none;
+  &:hover{
+    transition: all 0.2s ease-out;
+    box-shadow: 0px 4px 8px ${color.secondary};
+    transform: translateY(-2px)
+  }
+`;
