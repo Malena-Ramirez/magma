@@ -1,5 +1,5 @@
 import React from 'react'
-import { ContainerNamePhoto, PhotoProfile } from "./ProfileStyled";
+import { ContainerNamePhoto} from "./ProfileStyled";
 import { Image } from 'react-bootstrap'
 
 const Profile = () => {
