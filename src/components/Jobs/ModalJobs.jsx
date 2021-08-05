@@ -1,7 +1,18 @@
 import React from 'react';
 import { Modal, Button } from 'react-bootstrap';
+import Swal from 'sweetalert2'
 
 const MyVerticallyCenteredModal = (props) => {
+
+  const handleClick = () =>{
+    console.log('si se envia');
+    Swal.fire({
+      title: 'Exitos!',
+      text: 'Tu Hoja de vida ha sido enviada',
+      icon: 'success',
+      confirmButtonText: 'me encanta'
+    })
+  }
 
     return (
       <Modal
@@ -28,7 +39,7 @@ const MyVerticallyCenteredModal = (props) => {
 
         </Modal.Body>
         <Modal.Footer>
-          <Button variant="outline-warning">Postular</Button>
+          <Button onClick={handleClick} variant="outline-warning">Postular</Button>
           <Button onClick={props.onHide}>Close</Button>
         </Modal.Footer>
       </Modal>
