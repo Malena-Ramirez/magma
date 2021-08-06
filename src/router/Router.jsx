@@ -89,10 +89,11 @@ const Router = () => {
           component={AboutUs}
           isAuthenticated={isLooggedIn}
         />
-        {privateRoutes.map((route) => (
+        {privateRoutes.map((route, index) => (
           <PrivateRoute
             exact
             path={route.path}
+            key={`route-${index}`}
             component={route.component}
             isAuthenticated={isLooggedIn}
           />
