@@ -12,14 +12,17 @@ const Jobs = () => {
 
     const arrayBusiness = [
         {
+            "id": 1,
             "name": "Denti Spa",
             "image": "https://i.imgur.com/jFJEnfb.png"
         },
         {
+            "id":2,
             "name": "Art World",
             "image": "https://i.imgur.com/0XRkvdn.png"
         },
         {
+            "id":3,
             "name": "Conceptos",
             "image": "https://i.imgur.com/dakTw2D.png"
         }
@@ -138,8 +141,9 @@ const Jobs = () => {
                     {
                         arrayBusiness.map((element) => (
                             <JobCards 
-                            key={element.index} 
-                            image={element.image} name={element.name} />
+                            key={element.id} 
+                            image={element.image} 
+                            name={element.name} />
                         )) 
                     }      
                 </ContainerJobs> 

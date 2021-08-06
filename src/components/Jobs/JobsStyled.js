@@ -4,7 +4,7 @@ import { color } from "../GlobalStyles/color";
 export const ImgTop = styled.div`
     background-image: url('https://i.imgur.com/OGS6Kqd.jpg');
     width: 100%;
-    height: 30vh;
+    height: 35vh;
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
