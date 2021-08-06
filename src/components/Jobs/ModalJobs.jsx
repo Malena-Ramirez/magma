@@ -1,12 +1,11 @@
 import React from 'react';
 import { Modal, Button } from 'react-bootstrap';
-import Swal from 'sweetalert2'
-import { DescriptionJobTop } from "./JobsStyled";
+import Swal from 'sweetalert2';
+import { DescriptionJobTop } from './JobsStyled';
 
 const MyVerticallyCenteredModal = (props) => {
-
-  const handleClick = (props) =>{
-
+  const handleClick = () => {
+    props.onHide();
     Swal.fire({
       title: 'Exitos!',
       text: 'Tu Hoja de vida ha sido enviada',
