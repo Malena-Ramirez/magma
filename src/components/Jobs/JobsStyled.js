@@ -111,3 +111,8 @@ export const ContentButton = styled.div`
     display: flex;
     flex-wrap: wrap;
 `;
+
+export const DescriptionJobTop = styled.p`
+    font-size: 0.8rem;
+    color: #a1a1a1;
+`;
