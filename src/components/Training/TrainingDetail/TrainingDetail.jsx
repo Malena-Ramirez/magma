@@ -3,6 +3,10 @@ import {
   TrainingDetailContainer,
   TrainingDetailTitle,
   DescriptionContainer,
+  AuthorContainer,
+  AuthorImg,
+  Description,
+  AuthorInfo,
 } from './TrainingDetailStyled';
 
 const TrainingDetail = () => {
@@ -19,13 +23,26 @@ const TrainingDetail = () => {
   return (
     <TrainingDetailContainer>
       <TrainingDetailTitle>Título de la capacitación</TrainingDetailTitle>
+
       <DescriptionContainer>
-        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Qui numquam
-        placeat, voluptas, animi odio aut labore deleniti incidunt laborum vel,
-        eius ullam quae quos. Atque nostrum maxime illum hic corrupti?. Lorem
-        ipsum, dolor sit amet consectetur adipisicing elit. Qui numquam placeat,
-        voluptas, animi odio aut labore deleniti incidunt laborum vel, eius
-        ullam quae quos. Atque nostrum maxime illum hic corrupti?.
+        <AuthorContainer>
+          <AuthorImg
+            src='https://i.imgur.com/dakTw2D.png'
+            alt='Imagen de la empresa'
+          />
+          <AuthorInfo>
+            <span>Publicado por: Conceptos</span>
+            <span>Última fecha de modificación: 05/08/2021</span>
+          </AuthorInfo>
+        </AuthorContainer>
+        <Description>
+          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Qui numquam
+          placeat, voluptas, animi odio aut labore deleniti incidunt laborum
+          vel, eius ullam quae quos. Atque nostrum maxime illum hic corrupti?.
+          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Qui numquam
+          placeat, voluptas, animi odio aut labore deleniti incidunt laborum
+          vel, eius ullam quae quos. Atque nostrum maxime illum hic corrupti?.
+        </Description>
       </DescriptionContainer>
       <iframe
         style={{ marginBottom: '40px' }}
