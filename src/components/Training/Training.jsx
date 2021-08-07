@@ -8,6 +8,7 @@ import {
 } from './TrainingStyled';
 import { FloatingLabel, Form, Accordion, Row } from 'react-bootstrap';
 import TrainingCards from './TrainingCards';
+import AddTraining from './AddTraining/AddTraining';
 
 const Training = () => {
   const imagesArray = [
@@ -21,12 +22,11 @@ const Training = () => {
   ];
   return (
     <>
-      <TrainingHero>
-        <TrainingTitle>Capacitaciones</TrainingTitle>
-      </TrainingHero>
+      <TrainingHero></TrainingHero>
       <TrainingTitle>Capacitaciones</TrainingTitle>
       <TrainingContent>
         <AsideBar>
+          <AddTraining />
           <FloatingLabel
             controlId='floatingInput'
             label='Buscar capacitaciones'
