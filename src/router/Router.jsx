@@ -16,6 +16,7 @@ import Jobs from '../components/Jobs/Jobs';
 import Training from '../components/Training/Training';
 import Profile from '../components/Profile/Profile';
 import TrainingDetail from '../components/Training/TrainingDetail/TrainingDetail';
+import BusinessJobs from "../components/Jobs/BusinessJobs/BusinessJobs";
 
 const Router = () => {
   const dispatch = useDispatch();
@@ -67,6 +68,10 @@ const Router = () => {
       path: '/detalle-capacitacion',
       component: TrainingDetail,
     },
+    {
+      path: '/formulario-empresas',
+      component: BusinessJobs,
+    }
   ];
   return (
     <BrowserRouter>
