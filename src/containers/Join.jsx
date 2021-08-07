@@ -71,6 +71,8 @@ const Join = () => {
                         type='email'
                         placeholder='Correo electrónico'
                         name='email'
+                        value={email}
+                        onChange={handleInputChange}
                         required
                       />
                     </FloatingLabel>
@@ -84,6 +86,8 @@ const Join = () => {
                         type='password'
                         placeholder='Contraseña'
                         name='password'
+                        value={password}
+                        onChange={handleInputChange}
                         required
                       />
                     </FloatingLabel>
