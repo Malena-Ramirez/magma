@@ -59,4 +59,19 @@ export const registroEmailPasswordName = (email, pass, name) => {
     }
 }
 
+export const jobsAction = (jobs) => {
+    return (dispatch, getState)=>{
+        const state = getState().auth.uid
 
+        const newJob = {
+            name: '',
+            description: '',
+            requirements: '',
+            type: '',
+            city: '',
+            salary: '',
+            workDay: '',
+            
+        }
+    }
+}
