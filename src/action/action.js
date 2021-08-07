@@ -1,5 +1,5 @@
 import { types } from "../types/types";
-import { firebase,google } from "../firebase/firebaseConfig";
+import { firebase, google, db } from "../firebase/firebaseConfig";
 
 export const loginGoogle = () =>{
 
@@ -60,18 +60,20 @@ export const registroEmailPasswordName = (email, pass, name) => {
 }
 
 export const jobsAction = (jobs) => {
-    return (dispatch, getState)=>{
-        const state = getState().auth.uid
 
-        const newJob = {
-            name: '',
-            description: '',
-            requirements: '',
-            type: '',
-            city: '',
-            salary: '',
-            workDay: '',
-            
+    return async (dispatch, getState)=>{
+
+        const state = getState().auth.uid 
+
+        const newJobs = {
+            title: '',
+            body: '',
+            date: new Date().getTime()
         }
+
+        // const docRef = await db.collection(`${uid}/empleos/formulario-empresas`).add(newJobs);
+        // console.log(docRef);
+
     }
+
 }

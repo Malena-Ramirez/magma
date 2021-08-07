@@ -16,3 +16,4 @@ export const jobsReducer = (state = initialState, action) => {
             return state;
     }
 }
+

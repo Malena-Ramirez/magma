@@ -2,6 +2,7 @@ import React from 'react'
 import { Form, FloatingLabel, Container, Button } from 'react-bootstrap';
 import { ImgTop, TitlePages } from "../JobsStyled";
 import { useForm } from '../../../hook/useForm';
+import { jobsAction } from "../../../action/action";
 
 const BusinessJobs = () => {
 
@@ -131,9 +132,16 @@ const BusinessJobs = () => {
                                 required 
                                 />
                         </FloatingLabel>
-                        <Button type='submit' variant="warning" size="lg">
-                            Enviar
-                        </Button>
+                        <div className="d-grid gap-2">
+                            <Button 
+                                variant="warning" 
+                                size="lg" 
+                                className="mb-3"
+                                value="Submit" 
+                                >
+                                Enviar
+                            </Button>            
+                        </div>
                     </Form>
                 </Container>
         </>
