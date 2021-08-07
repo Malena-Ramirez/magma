@@ -109,7 +109,9 @@ const Jobs = () => {
                             </Form>
                         </Accordion.Body>
                         </Accordion.Item>
-                        <Accordion.Item eventKey='0'>
+                        <Accordion.Item
+                            className="mb-3"
+                            eventKey='0'>
                         <Accordion.Header>Ciudad</Accordion.Header>
                         <Accordion.Body>
                             <Form>
@@ -141,6 +143,12 @@ const Jobs = () => {
                         </Accordion.Body>
                         </Accordion.Item>
                     </Accordion>
+                    <Button
+                        variant="warning"
+                        class="btn btn-warning" 
+                        onClick={handleClick}
+                        >Ingresa un nuevo empleo aquí
+                    </Button>
                 </ContainerInputs>  
                 <ContainerJobs>               
                     {
@@ -153,7 +161,7 @@ const Jobs = () => {
                     }      
                 </ContainerJobs> 
             </ContainerInfoJobs>
-            <Button onClick={handleClick}>Boton para empresas</Button>
+           
         </>
     )
 }
