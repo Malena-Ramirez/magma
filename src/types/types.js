@@ -9,4 +9,5 @@ export const types = {
     trainingCardDelete: '[Training] Delete training card',
     trainingCardLogoutClean: '[Training] Logout',
 
+    
 }
