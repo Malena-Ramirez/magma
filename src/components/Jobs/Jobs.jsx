@@ -5,8 +5,9 @@ import {
     TitlePages,
     ContainerInputs,
     ContainerJobs } from "./JobsStyled";
-import { Form, FloatingLabel, Accordion } from 'react-bootstrap';
+import { Form, FloatingLabel, Accordion, Button } from 'react-bootstrap';
 import JobCards from "./JobCards";
+import { useHistory } from "react-router-dom";
 
 const Jobs = () => {
 
@@ -28,13 +29,17 @@ const Jobs = () => {
         }
     ];
     
+    const history = useHistory();
+  const handleClick = () =>{
+    history.push("/formulario-empresas");
+  }
     
     return (
         <>
             <ImgTop>           
             </ImgTop>
             <TitlePages>Empleos</TitlePages> 
-            <ContainerInfoJobs>
+            <ContainerInfoJobs>            
                 <ContainerInputs>
                     <Form.Group controlId='formBasicSearch' className="mb-3">
                         <FloatingLabel controlId='floatingSearch' label='Buscar empleo'>
@@ -148,7 +153,7 @@ const Jobs = () => {
                     }      
                 </ContainerJobs> 
             </ContainerInfoJobs>
-            
+            <Button onClick={handleClick}>Boton para empresas</Button>
         </>
     )
 }
