@@ -1,17 +1,19 @@
 import { types } from "../types/types";
 
 const initialState = {
-    jobs: []
+    jobs: [],
+    
 }
 
 export const jobsReducer = (state = initialState, action) => {
     switch (action.type) {
         case types.jobsAddNew:
             return{
-                ...action.state,
-                jobs: [action.payload, ...state.jobs]
+                ...state, 
+                active:{
+                    ...action.payload
+                }
             }
-    
         default:
             return state;
     }
