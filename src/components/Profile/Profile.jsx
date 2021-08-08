@@ -27,8 +27,8 @@ const Profile = () => {
                     </ContainerNamePhoto>
                     <UserInfo>
                         <UserName>Pepito Martinez</UserName>
-                        <p>Profeción</p>    
-                        <p>Pais / Ciudad</p>
+                        <p>Profesión</p>    
+                        <p>País / Ciudad</p>
                     </UserInfo> 
                 </UserBasicInfo>
                 <MoreInfo>
@@ -82,7 +82,7 @@ const Profile = () => {
                             consectetur ac, vestibulum at eros.</p>
                         </Sponsor>
                         <Sponsor>
-                            <h5>Pueba nuestras capacitaciones!!!</h5>
+                            <h5>Mira los nuevos empleos que hay para tí!!!</h5>
                             <p>Cras mattis consectetur purus sit amet fermentum. Cras justo odio,
                             dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac
                             consectetur ac, vestibulum at eros.</p>
@@ -94,4 +94,4 @@ const Profile = () => {
     )
 }
 
-export default Profile
+export default Profile;
