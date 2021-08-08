@@ -145,7 +145,7 @@ const Jobs = () => {
                     </Accordion>
                     <Button
                         variant="warning"
-                        class="btn btn-warning" 
+                        className="btn btn-warning" 
                         onClick={handleClick}
                         >Ingresa un nuevo empleo aquí
                     </Button>
