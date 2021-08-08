@@ -2,9 +2,12 @@ import React from 'react'
 import { Form, FloatingLabel, Container, Button } from 'react-bootstrap';
 import { ImgTop, TitlePages } from "../JobsStyled";
 import { useForm } from '../../../hook/useForm';
-import { jobsAction } from "../../../action/action";
+import { jobsAction } from "../../../action/jobsAction";
+import { useDispatch } from 'react-redux'
 
 const BusinessJobs = () => {
+
+    const dispatch = useDispatch();
 
     const [formValues, handleInputChange, reset] = useForm({
         name: '',
@@ -137,7 +140,8 @@ const BusinessJobs = () => {
                                 variant="warning" 
                                 size="lg" 
                                 className="mb-3"
-                                value="Submit" 
+                                value="submit"
+                                onClick={()=> dispatch(jobsAction())}
                                 >
                                 Enviar
                             </Button>            
