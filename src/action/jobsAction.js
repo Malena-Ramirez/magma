@@ -4,7 +4,7 @@ import { types } from "../types/types";
 
 export const jobsAction = (jobs) => {
     return async (dispatch, getState)=>{
-        const uid = getState().jobs.id
+        const uid = getState().login.id
 
         const newJobs = {
             name: '',
