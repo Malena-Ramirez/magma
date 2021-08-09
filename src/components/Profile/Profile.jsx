@@ -1,24 +1,97 @@
 import React from 'react'
-import { ContainerNamePhoto } from "./ProfileStyled";
-import { Image } from 'react-bootstrap'
+import { ContainerNamePhoto, 
+    UserName, 
+    UserInfo, 
+    UserBasicInfo, 
+    AboutMeText, 
+    AboutMe, 
+    TitleAboutMe,
+    PublicityBusiness,
+    MoreInfo,
+    Sponsor } from "./ProfileStyled";
+import { Image, Container } from 'react-bootstrap'
 
 const Profile = () => {
     return (
         <>
-            <ContainerNamePhoto>
-                <Image 
-                    style={{width:"100px"}}
-                    roundedCircle={true}
-                    className="fluid" 
-                    src='https://www.wrkbemanning.no/wp-content/uploads/2017/04/profile-pic-dummy.jpg' 
-                    alt="foto de perfil"
-                />
-                <h2>Pepito Martinez</h2>
-                <p>Infomarción</p>
-                
-            </ContainerNamePhoto>
+            <Container className="mt-3">
+                <UserBasicInfo>
+                    <ContainerNamePhoto>
+                        <Image 
+                            style={{width:"100px"}}
+                            roundedCircle={true}
+                            className="d-flex align-middle justify-content-center" 
+                            src='https://www.wrkbemanning.no/wp-content/uploads/2017/04/profile-pic-dummy.jpg' 
+                            alt="foto de perfil"
+                        />                                   
+                    </ContainerNamePhoto>
+                    <UserInfo>
+                        <UserName>Pepito Martinez</UserName>
+                        <p>Profesión</p>    
+                        <p>País / Ciudad</p>
+                    </UserInfo> 
+                </UserBasicInfo>
+                <MoreInfo>
+                    <div>
+                        <AboutMe>
+                            <TitleAboutMe>Acerca de mí</TitleAboutMe>
+                            <AboutMeText>
+                            Cras mattis consectetur purus sit amet fermentum. Cras justo odio,
+                            dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac
+                            consectetur ac, vestibulum at eros.
+                            </AboutMeText>
+                        </AboutMe>          
+                        <AboutMe>
+                            <TitleAboutMe>Educación</TitleAboutMe>
+                            <AboutMeText>
+                            Cras mattis consectetur purus sit amet fermentum. Cras justo odio,
+                            dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac
+                            consectetur ac, vestibulum at eros.
+                            </AboutMeText>
+                        </AboutMe>   
+                        <AboutMe>
+                            <TitleAboutMe>Certificados</TitleAboutMe>
+                            <AboutMeText>
+                            Cras mattis consectetur purus sit amet fermentum. Cras justo odio,
+                            dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac
+                            consectetur ac, vestibulum at eros.
+                            </AboutMeText>
+                        </AboutMe>        
+                        <AboutMe>
+                            <TitleAboutMe>Aptitudes</TitleAboutMe>
+                            <AboutMeText>
+                            Cras mattis consectetur purus sit amet fermentum. Cras justo odio,
+                            dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac
+                            consectetur ac, vestibulum at eros.
+                            </AboutMeText>
+                        </AboutMe>          
+                        <AboutMe>
+                            <TitleAboutMe>Intereses</TitleAboutMe>
+                            <AboutMeText>
+                            Cras mattis consectetur purus sit amet fermentum. Cras justo odio,
+                            dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac
+                            consectetur ac, vestibulum at eros.
+                            </AboutMeText>
+                        </AboutMe>                                  
+                    </div>  
+                    <PublicityBusiness>
+                        <Sponsor>
+                            <h5>Pueba nuestras capacitaciones!!!</h5>
+                            <p>Cras mattis consectetur purus sit amet fermentum. Cras justo odio,
+                            dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac
+                            consectetur ac, vestibulum at eros.</p>
+                        </Sponsor>
+                        <Sponsor>
+                            <h5>Mira los nuevos empleos que hay para tí!!!</h5>
+                            <p>Cras mattis consectetur purus sit amet fermentum. Cras justo odio,
+                            dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac
+                            consectetur ac, vestibulum at eros.</p>
+                        </Sponsor>
+                    </PublicityBusiness>              
+                </MoreInfo>                                               
+            </Container>            
         </>
     )
 }
 
-export default Profile
+export default Profile;

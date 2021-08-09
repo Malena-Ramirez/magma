@@ -5,8 +5,9 @@ import {
     TitlePages,
     ContainerInputs,
     ContainerJobs } from "./JobsStyled";
-import { Form, FloatingLabel, Accordion } from 'react-bootstrap';
+import { Form, FloatingLabel, Accordion, Button } from 'react-bootstrap';
 import JobCards from "./JobCards";
+import { useHistory } from "react-router-dom";
 
 const Jobs = () => {
 
@@ -28,13 +29,17 @@ const Jobs = () => {
         }
     ];
     
+    const history = useHistory();
+  const handleClick = () =>{
+    history.push("/formulario-empresas");
+  }
     
     return (
         <>
             <ImgTop>           
             </ImgTop>
             <TitlePages>Empleos</TitlePages> 
-            <ContainerInfoJobs>
+            <ContainerInfoJobs>            
                 <ContainerInputs>
                     <Form.Group controlId='formBasicSearch' className="mb-3">
                         <FloatingLabel controlId='floatingSearch' label='Buscar empleo'>
@@ -104,7 +109,9 @@ const Jobs = () => {
                             </Form>
                         </Accordion.Body>
                         </Accordion.Item>
-                        <Accordion.Item eventKey='0'>
+                        <Accordion.Item
+                            className="mb-3"
+                            eventKey='0'>
                         <Accordion.Header>Ciudad</Accordion.Header>
                         <Accordion.Body>
                             <Form>
@@ -136,6 +143,12 @@ const Jobs = () => {
                         </Accordion.Body>
                         </Accordion.Item>
                     </Accordion>
+                    <Button
+                        variant="warning"
+                        className="btn btn-warning" 
+                        onClick={handleClick}
+                        >Ingresa un nuevo empleo aquí
+                    </Button>
                 </ContainerInputs>  
                 <ContainerJobs>               
                     {
@@ -148,7 +161,7 @@ const Jobs = () => {
                     }      
                 </ContainerJobs> 
             </ContainerInfoJobs>
-            
+           
         </>
     )
 }

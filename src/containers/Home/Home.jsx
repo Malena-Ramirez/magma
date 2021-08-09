@@ -7,12 +7,10 @@ const Home = () => {
 
   const history = useHistory();
   const handleClick = () =>{
-    console.log("hola desde capacitaciones");
     history.push("/capacitaciones");
   }
 
   const handleClickJobs = () =>{
-    console.log("hola desde empleos");
     history.push("/empleos");
   }
 

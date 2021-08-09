@@ -46,7 +46,6 @@ const Join = () => {
 
   const handleClick = () => {
     setShow(true);
-    console.log('Hola');
   };
 
   return (
@@ -72,9 +71,9 @@ const Join = () => {
                         type='email'
                         placeholder='Correo electrónico'
                         name='email'
-                        required
                         value={email}
                         onChange={handleInputChange}
+                        required
                       />
                     </FloatingLabel>
                   </Form.Group>
@@ -87,9 +86,9 @@ const Join = () => {
                         type='password'
                         placeholder='Contraseña'
                         name='password'
-                        required
                         value={password}
                         onChange={handleInputChange}
+                        required
                       />
                     </FloatingLabel>
                   </Form.Group>
