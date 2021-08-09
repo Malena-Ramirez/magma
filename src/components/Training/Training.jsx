@@ -60,6 +60,7 @@ const Training = () => {
                     id='category-5'
                     label='Preparación laboral'
                   />
+                  <Form.Check type='checkbox' id='category-6' label='Otra' />
                 </Form>
               </Accordion.Body>
             </Accordion.Item>

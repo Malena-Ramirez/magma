@@ -1,5 +1,5 @@
 {
-  "icons":[
+  "icons": [
     {
       "name": "facebook",
       "class": "bi bi-facebook"
@@ -17,6 +17,39 @@
       "class": "bi bi-linkedin"
     }
   ],
+
+  "categories": {
+    "engineering": [
+      "https://i.imgur.com/3KOk2ck.png",
+      "https://i.imgur.com/E9Ldsn0.png",
+      "https://i.imgur.com/myqg9JN.png"
+    ],
+    "design": [
+      "https://i.imgur.com/AYOvMPv.png",
+      "https://i.imgur.com/dtRvndI.png",
+      "https://i.imgur.com/areDxTE.png"
+    ],
+    "marketing": [
+      "https://i.imgur.com/Uyoo7Rp.png",
+      "https://i.imgur.com/BuKzpPA.png",
+      "https://i.imgur.com/6tzWQSJ.png"
+    ],
+    "personal-skills": [
+      "https://i.imgur.com/biar6zr.png",
+      "https://i.imgur.com/Uh2iBnP.png",
+      "https://i.imgur.com/iFEB6dL.png"
+    ],
+    "job-preparation": [
+      "https://i.imgur.com/f1yF0tA.png",
+      "https://i.imgur.com/488jfqd.png",
+      "https://i.imgur.com/SUDzRbr.png"
+    ],
+    "other": [
+      "https://i.imgur.com/nkehguR.png",
+      "https://i.imgur.com/KsYZmgn.png",
+      "https://i.imgur.com/NTg4Viv.png"
+    ]
+  },
 
   "allies": [
     [

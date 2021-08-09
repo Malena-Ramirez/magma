@@ -9,23 +9,17 @@ const AddTraining = () => {
   const [formValues, handleInputChange, reset] = useForm({
     title: '',
     urlVideo: '',
+    category: '',
     description: '',
   });
 
-  const { title, urlVideo, description } = formValues;
+  const { title, urlVideo, category, description } = formValues;
 
   const handleLogIn = (e) => {
     e.preventDefault();
-    // console.log(title, urlVideo, description);
-    // dispatch(login(email, password));
-    dispatch(trainingCardAction(title, urlVideo, description));
+    dispatch(trainingCardAction(title, urlVideo, category, description));
     reset();
   };
-
-  // const history = useHistory();
-  // const handleReturn = (e) => {
-  //   history.goBack();
-  // };
 
   return (
     <div className='mb-5'>
@@ -53,6 +47,25 @@ const AddTraining = () => {
               value={urlVideo}
               onChange={handleInputChange}
             />
+          </FloatingLabel>
+        </Form.Group>
+        <Form.Group className='mb-3' controlId='formBasicUrlVideo'>
+          <FloatingLabel controlId='floatingSelect' label='Categoría'>
+            <Form.Select
+              aria-label='Floating label select example'
+              name='category'
+              required
+              value={category}
+              onChange={handleInputChange}
+            >
+              <option>Seleccione una categoría</option>
+              <option value='engineering'>Ingeniería</option>
+              <option value='design'>Diseño</option>
+              <option value='marketing'>Marketing</option>
+              <option value='personal-skills'>Habilidades personales</option>
+              <option value='job-preparation'>Preparación laboral</option>
+              <option value='other'>Otra</option>
+            </Form.Select>
           </FloatingLabel>
         </Form.Group>
         <Form.Group className='mb-3' controlId='formBasicDescription'>
