@@ -16,7 +16,7 @@ export const TrainingDetailTitle = styled.h1`
   margin: 20px 0;
 `;
 
-export const DescriptionContainer = styled.p`
+export const DescriptionContainer = styled.div`
   width: 850px;
   margin-bottom: 25px; 
 `;

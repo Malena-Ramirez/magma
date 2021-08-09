@@ -1,7 +1,8 @@
 import { types } from "../types/types";
 
 const initialState = {
-  trainingCard: []
+  trainingCard: [],
+  active: null
 }
 
 export const trainingCardReducer = (state = initialState, action) => {
@@ -10,6 +11,14 @@ export const trainingCardReducer = (state = initialState, action) => {
       return {
         ...action.state,
         trainingCard: [action.payload, ...state.trainingCard]
+      };
+
+    case types.trainingCardActive:
+      return {
+        ...state,
+        active: {
+          ...action.payload
+        }
       };
 
     default:

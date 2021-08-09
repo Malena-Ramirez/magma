@@ -1,16 +1,16 @@
 import { types } from "../types/types";
-import { firebase,google } from "../firebase/firebaseConfig";
+import { firebase, google } from "../firebase/firebaseConfig";
 
-export const loginGoogle = () =>{
+export const loginGoogle = () => {
 
-    return (dispatch) =>{
+    return (dispatch) => {
 
-        firebase.auth().signInWithPopup(google).then(({user}) =>{
+        firebase.auth().signInWithPopup(google).then(({ user }) => {
             console.log(user);
-                dispatch(
-                    login(user.uid, user.displayName)
-                )
-        }) 
+            dispatch(
+                login(user.uid, user.displayName)
+            )
+        })
 
     }
 
@@ -31,11 +31,11 @@ export const loginEmailPassword = (email, password) => {
     }
 }
 
-export const login = (id, displayName)=>{
-    return{
+export const login = (id, displayName) => {
+    return {
         type: types.login,
-        payload:{
-            id, 
+        payload: {
+            id,
             displayName
         }
     }
@@ -58,5 +58,7 @@ export const registroEmailPasswordName = (email, pass, name) => {
             })
     }
 }
+
+
 
 

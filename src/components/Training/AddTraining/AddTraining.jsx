@@ -1,8 +1,11 @@
 import React from 'react';
 import { useForm } from '../../../hook/useForm';
 import { FloatingLabel, Form, Button } from 'react-bootstrap';
+import { useDispatch } from 'react-redux';
+import { trainingCardAction } from '../../../action/trainingCardAction';
 
 const AddTraining = () => {
+  const dispatch = useDispatch();
   const [formValues, handleInputChange, reset] = useForm({
     title: '',
     urlVideo: '',
@@ -13,8 +16,9 @@ const AddTraining = () => {
 
   const handleLogIn = (e) => {
     e.preventDefault();
-    console.log(title, urlVideo, description);
+    // console.log(title, urlVideo, description);
     // dispatch(login(email, password));
+    dispatch(trainingCardAction(title, urlVideo, description));
     reset();
   };
 
