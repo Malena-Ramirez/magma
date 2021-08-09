@@ -11,7 +11,7 @@ export const activeTraining = (id, training) => {
   }
 }
 
-export const trainingCardAction = (title, urlVideo, description) => {
+export const trainingCardAction = (title, urlVideo, category, description) => {
   return async (dispatch, getState) => {
     const { id } = getState().login;
     const { name } = getState().login;
@@ -19,6 +19,7 @@ export const trainingCardAction = (title, urlVideo, description) => {
     const newTraining = {
       title: title,
       urlVideo: urlVideo,
+      category: category,
       description: description,
       author: name,
       updateDate: new Date().getTime()
