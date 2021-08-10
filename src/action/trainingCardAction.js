@@ -13,21 +13,29 @@ export const activeTraining = (id, training) => {
 
 export const trainingCardAction = (title, urlVideo, category, description) => {
   return async (dispatch, getState) => {
-    const { id } = getState().login;
-    const { name } = getState().login;
-    // const state = getState();
+    const { id, name } = getState().login;
+    const date = new Date();
+    const updateDate = `${date.getDate()}/${date.getMonth() + 1}/${date.getFullYear()}`
     const newTraining = {
-      title: title,
-      urlVideo: urlVideo,
-      category: category,
-      description: description,
+      title,
+      urlVideo,
+      category,
+      description,
       author: name,
-      updateDate: new Date().getTime()
+      idAuthor: id,
+      updateDate
     }
-    const docRef = await db.collection(`${id}/trainings/cards`).add(newTraining);
+    const docRef = await db.collection(`/trainings`).add(newTraining);
     dispatch(activeTraining(id, newTraining))
     console.log(docRef);
-    // console.log(id);
   }
 }
+
+export const setTraining = (trainings) => {
+  return {
+    type: types.trainingCardLoad,
+    payload: trainings
+  }
+}
+
 
