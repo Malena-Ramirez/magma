@@ -1,8 +1,8 @@
 import { db } from "../firebase/firebaseConfig";
 
-export const loadJobs = async (uid) => {
+export const loadJobs = async (id) => {
     
-    const jobsStore = await db.collection(`${uid}/job/newJobs`).get()
+    const jobsStore = await db.collection(`/Job`).get()
     const jobs = []
 
     jobsStore.forEach(hijo =>{
