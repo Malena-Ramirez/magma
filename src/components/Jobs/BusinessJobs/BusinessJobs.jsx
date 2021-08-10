@@ -10,7 +10,6 @@ const BusinessJobs = () => {
     const dispatch = useDispatch();
 
     const [formValues, handleInputChange, reset] = useForm({
-        name: '',
         jobName: '',
         description: '',
         requirements: '',
@@ -20,12 +19,13 @@ const BusinessJobs = () => {
         workDay: '', 
     });
 
-    const { name, jobName, description, requirements, type, city, salary, workDay } = formValues;
+    const { jobName, description, requirements, type, city, salary, workDay } = formValues;
 
-    const handleLogIn = (e) => {
+    const handleSubmit = (e) => {
         e.preventDefault();
-        console.log(name, jobName, description, requirements, type, city, salary, workDay);
+        console.log( jobName, description, requirements, type, city, salary, workDay);
         // dispatch(login(email, password));
+        dispatch(jobsAction(jobName, description, requirements, type, city, salary, workDay));
         reset();
       };
     
@@ -37,21 +37,7 @@ const BusinessJobs = () => {
             </ImgTop>
             <TitlePages>Formulario de empleo</TitlePages>
                 <Container className='mt-4'>
-                    <Form onSubmit={handleLogIn}>
-                        <FloatingLabel
-                            controlId="floatingInput"
-                            label="Nombre de la empresa"
-                            className="mb-3"
-                        >
-                            <Form.Control 
-                                type="text" 
-                                placeholder="Nombre de la empresa" 
-                                name='name'
-                                value={name}
-                                onChange={handleInputChange}
-                                required
-                                />                                
-                        </FloatingLabel>
+                    <Form onSubmit={handleSubmit}>                        
                         <FloatingLabel
                             controlId="floatingInput"
                             label="Nombre del puesto"
@@ -166,7 +152,14 @@ const BusinessJobs = () => {
                                 size="lg" 
                                 className="mb-3"
                                 value="submit"
-                                onClick={()=> dispatch(jobsAction())}
+                                onClick={() => {dispatch(jobsAction
+                                    (   jobName, 
+                                        description, 
+                                        requirements, 
+                                        type, 
+                                        city, 
+                                        salary, 
+                                        workDay))}}
                                 >
                                 Enviar
                             </Button>            
