@@ -21,6 +21,12 @@ export const trainingCardReducer = (state = initialState, action) => {
         }
       };
 
+    case types.trainingCardLoad:
+      return {
+        ...state,
+        trainingCard: [...action.payload]
+      };
+
     default:
       return state;
   }

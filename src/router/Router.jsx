@@ -18,6 +18,7 @@ import Profile from '../components/Profile/Profile';
 import TrainingDetail from '../components/Training/TrainingDetail/TrainingDetail';
 import { loadTrainingCard } from '../helpers/loadTrainingCard';
 import BusinessJobs from '../components/Jobs/BusinessJobs/BusinessJobs';
+import { setTraining } from '../action/trainingCardAction';
 
 const Router = () => {
   const dispatch = useDispatch();
@@ -29,7 +30,8 @@ const Router = () => {
       if (user?.uid) {
         dispatch(login(user.uid, user.displayName));
         setIsLooggedIn(true);
-        loadTrainingCard(user.uid);
+        const training = await loadTrainingCard(user.uid);
+        dispatch(setTraining(training));
       } else {
         setIsLooggedIn(false);
       }
