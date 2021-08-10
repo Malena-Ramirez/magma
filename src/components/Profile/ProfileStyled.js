@@ -1,4 +1,5 @@
 import styled from "styled-components"
+import { color } from "../GlobalStyles/color";
 
 export const ContainerNamePhoto = styled.div`
     display: flex;
@@ -58,4 +59,12 @@ export const Sponsor = styled.span`
     padding: 0.7em;
     margin-bottom: 0.7em;
     width: 20vw;
+`;
+
+export const ProfileEdit = styled.span`
+    cursor: pointer;
+    &:hover{
+        color:${color.main};
+        text-decoration: underline;
+    }
 `;
