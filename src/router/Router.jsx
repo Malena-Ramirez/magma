@@ -23,6 +23,8 @@ import {
   startLoadingAllTrainings,
 } from '../action/trainingCardAction';
 import { startLoadingJobs } from '../action/jobsAction';
+import FormProfile from '../components/Profile/Form/FormProfile';
+
 
 const Router = () => {
   const dispatch = useDispatch();
@@ -82,6 +84,10 @@ const Router = () => {
       path: '/formulario-empresas',
       component: BusinessJobs,
     },
+    {
+      path: '/editar-perfil',
+      component: FormProfile
+    }
   ];
   return (
     <BrowserRouter>
