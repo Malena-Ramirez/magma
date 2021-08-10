@@ -14,6 +14,8 @@ const MyVerticallyCenteredModal = (props) => {
     }); 
     
   }
+  const {job} = props
+
     return (
       <Modal
         {...props}
@@ -21,47 +23,44 @@ const MyVerticallyCenteredModal = (props) => {
         aria-labelledby="contained-modal-title-vcenter"
         centered
       >
+
         <Modal.Header closeButton>
-          <Modal.Title id="contained-modal-title-vcenter">
-            <h4 className=''>Nombre de la empresa</h4>
-            <DescriptionJobTop>Remoto/Presencial | Colombia, Bogotá </DescriptionJobTop>                   
-          </Modal.Title>
+          {
+            job && (
+              <Modal.Title id="contained-modal-title-vcenter">
+                <h4 className=''>{job.jobName}</h4>
+                <DescriptionJobTop>{job.type} | {job.city} </DescriptionJobTop> 
+              </Modal.Title>  
+            )
+          }                    
         </Modal.Header>
         <Modal.Body className='row'>
-          <div className='col-3'>
-              <img src='https://i.imgur.com/jFJEnfb.png' 
-                alt='Nombre de la empresa' 
-                style={{width: 100}}
-              />
-            <DescriptionJobTop className="m-3">Publicado hace 55 min</DescriptionJobTop>
-            <DescriptionJobTop className="m-3">3.000.000 / 4.500.000</DescriptionJobTop>
-            <DescriptionJobTop className="m-3">Jornada completa</DescriptionJobTop>
-          </div>
-          <div className='col-9'>
-            <h4>Descripción</h4>
-            <p>
-              Cras mattis consectetur purus sit amet fermentum. Cras justo odio,
-              dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac
-              consectetur ac, vestibulum at eros.
-            </p>
-            <h4>Requisitos</h4>
-            <p>
-              -Cras mattis consectetur purus sit amet fermentum. Cras justo odio,
-              dapibus ac facilisis in, egestas eget quam.              
-            </p>
-            <p>
-              -Cras mattis consectetur purus sit amet fermentum. Cras justo odio,
-              dapibus ac facilisis in, egestas eget quam.              
-            </p>
-            <p>
-              -Cras mattis consectetur purus sit amet fermentum. Cras justo odio,
-              dapibus ac facilisis in, egestas eget quam.              
-            </p>
-            <p>
-              -Cras mattis consectetur purus sit amet fermentum. Cras justo odio,
-              dapibus ac facilisis in, egestas eget quam.              
-            </p>
-          </div>
+          {
+            job && (
+              <div className='col-3'>
+                <img src='' 
+                  alt='Nombre de la empresa' 
+                  style={{width: 100}}
+                />
+                <DescriptionJobTop className="m-3">{job.date}</DescriptionJobTop>
+                <DescriptionJobTop className="m-3">{job.salary}</DescriptionJobTop>
+                <DescriptionJobTop className="m-3">{job.workDay}</DescriptionJobTop>
+              </div>              
+            )}
+              {
+                job && (
+                  <div className='col-9'>
+                    <h4>Descripción</h4>
+                    <p>
+                      {job.description}
+                    </p>
+                    <h4>Requisitos</h4>
+                    <p>
+                      {job.requirements}             
+                    </p>                    
+                  </div>
+                )
+              }              
         </Modal.Body>
         <Modal.Footer>
           <Button onClick={handleClick} variant="outline-warning">Postular</Button>

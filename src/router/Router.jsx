@@ -19,6 +19,7 @@ import TrainingDetail from '../components/Training/TrainingDetail/TrainingDetail
 import { loadTrainingCard } from '../helpers/loadTrainingCard';
 import BusinessJobs from '../components/Jobs/BusinessJobs/BusinessJobs';
 import { setTraining } from '../action/trainingCardAction';
+import { startLoadingJobs } from '../action/jobsAction';
 
 const Router = () => {
   const dispatch = useDispatch();
@@ -32,6 +33,7 @@ const Router = () => {
         setIsLooggedIn(true);
         const training = await loadTrainingCard(user.uid);
         dispatch(setTraining(training));
+        dispatch(startLoadingJobs(user.uid));
       } else {
         setIsLooggedIn(false);
       }

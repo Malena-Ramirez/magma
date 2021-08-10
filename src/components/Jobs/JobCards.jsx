@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
   ChooseTheJob,
   LogoBusiness,
@@ -8,28 +8,25 @@ import {
 } from './JobsStyled';
 import MyVerticallyCenteredModal from './ModalJobs';
 
-const JobCards = ({ image, name }) => {
-  const [modalShow, setModalShow] = React.useState(false);
+const JobCards = ({job}) => {
 
+  const [modalShow, setModalShow] = React.useState(false);
+  
   return (
     <>
       <ChooseTheJob onClick={() => setModalShow(true)}>
-        <LogoBusiness src={image} alt={name} />
+        <LogoBusiness src='' alt={job.name} />
         <ContainerText>
-          <BusinessName>{name}</BusinessName>
+          <BusinessName>{job.name}</BusinessName>
           <BusinessDescription>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. In posuere
-            eu sapien vitae viverra. Phasellus justo mauris, pharetra a
-            venenatis vitae, ultricies vulputate tellus. Suspendisse potenti. In
-            egestas tortor eget dui commodo vehicula. Nulla facilisi. Nullam
-            sollicitudin leo nec urna sagittis volutpat. Duis hendrerit libero
-            non ex semper, a sagittis sapien malesuada.
+            {job.description}
           </BusinessDescription>
         </ContainerText>
       </ChooseTheJob>
       <MyVerticallyCenteredModal
         show={modalShow}
-        onHide={() => setModalShow(false)}
+        onHide={() => setModalShow(false)}  
+        job={job}
       />
     </>
   );
