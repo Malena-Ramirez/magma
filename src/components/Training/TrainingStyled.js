@@ -22,6 +22,7 @@ export const TrainingContent = styled.div`
   display: grid;
   grid-template-columns: 1fr;
   padding: 20px;
+  margin-bottom: 25px;
   @media(min-width: 768px){
     grid-template-columns: 1fr 3fr;
     padding: 20px 30px;
@@ -46,10 +47,27 @@ export const MainContent = styled.main`
 
 export const CardContainer = styled.div`
   height: 100%;
-  cursor: pointer;
+  /* cursor: pointer; */
   text-decoration: none;
   &:hover{
     transition: all 0.2s ease-out;
     transform: translateY(-2px)
+  }
+`;
+
+export const NoTrainingContainer = styled.div`
+  width: 100%;
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+`;
+
+export const NoTrainingImg = styled.img`
+  width: 65%;
+  min-width: 260px;
+  max-width: 380px;
+  @media(min-width: 920px){
+    width: 55%;
   }
 `;
