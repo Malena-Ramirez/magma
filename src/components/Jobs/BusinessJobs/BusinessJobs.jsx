@@ -11,19 +11,20 @@ const BusinessJobs = () => {
 
     const [formValues, handleInputChange, reset] = useForm({
         name: '',
+        jobName: '',
         description: '',
         requirements: '',
         type: '',
         city: '',
         salary: '',
-        workDay: '',
+        workDay: '', 
     });
 
-    const { name, description, requirements, type, city, salary, workDay } = formValues;
+    const { name, jobName, description, requirements, type, city, salary, workDay } = formValues;
 
     const handleLogIn = (e) => {
         e.preventDefault();
-        console.log(name, description, requirements, type, city, salary, workDay);
+        console.log(name, jobName, description, requirements, type, city, salary, workDay);
         // dispatch(login(email, password));
         reset();
       };
@@ -47,6 +48,20 @@ const BusinessJobs = () => {
                                 placeholder="Nombre de la empresa" 
                                 name='name'
                                 value={name}
+                                onChange={handleInputChange}
+                                required
+                                />                                
+                        </FloatingLabel>
+                        <FloatingLabel
+                            controlId="floatingInput"
+                            label="Nombre del puesto"
+                            className="mb-3"
+                        >
+                            <Form.Control 
+                                type="text" 
+                                placeholder="Nombre del puesto" 
+                                name='jobName'
+                                value={jobName}
                                 onChange={handleInputChange}
                                 required
                                 />                                
@@ -135,6 +150,16 @@ const BusinessJobs = () => {
                                 required 
                                 />
                         </FloatingLabel>
+                        <Form.Group 
+                            controlId="formFile" 
+                            className="mb-3">
+                            <Form.Label>
+                                Ingresa la imagen de tu empresa
+                            </Form.Label>
+                            <Form.Control 
+                                type="file" 
+                            />
+                        </Form.Group>
                         <div className="d-grid gap-2">
                             <Button 
                                 variant="warning" 
