@@ -15,8 +15,12 @@ export const activeTraining = (id, training) => {
 export const trainingCardAction = (title, urlVideo, category, description) => {
   return async (dispatch, getState) => {
     const { id, name } = getState().login;
+
     const date = new Date();
-    const updateDate = `${date.getDate()}/${date.getMonth() + 1}/${date.getFullYear()}`
+    const updateDate = `${date.getDate()}/${date.getMonth() + 1}/${date.getFullYear()}`;
+
+    const randomIndexImage = Math.floor(Math.random() * 3);
+
     const newTraining = {
       title,
       urlVideo,
@@ -24,7 +28,8 @@ export const trainingCardAction = (title, urlVideo, category, description) => {
       description,
       author: name,
       idAuthor: id,
-      updateDate
+      updateDate,
+      randomIndexImage
     }
     const docRef = await db.collection(`/trainings`).add(newTraining);
     dispatch(activeTraining(id, newTraining))
