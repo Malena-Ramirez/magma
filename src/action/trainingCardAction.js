@@ -1,4 +1,5 @@
 import { db } from "../firebase/firebaseConfig";
+import { loadTrainingCard } from "../helpers/loadTrainingCard";
 import { types } from "../types/types";
 
 export const activeTraining = (id, training) => {
@@ -37,5 +38,13 @@ export const setTraining = (trainings) => {
     payload: trainings
   }
 }
+
+export const startLoadingAllTrainings = () => {
+  return async (dispatch) => {
+    const trainings = await loadTrainingCard();
+    dispatch(setTraining(trainings))
+  }
+}
+
 
 
