@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { CardContainer } from './TrainingStyled';
 import axios from 'axios';
 
-const TrainingCards = ({ training }) => {
+const TrainingCards = ({ training, company }) => {
   const [categoryImages, setCategoryImages] = useState(undefined);
 
   useEffect(() => {
@@ -20,37 +20,52 @@ const TrainingCards = ({ training }) => {
     <>
       <Col>
         <CardContainer>
-          <Link
-            to={{
-              pathname: `/detalle-capacitacion`,
-              state: { training: training },
-            }}
-            style={{ textDecoration: 'none', color: 'inherit' }}
-          >
-            <Card className='h-100'>
+          <Card className='h-100'>
+            <Link
+              to={{
+                pathname: `/detalle-capacitacion`,
+                state: { training: training },
+              }}
+              style={{ textDecoration: 'none', color: 'inherit' }}
+            >
               {categoryImages && (
                 <Card.Img
                   variant='top'
                   src={category[training.randomIndexImage]}
                 />
               )}
+            </Link>
 
-              <Card.Body>
-                <Card.Title className='mb-3'>{training.title}</Card.Title>
-                <Card.Text>
-                  {cuttedText} <span className='text-muted'>...</span>
-                </Card.Text>
-                <Card.Text>
-                  <span style={{ textDecoration: 'underline' }}>Ver más</span>
-                </Card.Text>
-              </Card.Body>
-              <Card.Footer>
-                <small className='text-muted'>
-                  Última actualización: {training.updateDate}
-                </small>
-              </Card.Footer>
-            </Card>
-          </Link>
+            <Card.Body className='h-100'>
+              <Card.Title className='mb-3'>{training.title}</Card.Title>
+              <Card.Text>
+                {cuttedText} <span className='text-muted'>...</span>
+              </Card.Text>
+              <Card.Text>
+                <Link
+                  to={{
+                    pathname: `/detalle-capacitacion`,
+                    state: { training: training },
+                  }}
+                  style={{ color: 'inherit' }}
+                >
+                  <span>Ver más</span>
+                </Link>
+              </Card.Text>
+            </Card.Body>
+
+            <Card.Footer className='d-flex justify-content-between'>
+              <small className='text-muted'>
+                Última actualización: {training.updateDate}
+              </small>
+              {company && (
+                <div>
+                  <i className='bi bi-pencil-square'></i>
+                  <i className='bi bi-x-square ms-1'></i>
+                </div>
+              )}
+            </Card.Footer>
+          </Card>
         </CardContainer>
       </Col>
     </>
