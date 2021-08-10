@@ -8,17 +8,25 @@ import { ContainerNamePhoto,
     TitleAboutMe,
     PublicityBusiness,
     MoreInfo,
-    Sponsor } from "./ProfileStyled";
+    Sponsor, 
+    ProfileEdit} from "./ProfileStyled";
 import { Image, Container } from 'react-bootstrap'
+import { useHistory } from "react-router-dom";
 
 const Profile = () => {
+
+    const history = useHistory();
+    const handleClick = () =>{
+        history.push("/editar-perfil");
+    }
+
     return (
         <>
             <Container className="mt-3">
                 <UserBasicInfo>
                     <ContainerNamePhoto>
                         <Image 
-                            style={{width:"100px"}}
+                            style={{width:"100px", height: "100px"}}
                             roundedCircle={true}
                             className="d-flex align-middle justify-content-center" 
                             src='https://www.wrkbemanning.no/wp-content/uploads/2017/04/profile-pic-dummy.jpg' 
@@ -30,7 +38,12 @@ const Profile = () => {
                         <p>Profesión</p>    
                         <p>País / Ciudad</p>
                     </UserInfo> 
-                </UserBasicInfo>
+                    <ProfileEdit
+                        onClick={handleClick}
+                    >
+                        <p>Editar Perfil</p>
+                    </ProfileEdit>
+                </UserBasicInfo>                
                 <MoreInfo>
                     <div>
                         <AboutMe>
