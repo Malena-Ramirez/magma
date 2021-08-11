@@ -31,9 +31,8 @@ export const trainingCardAction = (title, urlVideo, category, description) => {
       updateDate,
       randomIndexImage
     }
-    const docRef = await db.collection(`/trainings`).add(newTraining);
+    await db.collection(`/trainings`).add(newTraining);
     dispatch(activeTraining(id, newTraining))
-    console.log(docRef);
   }
 }
 

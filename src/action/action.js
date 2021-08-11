@@ -6,7 +6,6 @@ export const loginGoogle = () => {
     return (dispatch) => {
 
         firebase.auth().signInWithPopup(google).then(({ user }) => {
-            console.log(user);
             dispatch(
                 login(user.uid, user.displayName)
             )
@@ -45,7 +44,6 @@ export const registroEmailPasswordName = (email, pass, name) => {
     return (dispatch) => {
         firebase.auth().createUserWithEmailAndPassword(email, pass)
             .then(async ({ user }) => {
-                console.log(user);
 
                 await user.updateProfile({ displayName: name })
 
