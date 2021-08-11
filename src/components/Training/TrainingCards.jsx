@@ -60,8 +60,8 @@ const TrainingCards = ({ training, company }) => {
               </small>
               {company && (
                 <div>
-                  <i className='bi bi-pencil-square'></i>
-                  <i className='bi bi-x-square ms-1'></i>
+                  <i className='bi bi-pencil-square fs-5'></i>
+                  <i className='bi bi-x-square ms-1 fs-5'></i>
                 </div>
               )}
             </Card.Footer>
