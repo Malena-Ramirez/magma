@@ -1,9 +1,17 @@
 import React from 'react';
 import { Modal, Button } from 'react-bootstrap';
+import { useHistory } from 'react-router-dom';
 import Swal from 'sweetalert2';
+import { ProfileEdit } from '../Profile/ProfileStyled';
 import { DescriptionJobTop } from './JobsStyled';
 
 const MyVerticallyCenteredModal = (props) => {
+
+  const history = useHistory();
+    const handleEdit = () =>{
+        history.push("/editar-empleo");
+    }
+
   const handleClick = () => {
     props.onHide();
     Swal.fire({
@@ -42,7 +50,7 @@ const MyVerticallyCenteredModal = (props) => {
                   alt='Nombre de la empresa' 
                   style={{width: 100}}
                 />
-                <DescriptionJobTop className="m-3">{job.date}</DescriptionJobTop>
+                <DescriptionJobTop className="m-3">{job.updateDate}</DescriptionJobTop>
                 <DescriptionJobTop className="m-3">{job.salary}</DescriptionJobTop>
                 <DescriptionJobTop className="m-3">{job.workDay}</DescriptionJobTop>
               </div>              
@@ -60,7 +68,12 @@ const MyVerticallyCenteredModal = (props) => {
                     </p>                    
                   </div>
                 )
-              }              
+              }    
+          <ProfileEdit
+            onClick={handleEdit}
+          >
+            <p>Editar Empleo</p>
+          </ProfileEdit>
         </Modal.Body>
         <Modal.Footer>
           <Button onClick={handleClick} variant="outline-warning">Postular</Button>

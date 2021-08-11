@@ -10,28 +10,12 @@ import JobCards from "./JobCards";
 import { useHistory } from "react-router-dom";
 import { useSelector } from "react-redux";
 
+
 const Jobs = () => {
     
     const {jobs} = useSelector(state => state.jobs);
     console.log(jobs);
 
-    // const arrayBusiness = [
-    //     {
-    //         "id": 1,
-    //         "name": "Denti Spa",
-    //         "image": "https://i.imgur.com/jFJEnfb.png"
-    //     },
-    //     {
-    //         "id":2,
-    //         "name": "Art World",
-    //         "image": "https://i.imgur.com/0XRkvdn.png"
-    //     },
-    //     {
-    //         "id":3,
-    //         "name": "Conceptos",
-    //         "image": "https://i.imgur.com/dakTw2D.png"
-    //     }
-    // ];
     
     const history = useHistory();
   const handleClick = () =>{

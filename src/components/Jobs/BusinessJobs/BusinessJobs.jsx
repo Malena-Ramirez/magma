@@ -82,12 +82,12 @@ const BusinessJobs = () => {
                         </FloatingLabel>
                         <FloatingLabel
                             controlId="floatingInput"
-                            label="¿Cómo seria el trabajo? Remoto o presencial"
+                            label="Modalidad"
                             className="mb-3"
                         >
                             <Form.Control 
                                 type="text" 
-                                placeholder="¿Cómo seria el trabajo? Remoto o presencial"
+                                placeholder="Modalidad"
                                 name='type'
                                 value={type}
                                 onChange={handleInputChange}
