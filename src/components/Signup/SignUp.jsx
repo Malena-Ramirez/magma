@@ -36,8 +36,6 @@ const SignUp = () => {
 
   const handleRegister = (e) => {
     e.preventDefault();
-    // formik.handleSubmit();
-    console.log(name, password, password2);
     dispatch(registroEmailPasswordName(email, password, name));
   };
 

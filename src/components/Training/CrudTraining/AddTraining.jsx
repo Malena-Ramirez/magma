@@ -75,7 +75,7 @@ const AddTraining = () => {
               placeholder='Descripción'
               name='description'
               required
-              style={{ height: '100px' }}
+              style={{ height: '180px' }}
               value={description}
               onChange={handleInputChange}
             />

@@ -49,7 +49,7 @@ const TrainingCommonContent = () => {
         <Row xs={1} md={2} lg={3} className='g-4'>
           {trainingCard &&
             trainingCard.map((training, index) => (
-              <TrainingCards key={index} training={training} />
+              <TrainingCards key={index} training={training} company={false} />
             ))}
         </Row>
       </MainContent>

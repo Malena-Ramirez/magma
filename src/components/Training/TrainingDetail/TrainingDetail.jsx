@@ -9,20 +9,19 @@ import {
   AuthorInfo,
 } from './TrainingDetailStyled';
 
-const TrainingDetail = () => {
+const TrainingDetail = (props) => {
+  const { training } = props.location.state;
+
   const youtube_parser = (url) => {
     let regExp =
       /^.*((youtu.be\/)|(v\/)|(\/u\/\w\/)|(embed\/)|(watch\?))\??v?=?([^#&?]*).*/;
     let match = url.match(regExp);
     return match && match[7].length === 11 ? match[7] : false;
   };
-  const url = 'https://www.youtube.com/embed/5n4IwNslMiA';
-
-  console.log(youtube_parser(url));
 
   return (
     <TrainingDetailContainer>
-      <TrainingDetailTitle>Título de la capacitación</TrainingDetailTitle>
+      <TrainingDetailTitle>{training.title}</TrainingDetailTitle>
 
       <DescriptionContainer>
         <AuthorContainer>
@@ -31,24 +30,19 @@ const TrainingDetail = () => {
             alt='Imagen de la empresa'
           />
           <AuthorInfo>
-            <span>Publicado por: Conceptos</span>
-            <span>Última fecha de modificación: 05/08/2021</span>
+            <span>Publicado por: {training.author}</span>
+            <span>Última fecha de modificación: {training.updateDate}</span>
           </AuthorInfo>
         </AuthorContainer>
-        <Description>
-          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Qui numquam
-          placeat, voluptas, animi odio aut labore deleniti incidunt laborum
-          vel, eius ullam quae quos. Atque nostrum maxime illum hic corrupti?.
-          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Qui numquam
-          placeat, voluptas, animi odio aut labore deleniti incidunt laborum
-          vel, eius ullam quae quos. Atque nostrum maxime illum hic corrupti?.
-        </Description>
+        <Description>{training.description}</Description>
       </DescriptionContainer>
       <iframe
         style={{ marginBottom: '40px' }}
         width='760'
         height='515'
-        src='https://www.youtube.com/embed/5n4IwNslMiA'
+        src={`https://www.youtube.com/embed/${youtube_parser(
+          training.urlVideo
+        )}`}
         title='YouTube video player'
         frameBorder='0'
         allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture'
