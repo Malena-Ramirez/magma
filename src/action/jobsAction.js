@@ -17,6 +17,9 @@ export const jobsAction = (jobName, description, requirements, type, city, salar
         const {name} = getState().login;
         const {id} = getState().login;
 
+        const date = new Date();
+        const updateDate = `${date.getDate()}/${date.getMonth() + 1}/${date.getFullYear()}`;
+    
         const newJobs = {
             name,
             jobName: jobName,
@@ -27,7 +30,7 @@ export const jobsAction = (jobName, description, requirements, type, city, salar
             salary: salary,
             workDay: workDay,
             idBusiness: id,
-            date: new Date().getTime()
+            updateDate
         }
         const docRef = await db.collection(`/Job`).add(newJobs);
         console.log(docRef);
