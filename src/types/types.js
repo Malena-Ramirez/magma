@@ -14,6 +14,12 @@ export const types = {
     jobsLoad: '[Jobs] Load job',
     jobsUpdate: '[Jobs] Update job',
     jobsDelete: '[Jobs] Delete job',
-    jobsLogoutClean: '[Jobs] Logout'
+    jobsLogoutClean: '[Jobs] Logout',
 
+    profileAddNew: '[Profile] New profile',
+    profileActive: '[Profile] Set profile active',
+    profileLoad: '[Profile] Load profile',
+    profileUpdate: '[Profile] Update profile',
+    profileDelete: '[Profile] Delete profile',
+    profileLogoutClean: '[Profile] Logout'
 } 

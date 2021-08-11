@@ -1,4 +1,5 @@
 import styled from "styled-components"
+import { color } from "../GlobalStyles/color";
 
 export const ContainerNamePhoto = styled.div`
     display: flex;
@@ -58,4 +59,23 @@ export const Sponsor = styled.span`
     padding: 0.7em;
     margin-bottom: 0.7em;
     width: 20vw;
+`;
+
+export const ProfileEdit = styled.span`
+    cursor: pointer;
+    &:hover{
+        color:${color.main};
+        text-decoration: underline;
+    }
+`;
+
+export const ImgTop = styled.div`
+    background-image: url('https://i.imgur.com/0kdUjtj.jpg');
+    width: 100%;
+    height: 35vh;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    filter: brightness(40%); // Más oscura
+    margin-bottom: 2em;
 `;

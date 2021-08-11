@@ -12,24 +12,27 @@ export const activeJob = (id, jobs) => {
     }
 }
 
-export const jobsAction = (jobs) => {
+export const jobsAction = (jobName, description, requirements, type, city, salary, workDay) => {
     return async (dispatch, getState)=>{
         const {name} = getState().login;
         const {id} = getState().login;
 
+        const date = new Date();
+        const updateDate = `${date.getDate()}/${date.getMonth() + 1}/${date.getFullYear()}`;
+    
         const newJobs = {
-            name: name,
-            jobName: '',
-            description: '',
-            requirements: '',
-            type: '',
-            city: '',
-            salary: '',
-            workDay: '',
+            name,
+            jobName: jobName,
+            description: description,
+            requirements: requirements,
+            type: type,
+            city: city,
+            salary: salary,
+            workDay: workDay,
             idBusiness: id,
-            date: new Date().getTime()
+            updateDate
         }
-        const docRef = await db.collection(`Job/newJobs/${id}`).add(newJobs);
+        const docRef = await db.collection(`/Job`).add(newJobs);
         console.log(docRef);
         dispatch(activeJob(id,newJobs))
     }
