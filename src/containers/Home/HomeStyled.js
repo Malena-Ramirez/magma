@@ -14,8 +14,10 @@ export const ContainerTopHome = styled.div`
 export const ContainerAll= styled.div`
     display: grid;
     grid-template-columns: 1fr;
-    gap: 15px;
-    padding: 20px;
+    gap: 3em;
+    width: 70%;
+    margin: 0 auto;
+    padding: 3em;
     @media (min-width: 700px){
         grid-template-columns: 1fr 1fr;
     }
@@ -23,34 +25,33 @@ export const ContainerAll= styled.div`
 
 export const ContainerJobandLessons = styled.div`
     display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 10px; 
+    flex-direction: column;
     margin-bottom: 2em;  
     background: #f5f5f5;
     box-shadow: 0px 0px 13px -1px rgba(0,0,0,0.38);
     -webkit-box-shadow: 0px 0px 13px -1px rgba(0,0,0,0.38);
     -moz-box-shadow: 0px 0px 13px -1px rgba(0,0,0,0.38); 
-    border-radius: 0.2rem;
+    border-radius: 10px;
     cursor: pointer;
 `;
 
 export const ImageCard = styled.img`
-    width: 20vw;
-    margin: 0.9em;
+    width: 100%;
+    height: auto;
     border-radius: 0.2rem;
 `;
 
 export const TextHome = styled.p`
     font-size: 0.3;
+    padding: 0.2em 1em;
+    text-align: center;
 `;
 
 export const TitleText = styled.h3`
-    display: flex;
     font-size: 1.2em;
+    text-align: center;
 `;
 
 export const ContainerText = styled.span`
-    display: flex;
-    flex-direction: column;
+    margin-left: 1em;
 `;
