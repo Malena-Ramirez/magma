@@ -37,6 +37,7 @@ export const AltLoginContainer = styled.div`
 export const AltIconContainer = styled.div`
     font-size: 35px;
     color: ${color.main};
+    cursor: pointer;
 `;
 
 export const AlternativeText = styled.p`
