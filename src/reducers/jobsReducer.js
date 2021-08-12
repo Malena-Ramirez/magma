@@ -1,8 +1,7 @@
 import { types } from "../types/types";
 
 const initialState = {
-    jobs: [],
-    
+    jobs: []
 }
 
 export const jobsReducer = (state = initialState, action) => {
