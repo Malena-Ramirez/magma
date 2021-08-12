@@ -12,12 +12,22 @@ import {
 } from 'react-bootstrap';
 import './header.css';
 import { useHistory } from "react-router-dom";
+import {useDispatch} from 'react-redux'
+import {startLogout} from '../../action/action'
 
 const Header = () => {
+
+  const dispatch = useDispatch();
+
+  
 
   const history = useHistory();
   const handleClick = () =>{
     history.push("/perfil");
+  }
+
+  const handleLogout = () =>{
+    dispatch(startLogout())
   }
 
   return (
@@ -61,7 +71,11 @@ const Header = () => {
               <Dropdown.Menu className='bg-warning'>
                 <Dropdown.Item>Mensajes</Dropdown.Item>
                 <Dropdown.Item onClick={handleClick}>Editar perfil</Dropdown.Item>
-                <Dropdown.Item>Cerrar sesión</Dropdown.Item>
+                <Dropdown.Item
+                  onClick={handleLogout}
+                >
+                  Cerrar sesión
+                </Dropdown.Item>
               </Dropdown.Menu>
             </Dropdown>
           </Nav>
