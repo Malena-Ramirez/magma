@@ -1,10 +1,11 @@
 import React from 'react'
 import { Container, FloatingLabel, Form } from 'react-bootstrap'
+import { useSelector } from 'react-redux'
 import { TitlePages } from '../Jobs/JobsStyled'
 import AspirantCard from './AspirantCard'
 import { ContainerInfoAspirant, ImgTop } from './AspirantStyled'
 
-const Aspirant = () => {
+const Aspirant = () => {    
 
     const aspirants = [
         {
