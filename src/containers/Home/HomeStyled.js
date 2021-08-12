@@ -6,7 +6,7 @@ export const ContainerTopHome = styled.div`
     background-repeat: no-repeat;
     background-position: center;
     width: 100%;
-    height: 30vh;
+    height: 40vh;
     filter: brightness(40%); // Más oscura
     margin-bottom: 2em;
 `;
@@ -27,6 +27,7 @@ export const ContainerJobandLessons = styled.div`
     justify-content: center;
     padding: 10px; 
     margin-bottom: 2em;  
+    background: #f5f5f5;
     box-shadow: 0px 0px 13px -1px rgba(0,0,0,0.38);
     -webkit-box-shadow: 0px 0px 13px -1px rgba(0,0,0,0.38);
     -moz-box-shadow: 0px 0px 13px -1px rgba(0,0,0,0.38); 
