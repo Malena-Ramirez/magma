@@ -24,7 +24,15 @@ export const trainingCardReducer = (state = initialState, action) => {
     case types.trainingCardLoad:
       return {
         ...state,
+        active: null,
         trainingCard: [...action.payload]
+      };
+
+    case types.trainingCardDelete:
+      return {
+        ...state,
+        active: null,
+        trainingCard: state.trainingCard.filter(element => element.id !== action.payload)
       };
 
     default:
