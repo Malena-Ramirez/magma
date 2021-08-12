@@ -4,6 +4,7 @@ import { ImgTop, TitlePages } from "../JobsStyled";
 import { useForm } from '../../../hook/useForm';
 import { jobsAction } from "../../../action/jobsAction";
 import { useDispatch } from 'react-redux'
+import Swal from 'sweetalert2';
 
 const BusinessJobs = () => {
 

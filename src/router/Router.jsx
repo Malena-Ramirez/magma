@@ -26,7 +26,7 @@ import { startLoadingJobs } from '../action/jobsAction';
 import FormProfile from '../components/Profile/Form/FormProfile';
 import ListJobs from '../components/Jobs/CRUD/ListJobs';
 import { loadProfile } from '../helpers/loadProfile';
-import { setProfile } from '../action/profileAction';
+import { startLoadingProfile } from '../action/profileAction';
 import Aspirant from '../components/Aspirant/Aspirant';
 
 
@@ -43,9 +43,8 @@ const Router = () => {
         const training = await loadTrainingCard(user.uid);
         dispatch(setTraining(training));
         dispatch(startLoadingAllTrainings());
-        dispatch(startLoadingJobs(user.uid));
-        const userProfile = await loadProfile(user.uid)
-        dispatch(setProfile(userProfile))
+        dispatch(startLoadingJobs(user.uid));      
+        dispatch(startLoadingProfile(user.uid))
 
       } else {
         setIsLooggedIn(false);
