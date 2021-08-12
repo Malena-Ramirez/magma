@@ -10,6 +10,7 @@ import {
   FloatingLabel,
   DropdownButton,
   Dropdown,
+  Accordion,
 } from 'react-bootstrap';
 import { useHistory } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
@@ -96,13 +97,29 @@ const SignUp = () => {
             </FloatingLabel>
           </Form.Group>
           <Form.Group>
-            <DropdownButton
-              id='dropdown-item-button bg-light'
-              title='Tipo de Perfil'
-            >
-              <Dropdown.Item as='button'>Aspirantes</Dropdown.Item>
-              <Dropdown.Item as='button'>Empresas</Dropdown.Item>
-            </DropdownButton>
+            <Accordion>
+              <Accordion.Item
+                            className="mb-3"
+                            eventKey='0'>
+                        <Accordion.Header>Rol</Accordion.Header>
+                        <Accordion.Body>
+                            <Form>
+                            <Form.Check
+                              type="radio"
+                              label="Empresas"
+                              name="formHorizontalRadios"
+                              id="formHorizontalRadios1"
+                            />
+                            <Form.Check
+                              type="radio"
+                              label="Aspirantes"
+                              name="formHorizontalRadios"
+                              id="formHorizontalRadios2"
+                            />
+                            </Form>
+                        </Accordion.Body>
+                        </Accordion.Item>
+            </Accordion>
           </Form.Group>
           <div className='d-flex justify-content-center my-3'>
             <Button size='lg' variant='warning' type='submit'>
