@@ -33,7 +33,7 @@ export const jobsAction = (jobName, description, requirements, type, city, salar
             updateDate
         }
         const docRef = await db.collection(`/Job`).add(newJobs);
-        console.log(docRef);
+        // console.log(docRef);
         dispatch(activeJob(id,newJobs))
     }
 }

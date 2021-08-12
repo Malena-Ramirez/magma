@@ -2,6 +2,9 @@ export const types = {
     login: 'login',
     logout: 'logout',
 
+    uiStartLoading: '[UI] Start loading',
+    uiFinishLoading: '[UI] Finish loading',
+
     trainingCardNew: '[Training] new training',
     trainingCardActive: '[Training] Set training card active',
     trainingCardLoad: '[Training] Load training card',

@@ -18,9 +18,13 @@ const Jobs = () => {
 
     
     const history = useHistory();
-  const handleClick = () =>{
-    history.push("/formulario-empresas");
-  }
+    const handleClick = () =>{
+        history.push("/formulario-empresas");
+    }
+
+    const handleClickAspirants = () =>{
+        history.push("/aspirantes");
+    }
     
     return (
         <>
@@ -137,6 +141,12 @@ const Jobs = () => {
                         onClick={handleClick}
                         >Ingresa un nuevo empleo aquí
                     </Button>
+                     <Button
+                        variant="warning"
+                        className="btn btn-warning mt-3" 
+                        onClick={handleClickAspirants}
+                        >Aspirantes
+                    </Button>
                 </ContainerInputs>  
                 <ContainerJobs>               
                     {
@@ -155,10 +165,3 @@ const Jobs = () => {
 }
 
 export default Jobs
-
-    // arrayBusiness.map((element) => (
-    //     <JobCards 
-    //     key={element.id} 
-    //     image={element.image} 
-    //     name={element.name} />
-    // )) 

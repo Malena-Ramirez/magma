@@ -25,6 +25,9 @@ import {
 import { startLoadingJobs } from '../action/jobsAction';
 import FormProfile from '../components/Profile/Form/FormProfile';
 import ListJobs from '../components/Jobs/CRUD/ListJobs';
+import { loadProfile } from '../helpers/loadProfile';
+import { setProfile } from '../action/profileAction';
+import Aspirant from '../components/Aspirant/Aspirant';
 
 
 const Router = () => {
@@ -41,6 +44,9 @@ const Router = () => {
         dispatch(setTraining(training));
         dispatch(startLoadingAllTrainings());
         dispatch(startLoadingJobs(user.uid));
+        const userProfile = await loadProfile(user.uid)
+        dispatch(setProfile(userProfile))
+
       } else {
         setIsLooggedIn(false);
       }
@@ -92,7 +98,11 @@ const Router = () => {
     {
       path: '/editar-empleo',
       component: ListJobs
-    }
+    },
+    {
+      path: '/aspirantes',
+      component: Aspirant
+    },
   ];
   return (
     <BrowserRouter>

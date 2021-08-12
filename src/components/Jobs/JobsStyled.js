@@ -116,3 +116,7 @@ export const DescriptionJobTop = styled.p`
     font-size: 0.8rem;
     color: #a1a1a1;
 `;
+
+export const OptionCrud = styled.span`
+    cursor: pointer;
+`;

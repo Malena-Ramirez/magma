@@ -1,11 +1,26 @@
 import { types } from "../types/types";
 
-const profileReducer = () => {
-    return (
-        <div>
-            
-        </div>
-    )
+const initialState = {
+    userProfile:[]
 }
 
-export default profileReducer;
+export const profileReducer = (state = initialState, action) => {
+    switch(action.type){     
+        case types.profileActive:   
+        return {
+            ...state,
+            active:{
+                ...action.payload
+            }
+        }
+        case types.profileLoad:
+            console.log(action.payload)
+            return{
+                ...state,
+                userProfile:[...action.payload]
+            }
+
+        default:
+            return state;
+    }    
+}
