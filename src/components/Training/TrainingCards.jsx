@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { CardContainer, CardIcon } from './TrainingStyled';
 import axios from 'axios';
 import { useDispatch } from 'react-redux';
-import { activeTraining } from '../../action/trainingCardAction';
+import { activeTraining, startDeleting } from '../../action/trainingCardAction';
 
 const TrainingCards = ({ training, company }) => {
   const [categoryImages, setCategoryImages] = useState(undefined);
@@ -24,6 +24,10 @@ const TrainingCards = ({ training, company }) => {
   const handleEntryClick = () => {
     const { id: selectedId, ...selectedTraining } = training;
     dispatch(activeTraining(selectedId, selectedTraining));
+  };
+
+  const handleDelete = () => {
+    dispatch(startDeleting(training.id));
   };
 
   return (
@@ -74,7 +78,10 @@ const TrainingCards = ({ training, company }) => {
                     className='bi bi-pencil-square fs-5'
                     onClick={handleEntryClick}
                   ></CardIcon>
-                  <CardIcon className='bi bi-x-square ms-1 fs-5'></CardIcon>
+                  <CardIcon
+                    className='bi bi-x-square ms-1 fs-5'
+                    onClick={handleDelete}
+                  ></CardIcon>
                 </div>
               )}
             </Card.Footer>
