@@ -71,3 +71,7 @@ export const NoTrainingImg = styled.img`
     width: 55%;
   }
 `;
+
+export const CardIcon = styled.i`
+  cursor: pointer;
+`;

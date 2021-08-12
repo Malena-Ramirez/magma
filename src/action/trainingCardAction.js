@@ -12,12 +12,17 @@ export const activeTraining = (id, training) => {
   }
 }
 
+const getUpdateDate = () => {
+  const date = new Date();
+  return `${date.getDate()}/${date.getMonth() + 1}/${date.getFullYear()}`;
+}
+
+
 export const trainingCardAction = (title, urlVideo, category, description) => {
   return async (dispatch, getState) => {
     const { id, name } = getState().login;
 
-    const date = new Date();
-    const updateDate = `${date.getDate()}/${date.getMonth() + 1}/${date.getFullYear()}`;
+    const updateDate = getUpdateDate();
 
     const randomIndexImage = Math.floor(Math.random() * 3);
 
@@ -32,7 +37,6 @@ export const trainingCardAction = (title, urlVideo, category, description) => {
       randomIndexImage
     }
     await db.collection(`/trainings`).add(newTraining);
-    dispatch(activeTraining(id, newTraining))
   }
 }
 
@@ -50,5 +54,11 @@ export const startLoadingAllTrainings = () => {
   }
 }
 
-
+export const startSaveTraining = (trainings) => {
+  return async () => {
+    const { id, ...trainingToFirestore } = trainings;
+    trainingToFirestore.updateDate = getUpdateDate();
+    await db.doc(`/trainings/${id}`).update(trainingToFirestore);
+  }
+}
 

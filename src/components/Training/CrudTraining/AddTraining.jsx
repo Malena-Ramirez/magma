@@ -1,11 +1,15 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useForm } from '../../../hook/useForm';
 import { FloatingLabel, Form, Button } from 'react-bootstrap';
-import { useDispatch } from 'react-redux';
-import { trainingCardAction } from '../../../action/trainingCardAction';
+import { useDispatch, useSelector } from 'react-redux';
+import {
+  startSaveTraining,
+  trainingCardAction,
+} from '../../../action/trainingCardAction';
 
 const AddTraining = () => {
   const dispatch = useDispatch();
+
   const [formValues, handleInputChange, reset] = useForm({
     title: '',
     urlVideo: '',
@@ -15,16 +19,35 @@ const AddTraining = () => {
 
   const { title, urlVideo, category, description } = formValues;
 
-  const handleLogIn = (e) => {
+  const { active } = useSelector((state) => state.trainingCard);
+
+  useEffect(() => {
+    if (active) {
+      reset(active);
+    }
+  }, [active]);
+
+  const handleSubmit = (e) => {
     e.preventDefault();
-    dispatch(trainingCardAction(title, urlVideo, category, description));
+    if (active) {
+      active.title = title;
+      active.urlVideo = urlVideo;
+      active.category = category;
+      active.description = description;
+
+      dispatch(startSaveTraining(active));
+    } else {
+      dispatch(trainingCardAction(title, urlVideo, category, description));
+    }
     reset();
   };
 
   return (
     <div className='mb-5'>
-      <h2 className='text-center h3 mb-4'>Agregar capacitación</h2>
-      <Form onSubmit={handleLogIn}>
+      <h2 className='text-center h3 mb-4'>
+        {active ? 'Editar' : 'Agregar'} capacitación
+      </h2>
+      <Form onSubmit={handleSubmit}>
         <Form.Group className='mb-3' controlId='formBasicTitle'>
           <FloatingLabel controlId='floatingTitle' label='Título'>
             <Form.Control
@@ -83,7 +106,7 @@ const AddTraining = () => {
         </Form.Group>
         <div className='d-flex justify-content-center my-3'>
           <Button size='lg' variant='warning' type='submit' className='px-5'>
-            Crear
+            {active ? 'Editar' : 'Crear'}
           </Button>
         </div>
       </Form>
