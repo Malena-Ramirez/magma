@@ -57,6 +57,13 @@ export const registroEmailPasswordName = (email, pass, name) => {
     }
 }
 
+export const startLogout = ()=>{
+    return async(dispatch) =>{
+        await firebase.auth().signOut();
+        dispatch(logout());
+    }
+}
 
-
-
+export const logout = () => ({
+    type: types.logout
+})
