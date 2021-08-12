@@ -6,6 +6,7 @@ import {
   startSaveTraining,
   trainingCardAction,
 } from '../../../action/trainingCardAction';
+import Swal from 'sweetalert2';
 
 const AddTraining = () => {
   const dispatch = useDispatch();
@@ -36,8 +37,22 @@ const AddTraining = () => {
       active.description = description;
 
       dispatch(startSaveTraining(active));
+
+      Swal.fire({
+        icon: 'success',
+        title: 'La capacitación se editó exitosamente',
+        showConfirmButton: false,
+        timer: 1500,
+      });
     } else {
       dispatch(trainingCardAction(title, urlVideo, category, description));
+
+      Swal.fire({
+        icon: 'success',
+        title: 'La capacitación se creó exitosamente',
+        showConfirmButton: false,
+        timer: 1500,
+      });
     }
     reset();
   };
