@@ -7,7 +7,7 @@ export const TrainingHero = styled.div`
   background-repeat: no-repeat;
   background-position: center;
   width: 100%;
-  height: 30vh;
+  height: 35vh;
   filter: brightness(40%); 
   margin-bottom: 2em;
 `;
