@@ -7,10 +7,10 @@ import { ProfileEdit } from '../Profile/ProfileStyled';
 
 const MyVerticallyCenteredModal = (props) => {
 
-    const history = useHistory();
-      const handleEdit = () =>{
-          history.push("/editar-perfil");
-      }
+    // const history = useHistory();
+    //   const handleEdit = () =>{
+    //       history.push("/editar-perfil");
+    //   }
   
     const handleClick = () => {
       props.onHide();
@@ -22,8 +22,7 @@ const MyVerticallyCenteredModal = (props) => {
       }); 
       
     }
-    
-  
+      
     return (
         <Modal
           {...props}
@@ -41,7 +40,7 @@ const MyVerticallyCenteredModal = (props) => {
           <Modal.Body className='row'>          
                 <div className='col-3'>
                   <img src='' 
-                    alt='Nombre de la empresa' 
+                    alt='Nombre del aspirante' 
                     style={{width: 100}}
                   />
                   <DescriptionJobTop className="m-3">Conocimientos extras</DescriptionJobTop>
@@ -57,13 +56,12 @@ const MyVerticallyCenteredModal = (props) => {
                       <p>
                         Certificados, intereses,              
                       </p>                    
-                    </div>
-  
-            <ProfileEdit
+                </div>
+            {/* <ProfileEdit
               onClick={handleEdit}
             >
               <p>Editar Empleo</p>
-            </ProfileEdit>
+            </ProfileEdit> */}
           </Modal.Body>
           <Modal.Footer>
             <Button onClick={handleClick} variant="outline-warning">Contacto</Button>
@@ -73,4 +71,4 @@ const MyVerticallyCenteredModal = (props) => {
     );
 }
 
-  export default MyVerticallyCenteredModal;
+export default MyVerticallyCenteredModal;
