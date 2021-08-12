@@ -1,5 +1,6 @@
 import { db } from "../firebase/firebaseConfig";
 import { types } from "../types/types";
+import { loadProfile } from "../helpers/loadProfile";
 
 export const profileAction = (userProfile) => {
     return async (dispatch, getState)=>{
@@ -42,5 +43,13 @@ export const setProfile = (userProfile) =>{
     return{
         type: types.profileLoad,
         payload: userProfile
+    }
+}
+
+export const startLoadingProfile = (uid) => {
+    return async (dispatch) => {
+        const userProfile = await loadProfile(uid)
+        dispatch(setProfile(userProfile))
+
     }
 }
