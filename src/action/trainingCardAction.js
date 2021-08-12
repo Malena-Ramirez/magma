@@ -37,6 +37,9 @@ export const trainingCardAction = (title, urlVideo, category, description) => {
       randomIndexImage
     }
     await db.collection(`/trainings`).add(newTraining);
+    const training = await loadTrainingCard();
+    dispatch(setTraining(training));
+    dispatch(startLoadingAllTrainings());
   }
 }
 
@@ -55,10 +58,12 @@ export const startLoadingAllTrainings = () => {
 }
 
 export const startSaveTraining = (trainings) => {
-  return async () => {
+  return async (dispatch) => {
     const { id, ...trainingToFirestore } = trainings;
     trainingToFirestore.updateDate = getUpdateDate();
     await db.doc(`/trainings/${id}`).update(trainingToFirestore);
+    const training = await loadTrainingCard();
+    dispatch(setTraining(training));
+    dispatch(startLoadingAllTrainings());
   }
 }
-
