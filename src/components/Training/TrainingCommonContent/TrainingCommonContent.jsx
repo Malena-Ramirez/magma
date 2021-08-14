@@ -4,10 +4,6 @@ import { useSelector } from 'react-redux';
 import TrainingCards from '../TrainingCards';
 import { AsideBar, MainContent, TrainingContent } from '../TrainingStyled';
 
-function searchingTerm(term){
-    return term.training.toLowerCase().includes(term);
-}
-
 const TrainingCommonContent = () => {
   const [search, setSearch] = useState('')
   const { trainingCard } = useSelector((state) => state.trainingCard);
