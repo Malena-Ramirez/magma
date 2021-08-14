@@ -144,3 +144,7 @@ export const NoJobsImg = styled.img`
         width: 55%;
     }
 `;
+
+export const ActionIcon = styled.i`
+    cursor: pointer;
+`;
