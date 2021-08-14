@@ -82,14 +82,17 @@ export const TitlePages = styled.h1`
 `;
 
 export const ContainerInputs = styled.div`
-    
+    padding-top: 10px;
+    @media(min-width: 992px){
+        padding: 10px;
+    }
 `;
 
 export const ContainerJobs = styled.div`
-    
+    padding: 10px;
 `;
 
-export const ButtonJobs =styled.button`
+export const ButtonJobs = styled.button`
     border: 1px solid ${color.dark};
     color: ${color.dark};
     border-radius: 0.2em;
@@ -119,4 +122,25 @@ export const DescriptionJobTop = styled.p`
 
 export const OptionCrud = styled.span`
     cursor: pointer;
+`;
+
+export const CreatedJobsContainer = styled.div`
+    margin-left: 30px;
+`;
+
+export const NoJobsImgContainer = styled.div`
+    width: 100%;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+`;
+
+export const NoJobsImg = styled.img`
+    width: 65%;
+    min-width: 260px;
+    max-width: 380px;
+    @media(min-width: 920px){
+        width: 55%;
+    }
 `;
