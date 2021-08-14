@@ -20,8 +20,7 @@ const BusinessJobs = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // dispatch(login(email, password));
-    dispatch(jobsAction(jobName, description, city, salary));
+    dispatch(jobsAction(jobName, city, salary, description));
     reset();
   };
 
@@ -93,10 +92,7 @@ const BusinessJobs = () => {
                 variant='warning'
                 size='lg'
                 className='mb-3'
-                value='submit'
-                onClick={() => {
-                  dispatch(jobsAction(jobName, description, city, salary));
-                }}
+                type='submit'
               >
                 Enviar
               </Button>
