@@ -29,7 +29,6 @@ import { loadProfile } from '../helpers/loadProfile';
 import { startLoadingProfile } from '../action/profileAction';
 import Aspirant from '../components/Aspirant/Aspirant';
 
-
 const Router = () => {
   const dispatch = useDispatch();
   const [checking, setChecking] = useState(true);
@@ -43,9 +42,8 @@ const Router = () => {
         const training = await loadTrainingCard(user.uid);
         dispatch(setTraining(training));
         dispatch(startLoadingAllTrainings());
-        dispatch(startLoadingJobs(user.uid));      
-        dispatch(startLoadingProfile(user.uid))
-
+        dispatch(startLoadingJobs(user.uid));
+        dispatch(startLoadingProfile(user.uid));
       } else {
         setIsLooggedIn(false);
       }
@@ -87,20 +85,20 @@ const Router = () => {
       component: TrainingDetail,
     },
     {
-      path: '/formulario-empresas',
+      path: '/vacantes-creadas',
       component: BusinessJobs,
     },
     {
       path: '/editar-perfil',
-      component: FormProfile
+      component: FormProfile,
     },
     {
       path: '/editar-empleo',
-      component: ListJobs
+      component: ListJobs,
     },
     {
       path: '/aspirantes',
-      component: Aspirant
+      component: Aspirant,
     },
   ];
   return (

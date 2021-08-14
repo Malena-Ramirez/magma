@@ -8,9 +8,7 @@ export const types = {
     trainingCardNew: '[Training] new training',
     trainingCardActive: '[Training] Set training card active',
     trainingCardLoad: '[Training] Load training card',
-    trainingCardUpdate: '[Training] Update training card',
     trainingCardDelete: '[Training] Delete training card',
-    trainingCardLogoutClean: '[Training] Logout',
 
     jobsAddNew: '[Jobs] New Job',
     jobsActive: '[Jobs] Set job active',
@@ -25,4 +23,4 @@ export const types = {
     profileUpdate: '[Profile] Update profile',
     profileDelete: '[Profile] Delete profile',
     profileLogoutClean: '[Profile] Logout'
-} 
+}
