@@ -22,11 +22,9 @@ import {
   setTraining,
   startLoadingAllTrainings,
 } from '../action/trainingCardAction';
-import { startLoadingJobs } from '../action/jobsAction';
+import { setJobs, startLoadingJobs } from '../action/jobsAction';
 import FormProfile from '../components/Profile/Form/FormProfile';
 import ListJobs from '../components/Jobs/CRUD/ListJobs';
-import { loadProfile } from '../helpers/loadProfile';
-import { startLoadingProfile } from '../action/profileAction';
 import Aspirant from '../components/Aspirant/Aspirant';
 
 const Router = () => {
@@ -39,11 +37,14 @@ const Router = () => {
       if (user?.uid) {
         dispatch(login(user.uid, user.displayName));
         setIsLooggedIn(true);
+
         const training = await loadTrainingCard(user.uid);
         dispatch(setTraining(training));
         dispatch(startLoadingAllTrainings());
-        dispatch(startLoadingJobs(user.uid));
-        dispatch(startLoadingProfile(user.uid));
+
+        const job = await loadTrainingCard(user.uid);
+        dispatch(setJobs(job));
+        dispatch(startLoadingJobs());
       } else {
         setIsLooggedIn(false);
       }
