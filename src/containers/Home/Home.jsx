@@ -1,5 +1,12 @@
 import React from 'react';
-import { ContainerTopHome, ContainerJobandLessons, ImageCard, TitleText, TextHome, ContainerAll } from "./HomeStyled";
+import { 
+  ContainerTopHome, 
+  ContainerJobandLessons, 
+  ImageCard, 
+  TitleText, 
+  TextHome, 
+  ContainerAll,
+  ContainerText } from "./HomeStyled";
 import { useHistory } from "react-router-dom";
 import { Container } from 'react-bootstrap';
 import { TitlePages } from '../../components/Jobs/JobsStyled';
@@ -31,17 +38,17 @@ const Home = () => {
       <ContainerAll >
         <ContainerJobandLessons onClick={handleClickJobs}>
           <ImageCard src="https://i.imgur.com/ef8jGHF.jpg" alt="Buscar empleo" />
-          <span>
+          <div>
             <TitleText>Empleos</TitleText>
-            <TextHome>Descubre nuestras ofertas de empleo</TextHome>
-          </span>
+            <TextHome>Descubre nuestras ofertas de empleo </TextHome>
+          </div>
         </ContainerJobandLessons>
         <ContainerJobandLessons onClick={handleClick}>
           <ImageCard src="https://i.imgur.com/UF5sES4.jpg" alt="Buscar capacitación" />
-          <span>
+          <div>
             <TitleText>Capacitaciones</TitleText>
-            <TextHome>Nunca dejes de aprender akenkrnvr</TextHome>
-          </span>
+            <TextHome>Nunca dejes de aprender </TextHome>
+          </div>
         </ContainerJobandLessons>
       </ContainerAll>
     </>
