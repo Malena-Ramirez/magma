@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useDispatch } from 'react-redux';
 import { activeJob } from '../../action/jobsAction';
 import {
@@ -10,31 +10,26 @@ import {
 } from './JobsStyled';
 import MyVerticallyCenteredModal from './ModalJobs';
 
-const JobCards = ({job}) => {
-
+const JobCards = ({ job }) => {
   const dispatch = useDispatch();
-  const handleClick = () =>{
-    dispatch(
-      activeJob(job)
-    )
-  }
+  const handleClick = () => {
+    dispatch(activeJob(job));
+  };
 
   const [modalShow, setModalShow] = React.useState(false);
-  
+
   return (
     <>
       <ChooseTheJob onClick={() => setModalShow(true)}>
-        <LogoBusiness src='' alt={job.name} onClick={handleClick}/>
+        <LogoBusiness src='' alt={job.name} onClick={handleClick} />
         <ContainerText>
           <BusinessName>{job.name}</BusinessName>
-          <BusinessDescription>
-            {job.description}
-          </BusinessDescription>
+          <BusinessDescription>{job.description}</BusinessDescription>
         </ContainerText>
       </ChooseTheJob>
       <MyVerticallyCenteredModal
         show={modalShow}
-        onHide={() => setModalShow(false)}  
+        onHide={() => setModalShow(false)}
         job={job}
       />
     </>

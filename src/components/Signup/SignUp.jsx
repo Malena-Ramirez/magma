@@ -4,14 +4,7 @@ import {
   AlternativeText,
   AlternativeTextLink,
 } from '../Join/JoinStyled';
-import {
-  Form,
-  Button,
-  FloatingLabel,
-  DropdownButton,
-  Dropdown,
-  Accordion,
-} from 'react-bootstrap';
+import { Form, Button, FloatingLabel, Accordion } from 'react-bootstrap';
 import { useHistory } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { registroEmailPasswordName } from '../../action/action';
@@ -98,27 +91,25 @@ const SignUp = () => {
           </Form.Group>
           <Form.Group>
             <Accordion>
-              <Accordion.Item
-                            className="mb-3"
-                            eventKey='0'>
-                        <Accordion.Header>Rol</Accordion.Header>
-                        <Accordion.Body>
-                            <Form>
-                            <Form.Check
-                              type="radio"
-                              label="Empresas"
-                              name="formHorizontalRadios"
-                              id="formHorizontalRadios1"
-                            />
-                            <Form.Check
-                              type="radio"
-                              label="Aspirantes"
-                              name="formHorizontalRadios"
-                              id="formHorizontalRadios2"
-                            />
-                            </Form>
-                        </Accordion.Body>
-                        </Accordion.Item>
+              <Accordion.Item className='mb-3' eventKey='0'>
+                <Accordion.Header>Rol</Accordion.Header>
+                <Accordion.Body>
+                  <Form>
+                    <Form.Check
+                      type='radio'
+                      label='Empresas'
+                      name='formHorizontalRadios'
+                      id='formHorizontalRadios1'
+                    />
+                    <Form.Check
+                      type='radio'
+                      label='Aspirantes'
+                      name='formHorizontalRadios'
+                      id='formHorizontalRadios2'
+                    />
+                  </Form>
+                </Accordion.Body>
+              </Accordion.Item>
             </Accordion>
           </Form.Group>
           <div className='d-flex justify-content-center my-3'>

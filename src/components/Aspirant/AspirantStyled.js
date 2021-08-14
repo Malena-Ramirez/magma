@@ -1,5 +1,4 @@
 import styled from "styled-components"
-import { color } from "../GlobalStyles/color";
 
 export const ImgTop = styled.div`
     background-image: url('https://i.imgur.com/ir9dROE.jpg');

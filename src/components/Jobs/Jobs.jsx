@@ -13,7 +13,7 @@ import { useSelector } from 'react-redux';
 
 const Jobs = () => {
   const { jobs } = useSelector((state) => state.jobs);
-  console.log(jobs);
+  // console.log(jobs);
 
   const history = useHistory();
   const handleClick = () => {

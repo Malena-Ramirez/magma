@@ -1,18 +1,18 @@
 import { db } from "../firebase/firebaseConfig";
 
 export const loadProfile = async (id) => {
-    
+
     const profileStore = await db.collection(`/profile`).get()
     const userProfile = [];
     // console.log(profileStore);
 
-    profileStore.forEach(hijo => {
+    profileStore.forEach(element => {
         userProfile.push({
-            id:hijo.id,
-            ...hijo.data()
-        })        
+            id: element.id,
+            ...element.data()
+        })
     });
 
-    console.log(userProfile);
+    // console.log(userProfile);
     return userProfile;
 }
