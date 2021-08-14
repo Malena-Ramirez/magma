@@ -1,14 +1,17 @@
 import React from 'react';
 import { Table } from 'react-bootstrap';
+import { useSelector } from 'react-redux';
 import {
   CreatedJobsContainer,
   TitlePages,
   NoJobsImgContainer,
   NoJobsImg,
+  ActionIcon,
 } from '../JobsStyled';
 
 const CreatedJobs = () => {
-  const showTable = false;
+  const { jobs } = useSelector((state) => state.jobs);
+  const showTable = true;
   return (
     <CreatedJobsContainer>
       <TitlePages className='mb-3'>Vacantes creadas</TitlePages>
@@ -19,24 +22,24 @@ const CreatedJobs = () => {
               <th>Nombre del cargo</th>
               <th>Ciudad</th>
               <th>Fecha de publicación</th>
+              <th>Acciones</th>
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td>Mark</td>
-              <td>Otto</td>
-              <td>@mdo</td>
-            </tr>
-            <tr>
-              <td>Jacob</td>
-              <td>Thornton</td>
-              <td>@fat</td>
-            </tr>
-            <tr>
-              <td>Larry the Bird</td>
-              <td>sdfsd</td>
-              <td>@twitter</td>
-            </tr>
+            {jobs.length > 0 &&
+              jobs.map((job) => (
+                <tr key={job.id}>
+                  <td>{job.jobName}</td>
+                  <td>{job.city}</td>
+                  <td>{job.updateDate}</td>
+                  <td>
+                    <div>
+                      <ActionIcon className='bi bi-pencil-square fs-5'></ActionIcon>
+                      <ActionIcon className='bi bi-x-square ms-1 fs-5'></ActionIcon>
+                    </div>
+                  </td>
+                </tr>
+              ))}
           </tbody>
         </Table>
       ) : (
