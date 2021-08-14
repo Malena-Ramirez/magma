@@ -120,7 +120,12 @@ const AddTraining = () => {
           </FloatingLabel>
         </Form.Group>
         <div className='d-flex justify-content-center my-3'>
-          <Button size='lg' variant='warning' type='submit' className='px-5'>
+          <Button
+            size='lg'
+            variant='warning'
+            type='submit'
+            className='px-5 w-100'
+          >
             {active ? 'Editar' : 'Crear'}
           </Button>
         </div>
