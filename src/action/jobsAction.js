@@ -12,42 +12,41 @@ export const activeJob = (id, jobs) => {
     }
 }
 
-export const jobsAction = (jobName, description, requirements, type, city, salary, workDay) => {
-    return async (dispatch, getState)=>{
-        const {name} = getState().login;
-        const {id} = getState().login;
+const getUpdateDate = () => {
+    const date = new Date();
+    return `${date.getDate()}/${date.getMonth() + 1}/${date.getFullYear()}`;
+}
 
-        const date = new Date();
-        const updateDate = `${date.getDate()}/${date.getMonth() + 1}/${date.getFullYear()}`;
-    
+export const jobsAction = (jobName, city, salary, description) => {
+    return async (dispatch, getState) => {
+        const { id, name } = getState().login;
+
+        const updateDate = getUpdateDate();
+
         const newJobs = {
-            name,
-            jobName: jobName,
-            description: description,
-            requirements: requirements,
-            type: type,
-            city: city,
-            salary: salary,
-            workDay: workDay,
+
+            jobName,
+            city,
+            salary,
+            description,
             idBusiness: id,
+            name,
             updateDate
         }
-        const docRef = await db.collection(`/Job`).add(newJobs);
-        // console.log(docRef);
-        dispatch(activeJob(id,newJobs))
+        await db.collection(`/Job`).add(newJobs);
     }
 }
 
 export const setJobs = (jobs) => {
-    return{
+    return {
         type: types.jobsLoad,
         payload: jobs
     }
 }
 
-export const startLoadingJobs = (uid) => {
-    return async (dispatch)=>{
-        const jobs = await loadJobs(uid)
+export const startLoadingJobs = () => {
+    return async (dispatch) => {
+        const jobs = await loadJobs()
         dispatch(setJobs(jobs))
     }
 }
