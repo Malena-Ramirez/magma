@@ -5,10 +5,11 @@ import TrainingCards from '../TrainingCards';
 import { AsideBar, MainContent, TrainingContent } from '../TrainingStyled';
 
 const TrainingCommonContent = () => {
-  const [search, setSearch] = useState('')
+  
   const { trainingCard } = useSelector((state) => state.trainingCard);
+  //funciones de busqueda
   const [data, setData] = useState([]);
-  const [term, setTerm] = useState('');
+  const [search, setSearch] = useState('')
 
   useEffect(() => {
     setData(trainingCard)
@@ -19,6 +20,50 @@ const TrainingCommonContent = () => {
   const dataFiltered= useMemo(() => data.filter((item) => {
     return item.title.toLowerCase().includes(search.toLowerCase());
   }), [data, search]);
+
+  //funciones de categoria
+  const categories = [
+    {
+      id:1,
+      category: 'engineering',
+      name: 'Ingeniería'
+    },
+    {
+      id:2,
+      category: 'design',
+      name: 'Diseño'
+    },
+    {
+      id:3,
+      category: 'marketing',
+      name: 'Marketing'
+    },
+    {
+      id:4,
+      category: 'personal-skills',
+      name: 'Habilidades'
+    },
+    {
+      id:5,
+      category: 'job-preparation',
+      name: 'Preparación laboral'
+    },
+    {
+      id:6,
+      category: 'other',
+      name: 'Otra'
+    },
+  ]
+  const [checkbox, setCheckbox] = useState('');
+  
+  const handleChange = (e) => {
+    setCheckbox(e.target.value)
+  }
+
+  const dataCategory= useMemo(() => data.filter((item) => {
+    return item.category.toLowerCase().includes(checkbox.toLowerCase());
+  }), [data, checkbox]);
+
   return (
     <TrainingContent>
       <AsideBar>        
@@ -39,24 +84,17 @@ const TrainingCommonContent = () => {
             <Accordion.Header>Categorías</Accordion.Header>
             <Accordion.Body>
               <Form>
-                <Form.Check
+              {categories.map(
+                (cat) => (
+                  <Form.Check
+                  key={cat.id}
                   type='checkbox'
-                  id='category-1'
-                  label='Ingeniería'
-                />
-                <Form.Check type='checkbox' id='category-2' label='Diseño' />
-                <Form.Check type='checkbox' id='category-3' label='Marketing' />
-                <Form.Check
-                  type='checkbox'
-                  id='category-4'
-                  label='Habilidades'
-                />
-                <Form.Check
-                  type='checkbox'
-                  id='category-5'
-                  label='Preparación laboral'
-                />
-                <Form.Check type='checkbox' id='category-6' label='Otra' />
+                  id={cat.id}
+                  label={cat.name}
+                  value={cat.category}
+                  onChange={handleChange}
+                /> 
+              ))}            
               </Form>
             </Accordion.Body>
           </Accordion.Item>
@@ -66,7 +104,9 @@ const TrainingCommonContent = () => {
         <Row xs={1} md={2} lg={3} className='g-4'>
           {
           data &&
-          dataFiltered.map((training,index) => <TrainingCards key={index} training={training} company={false} />)
+          dataFiltered.map((training,index) => <TrainingCards key={index} training={training} company={false} />) 
+          && 
+          dataCategory.map((training,index) => <TrainingCards key={index} training={training} company={false} />)
           }
         </Row>
       </MainContent>
@@ -75,6 +115,3 @@ const TrainingCommonContent = () => {
 };
 
 export default TrainingCommonContent;
-
-//si me oye ?
-//si pero me llegaba echo

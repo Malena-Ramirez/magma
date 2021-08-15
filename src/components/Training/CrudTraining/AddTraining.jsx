@@ -100,8 +100,8 @@ const AddTraining = () => {
               <option value='engineering'>Ingeniería</option>
               <option value='design'>Diseño</option>
               <option value='marketing'>Marketing</option>
-              <option value='personalSkills'>Habilidades personales</option>
-              <option value='jobPreparation'>Preparación laboral</option>
+              <option value='personal-skills'>Habilidades personales</option>
+              <option value='job-preparation'>Preparación laboral</option>
               <option value='other'>Otra</option>
             </Form.Select>
           </FloatingLabel>
