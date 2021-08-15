@@ -11,11 +11,12 @@ import {
 
 const CreatedJobs = () => {
   const { jobs } = useSelector((state) => state.jobs);
-  const showTable = true;
+  const { id } = useSelector((state) => state.login);
+  const createdJobs = jobs.filter((element) => element.idBusiness === id);
   return (
     <CreatedJobsContainer>
       <TitlePages className='mb-3'>Vacantes creadas</TitlePages>
-      {showTable ? (
+      {createdJobs.length > 0 ? (
         <Table striped bordered hover responsive>
           <thead>
             <tr>
@@ -26,20 +27,19 @@ const CreatedJobs = () => {
             </tr>
           </thead>
           <tbody>
-            {jobs.length > 0 &&
-              jobs.map((job) => (
-                <tr key={job.id}>
-                  <td>{job.jobName}</td>
-                  <td>{job.city}</td>
-                  <td>{job.updateDate}</td>
-                  <td>
-                    <div>
-                      <ActionIcon className='bi bi-pencil-square fs-5'></ActionIcon>
-                      <ActionIcon className='bi bi-x-square ms-1 fs-5'></ActionIcon>
-                    </div>
-                  </td>
-                </tr>
-              ))}
+            {createdJobs.map((job) => (
+              <tr key={job.id}>
+                <td>{job.jobName}</td>
+                <td>{job.city}</td>
+                <td>{job.updateDate}</td>
+                <td>
+                  <div>
+                    <ActionIcon className='bi bi-pencil-square fs-5'></ActionIcon>
+                    <ActionIcon className='bi bi-x-square ms-1 fs-5'></ActionIcon>
+                  </div>
+                </td>
+              </tr>
+            ))}
           </tbody>
         </Table>
       ) : (
