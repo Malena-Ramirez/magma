@@ -24,7 +24,6 @@ import {
 } from '../action/trainingCardAction';
 import { setJobs, startLoadingJobs } from '../action/jobsAction';
 import FormProfile from '../components/Profile/Form/FormProfile';
-import ListJobs from '../components/Jobs/CRUD/ListJobs';
 import Aspirant from '../components/Aspirant/Aspirant';
 
 const Router = () => {
@@ -92,10 +91,6 @@ const Router = () => {
     {
       path: '/editar-perfil',
       component: FormProfile,
-    },
-    {
-      path: '/editar-empleo',
-      component: ListJobs,
     },
     {
       path: '/aspirantes',
