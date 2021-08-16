@@ -22,5 +22,7 @@ export const types = {
     profileLoad: '[Profile] Load profile',
     profileUpdate: '[Profile] Update profile',
     profileDelete: '[Profile] Delete profile',
-    profileLogoutClean: '[Profile] Logout'
+    profileLogoutClean: '[Profile] Logout',
+
+    companyUser: '[User] company user'
 }
