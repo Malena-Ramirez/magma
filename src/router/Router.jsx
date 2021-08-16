@@ -25,11 +25,13 @@ import {
 import { setJobs, startLoadingJobs } from '../action/jobsAction';
 import FormProfile from '../components/Profile/Form/FormProfile';
 import Aspirant from '../components/Aspirant/Aspirant';
+import { userAction } from '../action/userAction';
 
 const Router = () => {
   const dispatch = useDispatch();
   const [checking, setChecking] = useState(true);
   const [isLooggedIn, setIsLooggedIn] = useState(false);
+  const companyId = 'W4dT3hA0ekVml98ef1xCiLAQGnC2';
 
   useEffect(() => {
     firebase.auth().onAuthStateChanged(async (user) => {
@@ -44,6 +46,10 @@ const Router = () => {
         const job = await loadTrainingCard(user.uid);
         dispatch(setJobs(job));
         dispatch(startLoadingJobs());
+
+        if (user.uid === companyId) {
+          dispatch(userAction());
+        }
       } else {
         setIsLooggedIn(false);
       }
