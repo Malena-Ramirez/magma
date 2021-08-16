@@ -27,14 +27,7 @@ const Home = () => {
       <TitlePages>Bienvenidos</TitlePages>
       <Container className='my-3'>
         <TitleText>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam
-          scelerisque quis felis quis gravida. Sed ultricies nibh sed elit
-          interdum, sit amet lacinia enim tincidunt. Donec et eleifend sapien.
-          In convallis, nunc non elementum tincidunt, felis mauris tincidunt
-          sapien, non ullamcorper tortor orci at lacus. Ut tincidunt facilisis
-          felis in luctus. Nam aliquam, orci quis tincidunt mattis, elit tellus
-          tincidunt est, vitae efficitur orci nibh sed odio. Cras finibus ante
-          id ligula auctor vehicula.
+          Somos una organización comprometida con el desarrollo económico y social de Colombia, por eso apostamos a los jóvenes que estan egresados de sus carreras técnicas o profesionales que posean poca experiencia laboral, por ello pretendemos conectarlos con aquellas empresas en búsqueda de nuevos talentos, ademas de darles las herramientas necesarias para ser el prospecto ideal.
         </TitleText>
       </Container>
       <ContainerAll>
