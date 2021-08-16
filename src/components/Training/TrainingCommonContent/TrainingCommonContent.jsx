@@ -5,26 +5,17 @@ import TrainingCards from '../TrainingCards';
 import { AsideBar, MainContent, TrainingContent } from '../TrainingStyled';
 
 const TrainingCommonContent = () => {
-<<<<<<< HEAD
   
-=======
-  const [search, setSearch] = useState('');
->>>>>>> ecd6f4cfe0bf585720f67cd3d268222b2242d64e
   const { trainingCard } = useSelector((state) => state.trainingCard);
   //funciones de busqueda
   const [data, setData] = useState([]);
-<<<<<<< HEAD
   const [search, setSearch] = useState('')
-=======
-  // const [term, setTerm] = useState('');
->>>>>>> ecd6f4cfe0bf585720f67cd3d268222b2242d64e
 
   useEffect(() => {
     setData(trainingCard);
   }, [trainingCard]);
   const handleSearch = (evento) => {
     setSearch(evento.target.value);
-<<<<<<< HEAD
     };
   const dataFiltered= useMemo(() => data.filter((item) => {
     return item.title.toLowerCase().includes(search.toLowerCase());
@@ -88,16 +79,6 @@ const TrainingCommonContent = () => {
   //   }
   // }
   
-=======
-  };
-  const dataFiltered = useMemo(
-    () =>
-      data.filter((item) => {
-        return item.title.toLowerCase().includes(search.toLowerCase());
-      }),
-    [data, search]
-  );
->>>>>>> ecd6f4cfe0bf585720f67cd3d268222b2242d64e
   return (
     <TrainingContent>
       <AsideBar>
@@ -136,21 +117,10 @@ const TrainingCommonContent = () => {
       </AsideBar>
       <MainContent>
         <Row xs={1} md={2} lg={3} className='g-4'>
-<<<<<<< HEAD
-          {
-          data &&
-          (
-            dataFiltered.map((training,index) => <TrainingCards key={index} training={training} company={false} />)
-            &&
-            dataCategory.map((training,index) => <TrainingCards key={index} training={training} company={false} />)
-          )                
-          }
-=======
           {data &&
             dataFiltered.map((training, index) => (
               <TrainingCards key={index} training={training} company={false} />
             ))}
->>>>>>> ecd6f4cfe0bf585720f67cd3d268222b2242d64e
         </Row>
       </MainContent>
     </TrainingContent>
@@ -158,9 +128,3 @@ const TrainingCommonContent = () => {
 };
 
 export default TrainingCommonContent;
-<<<<<<< HEAD
-=======
-
-//si me oye ?
-//si pero me llegaba echo
->>>>>>> ecd6f4cfe0bf585720f67cd3d268222b2242d64e
