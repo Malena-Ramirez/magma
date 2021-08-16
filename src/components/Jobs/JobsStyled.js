@@ -69,6 +69,7 @@ export const BusinessName = styled.h3`
 
 export const BusinessDescription = styled.p`
     text-align: justify;
+    margin-bottom: 5px;
 `;
 
 export const ContainerText = styled.span`

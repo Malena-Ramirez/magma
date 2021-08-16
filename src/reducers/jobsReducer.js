@@ -20,12 +20,21 @@ export const jobsReducer = (state = initialState, action) => {
                     ...action.payload
                 }
             }
+
         case types.jobsLoad:
             return {
                 ...state,
                 active: null,
                 jobs: [...action.payload]
             }
+
+        case types.jobsDelete:
+            return {
+                ...state,
+                active: null,
+                jobs: state.jobs.filter(element => element.id !== action.payload)
+            };
+
         default:
             return state;
     }

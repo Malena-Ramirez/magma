@@ -19,10 +19,6 @@ const Jobs = () => {
     history.push('/vacantes-creadas');
   };
 
-  const handleClickAspirants = () => {
-    history.push('/aspirantes');
-  };
-
   return (
     <>
       <ImgTop></ImgTop>
@@ -88,13 +84,6 @@ const Jobs = () => {
               </Accordion.Body>
             </Accordion.Item>
           </Accordion>
-          <Button
-            variant='warning'
-            className='btn btn-warning mt-3'
-            onClick={handleClickAspirants}
-          >
-            Aspirantes
-          </Button>
         </ContainerInputs>
         <ContainerJobs>
           {jobs.map((job) => (

@@ -4,7 +4,6 @@ export const loadProfile = async (id) => {
 
     const profileStore = await db.collection(`/profile`).get()
     const userProfile = [];
-    // console.log(profileStore);
 
     profileStore.forEach(element => {
         userProfile.push({
@@ -13,6 +12,5 @@ export const loadProfile = async (id) => {
         })
     });
 
-    // console.log(userProfile);
     return userProfile;
 }

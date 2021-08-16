@@ -7,7 +7,6 @@ export const profileAction = (userProfile) => {
 
         const { name } = getState().login;
         const { id } = getState().login;
-        // console.log(state)
         const date = new Date();
         const updateDate = `${date.getDate()}/${date.getMonth() + 1}/${date.getFullYear()}`;
 
@@ -24,7 +23,6 @@ export const profileAction = (userProfile) => {
         }
 
         await db.collection(`/profile`).add(newProfile);
-        // console.log(docRef)
         dispatch(activeProfile(id, newProfile))
     }
 }
