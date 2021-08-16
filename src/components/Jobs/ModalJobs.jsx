@@ -51,7 +51,7 @@ const MyVerticallyCenteredModal = (props) => {
             <h4>Descripción</h4>
             <p>{job.description}</p>
             <h4>Salario</h4>
-            <p>{job.salary}</p>
+            <p>$ {parseInt(job.salary).toLocaleString()}</p>
             <h4>Ciudad</h4>
             <p>{job.city}</p>
           </div>
