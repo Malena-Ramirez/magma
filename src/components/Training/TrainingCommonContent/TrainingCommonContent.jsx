@@ -55,7 +55,14 @@ const TrainingCommonContent = () => {
     },
   ]
   const [checkbox, setCheckbox] = useState('');
-  
+  const [resetState, setResetState] = useState([])
+
+  useEffect(() => {
+    const matchCategories = data.filter( (item) => item.category === checkbox);    
+    setResetState(matchCategories);
+  }, [data, checkbox])
+  console.log(resetState.length>0);
+
   const handleChange = (e) => {
     setCheckbox(e.target.value)
   }
@@ -64,6 +71,14 @@ const TrainingCommonContent = () => {
     return item.category.toLowerCase().includes(checkbox.toLowerCase());
   }), [data, checkbox]);
 
+  // const stateCategory = () => {
+  //   if(checked !== true){
+
+  //   }else if (resetState.length>0){
+
+  //   }
+  // }
+  
   return (
     <TrainingContent>
       <AsideBar>        
@@ -92,7 +107,7 @@ const TrainingCommonContent = () => {
                   id={cat.id}
                   label={cat.name}
                   value={cat.category}
-                  onChange={handleChange}
+                  onChange={handleChange}                
                 /> 
               ))}            
               </Form>
@@ -104,9 +119,11 @@ const TrainingCommonContent = () => {
         <Row xs={1} md={2} lg={3} className='g-4'>
           {
           data &&
-          dataFiltered.map((training,index) => <TrainingCards key={index} training={training} company={false} />) 
-          && 
-          dataCategory.map((training,index) => <TrainingCards key={index} training={training} company={false} />)
+          (
+            dataFiltered.map((training,index) => <TrainingCards key={index} training={training} company={false} />)
+            &&
+            dataCategory.map((training,index) => <TrainingCards key={index} training={training} company={false} />)
+          )                
           }
         </Row>
       </MainContent>
