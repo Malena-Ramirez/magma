@@ -1,6 +1,8 @@
 import React from 'react';
 import { Table } from 'react-bootstrap';
+import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux';
+import { activeJob, startDeletingJob } from '../../../action/jobsAction';
 import {
   CreatedJobsContainer,
   TitlePages,
@@ -13,6 +15,19 @@ const CreatedJobs = () => {
   const { jobs } = useSelector((state) => state.jobs);
   const { id } = useSelector((state) => state.login);
   const createdJobs = jobs.filter((element) => element.idBusiness === id);
+
+  const dispatch = useDispatch();
+
+  const handleClick = (job) => {
+    const { id: selectedId, ...selectedJob } = job;
+
+    dispatch(activeJob(selectedId, selectedJob));
+  };
+
+  const handleDelete = (id) => {
+    dispatch(startDeletingJob(id));
+  };
+
   return (
     <CreatedJobsContainer>
       <TitlePages className='mb-3'>Vacantes creadas</TitlePages>
@@ -34,8 +49,14 @@ const CreatedJobs = () => {
                 <td>{job.updateDate}</td>
                 <td>
                   <div>
-                    <ActionIcon className='bi bi-pencil-square fs-5'></ActionIcon>
-                    <ActionIcon className='bi bi-x-square ms-1 fs-5'></ActionIcon>
+                    <ActionIcon
+                      className='bi bi-pencil-square fs-5'
+                      onClick={() => handleClick(job)}
+                    ></ActionIcon>
+                    <ActionIcon
+                      className='bi bi-x-square ms-1 fs-5'
+                      onClick={() => handleDelete(job.id)}
+                    ></ActionIcon>
                   </div>
                 </td>
               </tr>
