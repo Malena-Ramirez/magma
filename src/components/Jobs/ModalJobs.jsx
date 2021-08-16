@@ -1,6 +1,7 @@
 import React from 'react';
 import { Modal, Button } from 'react-bootstrap';
 import Swal from 'sweetalert2';
+import { color } from '../GlobalStyles/color';
 import { DescriptionJobTop } from './JobsStyled';
 
 const MyVerticallyCenteredModal = (props) => {
@@ -9,10 +10,11 @@ const MyVerticallyCenteredModal = (props) => {
   const handleClick = () => {
     rest.onHide();
     Swal.fire({
-      title: 'Exitos!',
-      text: 'Tu Hoja de vida ha sido enviada',
+      title: '¡Operación exitosa!',
+      text: 'Tu Hoja de vida ha sido enviada.',
       icon: 'success',
-      confirmButtonText: 'me encanta',
+      confirmButtonText: 'Aceptar',
+      confirmButtonColor: color.main,
     });
   };
 
@@ -56,10 +58,12 @@ const MyVerticallyCenteredModal = (props) => {
         )}
       </Modal.Body>
       <Modal.Footer>
-        <Button onClick={handleClick} variant='outline-warning'>
+        <Button onClick={handleClick} variant='warning'>
           Postular
         </Button>
-        <Button onClick={rest.onHide}>Close</Button>
+        <Button onClick={rest.onHide} style={{ backgroundColor: color.main }}>
+          Cerrar
+        </Button>
       </Modal.Footer>
     </Modal>
   );
