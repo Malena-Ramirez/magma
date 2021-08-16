@@ -1,4 +1,5 @@
-import React from 'react';
+import axios from 'axios';
+import React, { useState, useEffect } from 'react';
 import {
   TrainingDetailContainer,
   TrainingDetailTitle,
@@ -19,16 +20,33 @@ const TrainingDetail = (props) => {
     return match && match[7].length === 11 ? match[7] : false;
   };
 
+  const [allies, setAllies] = useState([]);
+  const [companyInfo, setCompanyInfo] = useState({});
+
+  useEffect(() => {
+    axios.get(`http://localhost:3004/allies`).then((result) => {
+      const { data } = result;
+      let arr = [];
+      for (const row of data) for (const e of row) arr.push(e);
+      setAllies(arr);
+    });
+  }, []);
+
+  useEffect(() => {
+    const matchCompany = allies.find((allie) => allie.name === training.author);
+    setCompanyInfo(matchCompany);
+  }, [allies, training]);
+
   return (
     <TrainingDetailContainer>
       <TrainingDetailTitle>{training.title}</TrainingDetailTitle>
 
       <DescriptionContainer>
         <AuthorContainer>
-          <AuthorImg
-            src='https://i.imgur.com/dakTw2D.png'
-            alt='Imagen de la empresa'
-          />
+          {allies.length > 0 && companyInfo && (
+            <AuthorImg src={companyInfo.image} alt='Imagen de la empresa' />
+          )}
+
           <AuthorInfo>
             <span>Publicado por: {training.author}</span>
             <span>Última fecha de modificación: {training.updateDate}</span>
