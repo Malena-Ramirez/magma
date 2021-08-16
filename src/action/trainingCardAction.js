@@ -101,7 +101,5 @@ export const startDeleting = (id) => {
         dispatch(deleteTraining(id));
       }
     })
-
-
   }
 }
