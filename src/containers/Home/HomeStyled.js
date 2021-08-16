@@ -11,7 +11,7 @@ export const ContainerTopHome = styled.div`
     margin-bottom: 2em;
 `;
 
-export const ContainerAll= styled.div`
+export const ContainerAll = styled.div`
     display: grid;
     grid-template-columns: 1fr;
     gap: 3em;
@@ -50,6 +50,12 @@ export const TextHome = styled.p`
 export const TitleText = styled.h3`
     font-size: 1.2em;
     text-align: center;
+    font-weight: 600;
+`;
+
+export const HomeText = styled.p`
+    padding:0 120px;
+    text-align: justify;
 `;
 
 export const ContainerText = styled.span`
