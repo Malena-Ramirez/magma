@@ -36,6 +36,9 @@ export const jobsAction = (jobName, city, salary, description) => {
             updateDate
         }
         await db.collection(`/Job`).add(newJobs);
+        const jobs = await loadJobs();
+        dispatch(setJobs(jobs));
+        dispatch(startLoadingJobs());
     }
 }
 
