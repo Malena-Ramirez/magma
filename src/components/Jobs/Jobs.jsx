@@ -13,6 +13,7 @@ import { useSelector } from 'react-redux';
 
 const Jobs = () => {
   const { jobs } = useSelector((state) => state.jobs);
+  const { companyUser } = useSelector((state) => state.companyUser);
 
   const history = useHistory();
   const handleClick = () => {
@@ -25,13 +26,16 @@ const Jobs = () => {
       <TitlePages>Empleos</TitlePages>
       <ContainerInfoJobs>
         <ContainerInputs>
-          <Button
-            variant='warning'
-            className='btn btn-warning mb-3 p-3 w-100'
-            onClick={handleClick}
-          >
-            Mis vacantes
-          </Button>
+          {companyUser && (
+            <Button
+              variant='warning'
+              className='btn btn-warning mb-3 p-3 w-100'
+              onClick={handleClick}
+            >
+              Mis vacantes
+            </Button>
+          )}
+
           <Form.Group controlId='formBasicSearch' className='mb-3'>
             <FloatingLabel controlId='floatingSearch' label='Buscar empleo'>
               <Form.Control type='search' placeholder='Buscar' name='search' />
