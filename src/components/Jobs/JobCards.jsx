@@ -33,6 +33,7 @@ const JobCards = ({ job }) => {
   const handleClick = () => {
     dispatch(activeJob(job));
   };
+  const cutText = (text) => text.split(' ').slice(0, 30).join(' ') + '...';
 
   const [modalShow, setModalShow] = useState(false);
 
@@ -48,7 +49,8 @@ const JobCards = ({ job }) => {
         )}
         <ContainerText>
           <BusinessName>{job.jobName}</BusinessName>
-          <BusinessDescription>{job.description}</BusinessDescription>
+          <BusinessDescription>{cutText(job.description)}</BusinessDescription>
+          <span style={{ textDecoration: 'underline' }}>Ver más</span>
         </ContainerText>
       </ChooseTheJob>
       <ModalJobs
