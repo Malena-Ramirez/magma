@@ -42,7 +42,7 @@ const Home = () => {
             alt='Buscar empleo'
           />
           <div>
-            <TitleText>Empleos</TitleText>
+            <TitleText className='mt-3'>Empleos</TitleText>
             <TextHome>Descubre nuestras ofertas de empleo </TextHome>
           </div>
         </ContainerJobandLessons>
@@ -52,7 +52,7 @@ const Home = () => {
             alt='Buscar capacitación'
           />
           <div>
-            <TitleText>Capacitaciones</TitleText>
+            <TitleText className='mt-3'>Capacitaciones</TitleText>
             <TextHome>Nunca dejes de aprender </TextHome>
           </div>
         </ContainerJobandLessons>
