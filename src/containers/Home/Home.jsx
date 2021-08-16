@@ -27,7 +27,12 @@ const Home = () => {
       <TitlePages>Bienvenidos</TitlePages>
       <Container className='my-3'>
         <TitleText>
-          Somos una organización comprometida con el desarrollo económico y social de Colombia, por eso apostamos a los jóvenes que estan egresados de sus carreras técnicas o profesionales que posean poca experiencia laboral, por ello pretendemos conectarlos con aquellas empresas en búsqueda de nuevos talentos, ademas de darles las herramientas necesarias para ser el prospecto ideal.
+          Somos una organización comprometida con el desarrollo económico y
+          social de Colombia, por eso apostamos por los jóvenes que están
+          egresandos de sus carreras técnicas o profesionales, y que posean poca
+          experiencia laboral. Por ello buscamos conectarlos con aquellas
+          empresas en búsqueda de nuevos talentos, ademas de darles las
+          herramientas necesarias para ser el prospecto ideal.
         </TitleText>
       </Container>
       <ContainerAll>
