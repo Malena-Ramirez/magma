@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import {
   ImgTop,
   ContainerInfoJobs,
@@ -14,6 +14,22 @@ import { useSelector } from 'react-redux';
 const Jobs = () => {
   const { jobs } = useSelector((state) => state.jobs);
   const { companyUser } = useSelector((state) => state.companyUser);
+
+ const [jobsData, setJobsData] = useState([]); 
+  useEffect(() => {
+   setJobsData(jobs)
+  }, [jobs])
+  console.log(jobsData);
+
+  const [searchJobs, setSearchJobs] = useState('');
+  const handleSearch = (event) => {
+    setSearchJobs(event.target.value)
+  }
+  console.log(searchJobs);
+
+  const jobsFilter = useMemo(() => jobsData.filter((item) =>{
+    return item.jobName.toLowerCase().includes(searchJobs.toLowerCase())
+  }), [jobsData, searchJobs]);
 
   const history = useHistory();
   const handleClick = () => {
@@ -36,9 +52,18 @@ const Jobs = () => {
             </Button>
           )}
 
-          <Form.Group controlId='formBasicSearch' className='mb-3'>
-            <FloatingLabel controlId='floatingSearch' label='Buscar empleo'>
-              <Form.Control type='search' placeholder='Buscar' name='search' />
+          <Form.Group 
+            controlId='formBasicSearch' 
+            className='mb-3'>
+            <FloatingLabel 
+              controlId='floatingSearch' 
+              label='Buscar empleo'>
+              <Form.Control 
+                type='search' 
+                placeholder='Buscar' 
+                name='search'
+                onChange={handleSearch}
+              />
             </FloatingLabel>
           </Form.Group>
           <Accordion defaultActiveKey='0'>
@@ -89,9 +114,10 @@ const Jobs = () => {
             </Accordion.Item>
           </Accordion>
         </ContainerInputs>
-        <ContainerJobs>
-          {jobs.map((job) => (
-            <JobCards key={job.id} job={job} />
+        <ContainerJobs>          
+          {jobs &&
+            jobsFilter.map((job) => (
+              <JobCards key={job.id} job={job} />
           ))}
         </ContainerJobs>
       </ContainerInfoJobs>
