@@ -4,11 +4,6 @@ import Swal from 'sweetalert2';
 import { DescriptionJobTop } from '../Jobs/JobsStyled';
 
 const MyVerticallyCenteredModal = (props) => {
-  // const history = useHistory();
-  //   const handleEdit = () =>{
-  //       history.push("/editar-perfil");
-  //   }
-
   const handleClick = () => {
     props.onHide();
     Swal.fire({
@@ -51,11 +46,6 @@ const MyVerticallyCenteredModal = (props) => {
           <h4>Requisitos</h4>
           <p>Certificados, intereses,</p>
         </div>
-        {/* <ProfileEdit
-              onClick={handleEdit}
-            >
-              <p>Editar Empleo</p>
-            </ProfileEdit> */}
       </Modal.Body>
       <Modal.Footer>
         <Button onClick={handleClick} variant='outline-warning'>

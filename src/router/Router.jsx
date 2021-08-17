@@ -31,10 +31,11 @@ const Router = () => {
   const dispatch = useDispatch();
   const [checking, setChecking] = useState(true);
   const [isLooggedIn, setIsLooggedIn] = useState(false);
-  const companyId = 'W4dT3hA0ekVml98ef1xCiLAQGnC2';
+  const companyId = 'bW1MykD7f9ezFBq8Kr6SrCI1y2s2';
 
   useEffect(() => {
     firebase.auth().onAuthStateChanged(async (user) => {
+      console.log(user);
       if (user?.uid) {
         dispatch(login(user.uid, user.displayName));
         setIsLooggedIn(true);
@@ -93,14 +94,6 @@ const Router = () => {
     {
       path: '/vacantes-creadas',
       component: BusinessJobs,
-    },
-    {
-      path: '/editar-perfil',
-      component: FormProfile,
-    },
-    {
-      path: '/aspirantes',
-      component: Aspirant,
     },
   ];
   return (
