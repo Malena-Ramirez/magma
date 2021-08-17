@@ -14,18 +14,16 @@ import { useSelector } from 'react-redux';
 const Jobs = () => {
   const { jobs } = useSelector((state) => state.jobs);
   const { companyUser } = useSelector((state) => state.companyUser);
-
- const [jobsData, setJobsData] = useState([]); 
-  useEffect(() => {
-   setJobsData(jobs)
-  }, [jobs])
-  console.log(jobsData);
+  
+  const [jobsData, setJobsData] = useState([]); 
+    useEffect(() => {
+    setJobsData(jobs)
+  }, [jobs])  
 
   const [searchJobs, setSearchJobs] = useState('');
   const handleSearch = (event) => {
     setSearchJobs(event.target.value)
   }
-  console.log(searchJobs);
 
   const jobsFilter = useMemo(() => jobsData.filter((item) =>{
     return item.jobName.toLowerCase().includes(searchJobs.toLowerCase())
