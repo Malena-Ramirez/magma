@@ -38,6 +38,7 @@ const CreatedJobs = () => {
               <th>Nombre del cargo</th>
               <th>Ciudad</th>
               <th>Fecha de publicación</th>
+              <th>Postulados</th>
               <th>Acciones</th>
             </tr>
           </thead>
@@ -47,6 +48,7 @@ const CreatedJobs = () => {
                 <td>{job.jobName}</td>
                 <td>{job.city}</td>
                 <td>{job.updateDate}</td>
+                <td>10 | ver</td>
                 <td>
                   <div>
                     <ActionIcon
