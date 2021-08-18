@@ -87,8 +87,7 @@ const Header = () => {
               className='mr-2'
               aria-label='Search'
               onChange={seachInfo}
-            />
-            <Button variant='outline-warning'>Buscar</Button>
+            />            
           </Form>
           <Nav>
             <Dropdown drop='start' as={NavItem}>
