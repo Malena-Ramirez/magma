@@ -126,17 +126,10 @@ const TrainingCommonContent = () => {
       </AsideBar>
       <MainContent>
         <Row xs={1} md={2} lg={3} className='g-4'>
-          {data && (
-             dataCategory.map((training, index) => (
+          {data && 
+             dataFiltered.map((training, index) => (
               <TrainingCards key={index} training={training} company={false} />
-            )))
-            
-          //  (   
-          //   dataFiltered.map((training, index) => (
-          //     <TrainingCards key={index} training={training} company={false} />
-          //   ))
-          // )
-        }
+          ))}
         </Row>
       </MainContent>
     </TrainingContent>
