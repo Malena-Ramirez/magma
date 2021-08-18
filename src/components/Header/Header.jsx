@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useMemo, useState } from 'react';
 import {
   Navbar,
   Container,
@@ -14,12 +14,12 @@ import './header.css';
 import { useHistory } from "react-router-dom";
 import {useDispatch, useSelector} from 'react-redux'
 import {startLogout} from '../../action/action'
+import { useEffect } from 'react';
 
 const Header = () => {
   const { jobs } = useSelector((state) => state.jobs);
   const { trainingCard } = useSelector((state) => state.trainingCard);
-
-  console.log(jobs, trainingCard);
+  
   const dispatch = useDispatch();  
 
   const history = useHistory();
@@ -31,12 +31,30 @@ const Header = () => {
     dispatch(startLogout())
   }
 
+  // console.log(jobs, trainingCard);
   const [searchInfo, setSearchInfo] = useState('');
+  const [training, setTraining] = useState([])
+  const [jobsInfo, setJobsInfo] = useState([])
+
+  useEffect(() => {
+    setTraining(trainingCard)
+    setJobsInfo(jobs)
+  }, [training, jobsInfo])
+
+  const jobsFilter = useMemo(() => jobsInfo.filter((item) => {
+    return item.jobName.toLowerCase().includes(searchInfo.toLowerCase());
+  }), [jobsInfo, searchInfo]);
+
+  const trainingFilter = useMemo(() => training.filter((item) => {
+    return item.title.toLowerCase().includes(searchInfo.toLowerCase());
+  }), [training, searchInfo]);
+
+  // console.log(jobsFilter, trainingFilter);
 
   const seachInfo = (evento) => {
     setSearchInfo(evento.target.value)
   }
-  console.log(searchInfo);
+  // console.log(searchInfo);
 
   return (
     <Navbar
