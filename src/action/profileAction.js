@@ -39,3 +39,15 @@ export const startLoadingProfile = (uid) => {
         dispatch(setProfile(userProfile))
     }
 }
+
+export const startSaveProfile = (profile) => {
+    return async (dispatch) => {
+        const { id, ...profileToFirestore } = profile;
+
+        await db.doc(`/users/${id}`).update(profileToFirestore);
+
+        const userProfile = await loadProfile(profile.userId)
+        dispatch(setProfile(userProfile));
+        dispatch(startLoadingProfile(profile.userId));
+    }
+}

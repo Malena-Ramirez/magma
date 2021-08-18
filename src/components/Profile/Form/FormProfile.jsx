@@ -1,10 +1,11 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Form, FloatingLabel, Button } from 'react-bootstrap';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { color } from '../../GlobalStyles/color';
 import { TitlePages } from '../../Jobs/JobsStyled';
 import { useForm } from '../../../hook/useForm';
-import { profileAction } from '../../../action/profileAction';
+import { profileAction, startSaveProfile } from '../../../action/profileAction';
+import Swal from 'sweetalert2';
 
 const FormProfile = ({ setShowEdit }) => {
   const [formValues, handleInputChange, reset] = useForm({
@@ -17,17 +18,44 @@ const FormProfile = ({ setShowEdit }) => {
 
   const { phoneNumber, profession, city, education, aboutMe } = formValues;
 
-  const dispatch = useDispatch();
-
   const handleCancel = () => {
     setShowEdit(false);
     reset();
   };
 
+  const { profile } = useSelector((state) => state.profile);
+
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    if (profile.id) {
+      reset(profile);
+    }
+  }, [profile]);
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    dispatch(profileAction(phoneNumber, profession, city, education, aboutMe));
+    if (profile.id) {
+      profile.phoneNumber = phoneNumber;
+      profile.profession = profession;
+      profile.city = city;
+      profile.education = education;
+      profile.aboutMe = aboutMe;
+
+      dispatch(startSaveProfile(profile));
+    } else {
+      dispatch(
+        profileAction(phoneNumber, profession, city, education, aboutMe)
+      );
+    }
+    Swal.fire({
+      icon: 'success',
+      title: 'El perfil se editó exitosamente',
+      showConfirmButton: false,
+      timer: 1500,
+    });
     reset();
+    setShowEdit(false);
   };
 
   return (
