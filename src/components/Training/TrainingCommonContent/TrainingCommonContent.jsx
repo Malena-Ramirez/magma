@@ -61,7 +61,6 @@ const TrainingCommonContent = () => {
     const matchCategories = data.filter( (item) => item.category === checkbox);    
     setResetState(matchCategories);
   }, [data, checkbox])
-  console.log(resetState.length>0);
 
   const handleChange = (e) => {
     setCheckbox(e.target.value)
@@ -71,13 +70,12 @@ const TrainingCommonContent = () => {
     return item.category.toLowerCase().includes(checkbox.toLowerCase());
   }), [data, checkbox]);
 
-  // const stateCategory = () => {
-  //   if(checked !== true){
-
-  //   }else if (resetState.length>0){
-
-  //   }
-  // }
+  const checked = () => {
+    if('click'){
+      const addObjectCheck = resetState.length>0;
+      addObjectCheck.push('')
+    }
+  }
   
   return (
     <TrainingContent>
@@ -105,9 +103,12 @@ const TrainingCommonContent = () => {
                   key={cat.id}
                   type='checkbox'
                   id={cat.id}
+                  name= 'checkbox'
                   label={cat.name}
                   value={cat.category}
-                  onChange={handleChange}                
+                  onChange={handleChange}  
+                  onClick={checked}
+                  
                 /> 
               ))}            
               </Form>
