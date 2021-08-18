@@ -2,7 +2,7 @@ import React, { useEffect, useState, useMemo } from 'react';
 import { Accordion, FloatingLabel, Form, Row } from 'react-bootstrap';
 import { useSelector } from 'react-redux';
 import TrainingCards from '../TrainingCards';
-import { AsideBar, MainContent, TrainingContent } from '../TrainingStyled';
+import { AsideBar, MainContent, NoTrainingContainer, NoTrainingImg, TrainingContent } from '../TrainingStyled';
 
 const TrainingCommonContent = () => {
   
@@ -56,29 +56,36 @@ const TrainingCommonContent = () => {
   ]
   const [checkbox, setCheckbox] = useState('');
   const [resetState, setResetState] = useState([])
-
+  const [showCard, setShowCard] = useState(false)
   useEffect(() => {
     const matchCategories = data.filter( (item) => item.category === checkbox);    
     setResetState(matchCategories);
   }, [data, checkbox])
-  console.log(resetState.length>0);
+
+  console.log(resetState);
 
   const handleChange = (e) => {
     setCheckbox(e.target.value)
   }
 
+  console.log(checkbox);
+
   const dataCategory= useMemo(() => data.filter((item) => {
     return item.category.toLowerCase().includes(checkbox.toLowerCase());
   }), [data, checkbox]);
 
-  // const stateCategory = () => {
-  //   if(checked !== true){
-
-  //   }else if (resetState.length>0){
-
-  //   }
-  // }
-  
+  console.log(dataCategory);
+  const checked = () => {
+    if('checked' && resetState.length>0){
+      const objectAdd = () => {
+        for (let i = 0; i < resetState.length; i++) {
+          dataCategory.push(resetState.includes(resetState>0));
+        }
+        
+      }
+    }
+  }
+  console.log(checked())
   return (
     <TrainingContent>
       <AsideBar>
@@ -105,9 +112,11 @@ const TrainingCommonContent = () => {
                   key={cat.id}
                   type='checkbox'
                   id={cat.id}
+                  name= 'checkbox'
                   label={cat.name}
                   value={cat.category}
-                  onChange={handleChange}                
+                  onChange={handleChange}  
+                  // onClick={checked}
                 /> 
               ))}            
               </Form>
@@ -117,10 +126,10 @@ const TrainingCommonContent = () => {
       </AsideBar>
       <MainContent>
         <Row xs={1} md={2} lg={3} className='g-4'>
-          {data &&
-            dataFiltered.map((training, index) => (
+          {data && 
+             dataFiltered.map((training, index) => (
               <TrainingCards key={index} training={training} company={false} />
-            ))}
+          ))}
         </Row>
       </MainContent>
     </TrainingContent>

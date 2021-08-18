@@ -22,5 +22,7 @@ export const types = {
     profileDelete: '[Profile] Delete profile',
     profileLogoutClean: '[Profile] Logout',
 
+    contactSend: 'Send info contact',
+
     companyUser: '[User] company user'
 }

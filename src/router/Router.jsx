@@ -39,10 +39,6 @@ const Router = () => {
         dispatch(login(user.uid, user.displayName, user.email, user.photoURL));
         setIsLooggedIn(true);
 
-        const training = await loadTrainingCard(user.uid);
-        dispatch(setTraining(training));
-        dispatch(startLoadingAllTrainings());
-
         const job = await loadTrainingCard(user.uid);
         dispatch(setJobs(job));
         dispatch(startLoadingJobs());
@@ -50,6 +46,10 @@ const Router = () => {
         const profile = await loadProfile(user.uid);
         dispatch(setProfile(profile));
         dispatch(startLoadingProfile(user.uid));
+
+        const training = await loadTrainingCard(user.uid);
+        dispatch(setTraining(training));
+        dispatch(startLoadingAllTrainings());
 
         if (user.uid === companyId) {
           dispatch(userAction());
