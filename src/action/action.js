@@ -7,7 +7,7 @@ export const loginGoogle = () => {
 
         firebase.auth().signInWithPopup(google).then(({ user }) => {
             dispatch(
-                login(user.uid, user.displayName)
+                login(user.uid, user.displayName, user.email, user.photoURL)
             )
         })
 
@@ -21,7 +21,7 @@ export const loginEmailPassword = (email, password) => {
         firebase.auth().signInWithEmailAndPassword(email, password)
             .then(({ user }) => {
                 dispatch(
-                    login(user.uid, user.displayName)
+                    login(user.uid, user.displayName, email)
                 )
             })
             .catch(e => {
@@ -30,12 +30,14 @@ export const loginEmailPassword = (email, password) => {
     }
 }
 
-export const login = (id, displayName) => {
+export const login = (id, displayName, email, photo = '') => {
     return {
         type: types.login,
         payload: {
             id,
-            displayName
+            displayName,
+            email,
+            photo
         }
     }
 }
@@ -48,7 +50,7 @@ export const registroEmailPasswordName = (email, pass, name) => {
                 await user.updateProfile({ displayName: name })
 
                 dispatch(
-                    login(user.uid, user.displayName)
+                    login(user.uid, user.displayName, email)
                 )
             })
             .catch(e => {
@@ -57,8 +59,8 @@ export const registroEmailPasswordName = (email, pass, name) => {
     }
 }
 
-export const startLogout = ()=>{
-    return async(dispatch) =>{
+export const startLogout = () => {
+    return async (dispatch) => {
         await firebase.auth().signOut();
         dispatch(logout());
     }

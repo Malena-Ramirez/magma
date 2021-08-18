@@ -1,4 +1,4 @@
-import {types} from '../types/types'
+import { types } from '../types/types'
 
 
 const loginReducer = (state = {}, action) => {
@@ -7,11 +7,13 @@ const loginReducer = (state = {}, action) => {
         case types.login:
             return {
                 id: action.payload.id,
-                name: action.payload.displayName
+                name: action.payload.displayName,
+                email: action.payload.email,
+                photo: action.payload.photo,
             };
 
-        case types.logout:            
-                return {};
+        case types.logout:
+            return {};
         default:
             return state;
     }

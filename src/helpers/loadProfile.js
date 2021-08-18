@@ -2,7 +2,7 @@ import { db } from "../firebase/firebaseConfig";
 
 export const loadProfile = async (id) => {
 
-    const profileStore = await db.collection(`/profile`).get()
+    const profileStore = await db.collection(`/users`).get();
     const userProfile = [];
 
     profileStore.forEach(element => {
@@ -12,5 +12,7 @@ export const loadProfile = async (id) => {
         })
     });
 
-    return userProfile;
+    const currentProfile = userProfile.find(user => user.userId === id)
+
+    return currentProfile;
 }

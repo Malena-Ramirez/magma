@@ -23,9 +23,9 @@ import {
   startLoadingAllTrainings,
 } from '../action/trainingCardAction';
 import { setJobs, startLoadingJobs } from '../action/jobsAction';
-import FormProfile from '../components/Profile/Form/FormProfile';
-import Aspirant from '../components/Aspirant/Aspirant';
 import { userAction } from '../action/userAction';
+import { loadProfile } from '../helpers/loadProfile';
+import { setProfile, startLoadingProfile } from '../action/profileAction';
 
 const Router = () => {
   const dispatch = useDispatch();
@@ -35,9 +35,8 @@ const Router = () => {
 
   useEffect(() => {
     firebase.auth().onAuthStateChanged(async (user) => {
-      console.log(user);
       if (user?.uid) {
-        dispatch(login(user.uid, user.displayName));
+        dispatch(login(user.uid, user.displayName, user.email, user.photoURL));
         setIsLooggedIn(true);
 
         const training = await loadTrainingCard(user.uid);
@@ -47,6 +46,10 @@ const Router = () => {
         const job = await loadTrainingCard(user.uid);
         dispatch(setJobs(job));
         dispatch(startLoadingJobs());
+
+        const profile = await loadProfile(user.uid);
+        dispatch(setProfile(profile));
+        dispatch(startLoadingProfile(user.uid));
 
         if (user.uid === companyId) {
           dispatch(userAction());

@@ -1,23 +1,21 @@
 import { types } from "../types/types";
 
 const initialState = {
-    userProfile: []
+    profile: {}
 }
 
 export const profileReducer = (state = initialState, action) => {
     switch (action.type) {
-        case types.profileActive:
+        case types.profileAddNew:
             return {
-                ...state,
-                active: {
-                    ...action.payload
-                }
-            }
+                ...action.state,
+                profile: action.payload
+            };
         case types.profileLoad:
             return {
                 ...state,
-                userProfile: [...action.payload]
-            }
+                profile: action.payload
+            };
 
         default:
             return state;
