@@ -14,7 +14,7 @@ import { useSelector } from 'react-redux';
 const Jobs = () => {
   const { jobs } = useSelector((state) => state.jobs);
   const { companyUser } = useSelector((state) => state.companyUser);
-  
+
   const [jobsData, setJobsData] = useState([]); 
     useEffect(() => {
     setJobsData(jobs)
