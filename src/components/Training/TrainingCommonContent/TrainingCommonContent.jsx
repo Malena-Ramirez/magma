@@ -2,7 +2,7 @@ import React, { useEffect, useState, useMemo } from 'react';
 import { Accordion, FloatingLabel, Form, Row } from 'react-bootstrap';
 import { useSelector } from 'react-redux';
 import TrainingCards from '../TrainingCards';
-import { AsideBar, MainContent, TrainingContent } from '../TrainingStyled';
+import { AsideBar, MainContent, NoTrainingContainer, NoTrainingImg, TrainingContent } from '../TrainingStyled';
 
 const TrainingCommonContent = () => {
   
@@ -56,27 +56,36 @@ const TrainingCommonContent = () => {
   ]
   const [checkbox, setCheckbox] = useState('');
   const [resetState, setResetState] = useState([])
-
+  const [showCard, setShowCard] = useState(false)
   useEffect(() => {
     const matchCategories = data.filter( (item) => item.category === checkbox);    
     setResetState(matchCategories);
   }, [data, checkbox])
 
+  console.log(resetState);
+
   const handleChange = (e) => {
     setCheckbox(e.target.value)
   }
+
+  console.log(checkbox);
 
   const dataCategory= useMemo(() => data.filter((item) => {
     return item.category.toLowerCase().includes(checkbox.toLowerCase());
   }), [data, checkbox]);
 
+  console.log(dataCategory);
   const checked = () => {
-    if('click'){
-      const addObjectCheck = resetState.length>0;
-      addObjectCheck.push('')
+    if('checked' && resetState.length>0){
+      const objectAdd = () => {
+        for (let i = 0; i < resetState.length; i++) {
+          dataCategory.push(resetState.includes(resetState>0));
+        }
+        
+      }
     }
   }
-  
+  console.log(checked())
   return (
     <TrainingContent>
       <AsideBar>
@@ -107,8 +116,7 @@ const TrainingCommonContent = () => {
                   label={cat.name}
                   value={cat.category}
                   onChange={handleChange}  
-                  onClick={checked}
-                  
+                  // onClick={checked}
                 /> 
               ))}            
               </Form>
@@ -118,10 +126,17 @@ const TrainingCommonContent = () => {
       </AsideBar>
       <MainContent>
         <Row xs={1} md={2} lg={3} className='g-4'>
-          {data &&
-            dataFiltered.map((training, index) => (
+          {data && (
+             dataCategory.map((training, index) => (
               <TrainingCards key={index} training={training} company={false} />
-            ))}
+            )))
+            
+          //  (   
+          //   dataFiltered.map((training, index) => (
+          //     <TrainingCards key={index} training={training} company={false} />
+          //   ))
+          // )
+        }
         </Row>
       </MainContent>
     </TrainingContent>

@@ -13,12 +13,16 @@ import {
 } from './ProfileStyled';
 import { Image } from 'react-bootstrap';
 import FormProfile from './Form/FormProfile';
+import { useSelector } from 'react-redux';
 
 const Profile = () => {
+  const { companyUser } = useSelector((state) => state.companyUser);
   const [showEdit, setShowEdit] = useState(false);
   const handleClick = () => {
     setShowEdit(true);
   };
+
+  const [showProfile, setShowProfile] = useState(false)
 
   return (
     <>
@@ -36,12 +40,12 @@ const Profile = () => {
                   src='https://www.wrkbemanning.no/wp-content/uploads/2017/04/profile-pic-dummy.jpg'
                   alt='foto de perfil'
                 />
-              </ContainerNamePhoto>
-              <UserInfo>
-                <UserName>Juan José Campos</UserName>
-                <span>Contador público</span>
-                <span>Medellín, Colombia</span>
-              </UserInfo>
+              </ContainerNamePhoto>            
+                <UserInfo>
+                  <UserName>Juan Jose Campos</UserName>
+                  <span>Contador público</span>
+                  <span>Medellín, Colombia</span>
+                </UserInfo>                             
               <ProfileEdit
                 className='bi bi-pencil-square fs-5'
                 onClick={handleClick}
