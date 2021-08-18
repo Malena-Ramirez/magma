@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
   Navbar,
   Container,
@@ -12,14 +12,15 @@ import {
 } from 'react-bootstrap';
 import './header.css';
 import { useHistory } from "react-router-dom";
-import {useDispatch} from 'react-redux'
+import {useDispatch, useSelector} from 'react-redux'
 import {startLogout} from '../../action/action'
 
 const Header = () => {
+  const { jobs } = useSelector((state) => state.jobs);
+  const { trainingCard } = useSelector((state) => state.trainingCard);
 
-  const dispatch = useDispatch();
-
-  
+  console.log(jobs, trainingCard);
+  const dispatch = useDispatch();  
 
   const history = useHistory();
   const handleClick = () =>{
@@ -29,6 +30,13 @@ const Header = () => {
   const handleLogout = () =>{
     dispatch(startLogout())
   }
+
+  const [searchInfo, setSearchInfo] = useState('');
+
+  const seachInfo = (evento) => {
+    setSearchInfo(evento.target.value)
+  }
+  console.log(searchInfo);
 
   return (
     <Navbar
@@ -60,6 +68,7 @@ const Header = () => {
               placeholder='Buscar'
               className='mr-2'
               aria-label='Search'
+              onChange={seachInfo}
             />
             <Button variant='outline-warning'>Buscar</Button>
           </Form>
