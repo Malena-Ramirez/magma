@@ -6,6 +6,7 @@ import thunk from 'redux-thunk';
 import { profileReducer } from "../reducers/profileReducer.js";
 import { userReducer } from "../reducers/userReducer.js";
 import { contactReducer } from "../reducers/contactReducer.js";
+import { candidateReducer } from "../reducers/candidateReducer.js";
 
 const composeEnhancers = (typeof window !== 'undefined' &&
     window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__) || compose;
@@ -17,7 +18,8 @@ const reducers = combineReducers({
     jobs: jobsReducer,
     profile: profileReducer,
     companyUser: userReducer,
-    sendMessage : contactReducer,
+    sendMessage: contactReducer,
+    candidates: candidateReducer,
 })
 
 export const store = createStore(
