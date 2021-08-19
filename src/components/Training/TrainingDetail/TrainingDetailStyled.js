@@ -3,6 +3,9 @@ import { color } from "../../GlobalStyles/color";
 
 export const TrainingDetailContainer = styled.div`
   padding: 10px;
+  width: 90vw;
+  max-width: 1100px;
+  margin: 0 auto;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -32,8 +35,8 @@ export const AuthorContainer = styled.div`
 `;
 
 export const AuthorImg = styled.img`
-  width: 40px;
-  height: 40px;
+  width: 45px;
+  height: 45px;
   border-radius: 50%;
   margin-right: 10px;
 `;
