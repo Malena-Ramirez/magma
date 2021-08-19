@@ -5,7 +5,6 @@ import TrainingCards from '../TrainingCards';
 import { AsideBar, MainContent, TrainingContent } from '../TrainingStyled';
 
 const TrainingCommonContent = () => {
-  
   const { trainingCard } = useSelector((state) => state.trainingCard);
   //funciones de busqueda
   const [data, setData] = useState([]);
@@ -24,46 +23,49 @@ const TrainingCommonContent = () => {
   //funciones de categoria
   const categories = [
     {
-      id:1,
+      id: 1,
       category: 'engineering',
-      name: 'Ingeniería'
+      name: 'Ingeniería',
     },
     {
-      id:2,
+      id: 2,
       category: 'design',
-      name: 'Diseño'
+      name: 'Diseño',
     },
     {
-      id:3,
+      id: 3,
       category: 'marketing',
-      name: 'Marketing'
+      name: 'Marketing',
     },
     {
-      id:4,
+      id: 4,
       category: 'personal-skills',
-      name: 'Habilidades'
+      name: 'Habilidades',
     },
     {
-      id:5,
+      id: 5,
       category: 'job-preparation',
-      name: 'Preparación laboral'
+      name: 'Preparación laboral',
     },
     {
-      id:6,
+      id: 6,
       category: 'other',
-      name: 'Otra'
+      name: 'Otra',
     },
-  ]
+  ];
   const [checkbox, setCheckbox] = useState('');
 
   const handleChange = (e) => {
-    setCheckbox(e.target.value)
-  }
+    setCheckbox(e.target.value);
+  };
 
-  const dataCategory= useMemo(() => data.filter((item) => {
-    return item.category.toLowerCase().includes(checkbox.toLowerCase());
-  }), [data, checkbox]);
-
+  const dataCategory = useMemo(
+    () =>
+      data.filter((item) =>
+        item.category.toLowerCase().includes(checkbox.toLowerCase())
+      ),
+    [data, checkbox]
+  );
 
   return (
     <TrainingContent>
@@ -85,18 +87,17 @@ const TrainingCommonContent = () => {
             <Accordion.Header>Categorías</Accordion.Header>
             <Accordion.Body>
               <Form>
-              {categories.map(
-                (cat) => (
+                {categories.map((cat) => (
                   <Form.Check
-                  key={cat.id}
-                  type='checkbox'
-                  id={cat.id}
-                  name= 'checkbox'
-                  label={cat.name}
-                  value={cat.category}
-                  onChange={handleChange}  
-                /> 
-              ))}            
+                    key={cat.id}
+                    type='checkbox'
+                    id={cat.id}
+                    name='checkbox'
+                    label={cat.name}
+                    value={cat.category}
+                    onChange={handleChange}
+                  />
+                ))}
               </Form>
             </Accordion.Body>
           </Accordion.Item>
@@ -104,10 +105,10 @@ const TrainingCommonContent = () => {
       </AsideBar>
       <MainContent>
         <Row xs={1} md={2} lg={3} className='g-4'>
-          {data && 
-             dataCategory.map((training, index) => (
+          {data &&
+            dataCategory.map((training, index) => (
               <TrainingCards key={index} training={training} company={false} />
-          ))}
+            ))}
         </Row>
       </MainContent>
     </TrainingContent>
