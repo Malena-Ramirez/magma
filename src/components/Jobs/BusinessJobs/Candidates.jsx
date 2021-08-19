@@ -56,7 +56,7 @@ const Candidates = ({ setShowCandidates, selectedJob }) => {
                   <td>{candidate.profile.name}</td>
                   <td>{candidate.profile.profession}</td>
                   <td>{candidate.profile.city}</td>
-                  <td>Fecha de postulación</td>
+                  <td>{candidate.createDate}</td>
                 </CandidateRow>
               ))}
             </tbody>
