@@ -26,6 +26,12 @@ import { setJobs, startLoadingJobs } from '../action/jobsAction';
 import { userAction } from '../action/userAction';
 import { loadProfile } from '../helpers/loadProfile';
 import { setProfile, startLoadingProfile } from '../action/profileAction';
+import { loadCandidates } from '../helpers/loadCandidates';
+import { loadJobs } from '../helpers/loadJobs';
+import {
+  setCandidates,
+  startLoadingCandidates,
+} from '../action/candidateAction';
 
 const Router = () => {
   const dispatch = useDispatch();
@@ -39,7 +45,7 @@ const Router = () => {
         dispatch(login(user.uid, user.displayName, user.email, user.photoURL));
         setIsLooggedIn(true);
 
-        const job = await loadTrainingCard(user.uid);
+        const job = await loadJobs(user.uid);
         dispatch(setJobs(job));
         dispatch(startLoadingJobs());
 
@@ -50,6 +56,10 @@ const Router = () => {
         const training = await loadTrainingCard(user.uid);
         dispatch(setTraining(training));
         dispatch(startLoadingAllTrainings());
+
+        const candidates = await loadCandidates(user.uid);
+        dispatch(setCandidates(candidates));
+        dispatch(startLoadingCandidates(user.uid));
 
         if (user.uid === companyId) {
           dispatch(userAction());

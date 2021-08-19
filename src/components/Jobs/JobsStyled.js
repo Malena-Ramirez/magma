@@ -149,3 +149,27 @@ export const NoJobsImg = styled.img`
 export const ActionIcon = styled.i`
     cursor: pointer;
 `;
+
+export const CandidatesBtn = styled.span`
+    cursor: pointer;
+    padding: 2px 5px;
+    border: 1px solid ${color.main};
+    color: ${color.main};
+    border-radius: 5px;
+
+    &:hover{
+        background: ${color.main};
+        color: ${color.light};
+    }
+`;
+
+export const CandidatesContainer = styled.div`
+    margin: auto;
+    width: 90vw;
+    min-height: 80vh;
+    max-width: 1000px;
+`;
+
+export const CandidateRow = styled.tr`
+    cursor: pointer;
+`;

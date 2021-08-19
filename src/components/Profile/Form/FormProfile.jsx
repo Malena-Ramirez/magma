@@ -28,14 +28,14 @@ const FormProfile = ({ setShowEdit }) => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    if (profile.id) {
+    if (profile) {
       reset(profile);
     }
   }, [profile]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (profile.id) {
+    if (profile) {
       profile.phoneNumber = phoneNumber;
       profile.profession = profession;
       profile.city = city;

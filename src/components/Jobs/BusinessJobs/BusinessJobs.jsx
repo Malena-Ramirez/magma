@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Form, FloatingLabel, Button } from 'react-bootstrap';
 import { ContainerInfoJobs } from '../JobsStyled';
 import { useForm } from '../../../hook/useForm';
@@ -7,8 +7,12 @@ import { useDispatch } from 'react-redux';
 import CreatedJobs from './CreatedJobs';
 import { useSelector } from 'react-redux';
 import Swal from 'sweetalert2';
+import Candidates from './Candidates';
 
 const BusinessJobs = () => {
+  const [showCandidates, setShowCandidates] = useState(false);
+  const [selectedJob, setSelectedJob] = useState('');
+
   const dispatch = useDispatch();
 
   const [formValues, handleInputChange, reset] = useForm({
@@ -60,83 +64,94 @@ const BusinessJobs = () => {
 
   return (
     <>
-      <ContainerInfoJobs className='mt-4'>
-        <div>
-          <h2 className='text-center mb-4'>
-            {active ? 'Editar' : 'Crear una nueva'} vacante
-          </h2>
-          <Form onSubmit={handleSubmit}>
-            <FloatingLabel
-              controlId='floatingJobName'
-              label='Nombre del cargo'
-              className='mb-3'
-            >
-              <Form.Control
-                type='text'
-                placeholder='Nombre del cargo'
-                name='jobName'
-                value={jobName}
-                onChange={handleInputChange}
-                required
-              />
-            </FloatingLabel>
-            <FloatingLabel
-              controlId='floatingCityInput'
-              label='Ciudad'
-              className='mb-3'
-            >
-              <Form.Control
-                type='text'
-                placeholder='Ciudad'
-                name='city'
-                value={city}
-                onChange={handleInputChange}
-                required
-              />
-            </FloatingLabel>
-            <FloatingLabel
-              controlId='floatingSalaryInput'
-              label='Salario'
-              className='mb-3'
-            >
-              <Form.Control
-                type='number'
-                placeholder='Salario'
-                name='salary'
-                value={salary}
-                onChange={handleInputChange}
-                required
-              />
-            </FloatingLabel>
-            <FloatingLabel
-              controlId='floatingDescriptionInput'
-              label='Descripcion del puesto'
-              className='mb-3'
-            >
-              <Form.Control
-                as='textarea'
-                placeholder='Descripción del puesto'
-                name='description'
-                required
-                style={{ height: '180px' }}
-                value={description}
-                onChange={handleInputChange}
-              />
-            </FloatingLabel>
-            <div className='d-grid gap-2'>
-              <Button
-                variant='warning'
-                size='lg'
+      {!showCandidates ? (
+        <ContainerInfoJobs className='mt-4'>
+          <div>
+            <h2 className='text-center mb-4'>
+              {active ? 'Editar' : 'Crear una nueva'} vacante
+            </h2>
+            <Form onSubmit={handleSubmit}>
+              <FloatingLabel
+                controlId='floatingJobName'
+                label='Nombre del cargo'
                 className='mb-3'
-                type='submit'
               >
-                Enviar
-              </Button>
-            </div>
-          </Form>
-        </div>
-        <CreatedJobs />
-      </ContainerInfoJobs>
+                <Form.Control
+                  type='text'
+                  placeholder='Nombre del cargo'
+                  name='jobName'
+                  value={jobName}
+                  onChange={handleInputChange}
+                  required
+                />
+              </FloatingLabel>
+              <FloatingLabel
+                controlId='floatingCityInput'
+                label='Ciudad'
+                className='mb-3'
+              >
+                <Form.Control
+                  type='text'
+                  placeholder='Ciudad'
+                  name='city'
+                  value={city}
+                  onChange={handleInputChange}
+                  required
+                />
+              </FloatingLabel>
+              <FloatingLabel
+                controlId='floatingSalaryInput'
+                label='Salario'
+                className='mb-3'
+              >
+                <Form.Control
+                  type='number'
+                  placeholder='Salario'
+                  name='salary'
+                  value={salary}
+                  onChange={handleInputChange}
+                  required
+                />
+              </FloatingLabel>
+              <FloatingLabel
+                controlId='floatingDescriptionInput'
+                label='Descripcion del puesto'
+                className='mb-3'
+              >
+                <Form.Control
+                  as='textarea'
+                  placeholder='Descripción del puesto'
+                  name='description'
+                  required
+                  style={{ height: '180px' }}
+                  value={description}
+                  onChange={handleInputChange}
+                />
+              </FloatingLabel>
+              <div className='d-grid gap-2'>
+                <Button
+                  variant='warning'
+                  size='lg'
+                  className='mb-3'
+                  type='submit'
+                >
+                  Enviar
+                </Button>
+              </div>
+            </Form>
+          </div>
+          <CreatedJobs
+            setShowCandidates={setShowCandidates}
+            setSelectedJob={setSelectedJob}
+          />
+        </ContainerInfoJobs>
+      ) : (
+        <Candidates
+          showCandidates={showCandidates}
+          setShowCandidates={setShowCandidates}
+          selectedJob={selectedJob}
+        />
+      )}
     </>
   );
 };

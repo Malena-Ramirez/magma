@@ -1,11 +1,14 @@
 import React from 'react';
 import { Modal, Button } from 'react-bootstrap';
+import { useDispatch } from 'react-redux';
 import Swal from 'sweetalert2';
+import { CandidateAction } from '../../action/candidateAction';
 import { color } from '../GlobalStyles/color';
 import { DescriptionJobTop } from './JobsStyled';
 
 const MyVerticallyCenteredModal = (props) => {
   const { job, companyInfo, ...rest } = props;
+  const dispatch = useDispatch();
 
   const handleClick = () => {
     rest.onHide();
@@ -16,6 +19,7 @@ const MyVerticallyCenteredModal = (props) => {
       confirmButtonText: 'Aceptar',
       confirmButtonColor: color.main,
     });
+    dispatch(CandidateAction(job.id, job.idBusiness));
   };
 
   return (
