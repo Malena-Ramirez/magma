@@ -10,6 +10,7 @@ import {
   UserInfo,
   UserName,
 } from '../../Profile/ProfileStyled';
+import { color } from '../../GlobalStyles/color';
 
 const CandidateDetail = (props) => {
   const { selectedCandidate, ...rest } = props;
@@ -72,7 +73,9 @@ const CandidateDetail = (props) => {
         )}
       </Modal.Body>
       <Modal.Footer>
-        <Button onClick={props.onHide}>Close</Button>
+        <Button onClick={props.onHide} style={{ backgroundColor: color.main }}>
+          Close
+        </Button>
       </Modal.Footer>
     </Modal>
   );
