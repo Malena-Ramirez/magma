@@ -3,9 +3,12 @@ import { Table } from 'react-bootstrap';
 import { useSelector } from 'react-redux';
 import { ArrowBack } from '../../Join/JoinStyled';
 import { CandidateRow, CandidatesContainer, TitlePages } from '../JobsStyled';
+import CandidateDetail from './CandidateDetail';
 
 const Candidates = ({ setShowCandidates, selectedJob }) => {
   const [filterCandidates, setfilterCandidates] = useState([]);
+  const [modalShow, setModalShow] = React.useState(false);
+  const [selectedCandidate, setSelectedCandidate] = useState({});
 
   const handleClose = () => {
     setShowCandidates(false);
@@ -19,6 +22,11 @@ const Candidates = ({ setShowCandidates, selectedJob }) => {
     );
     setfilterCandidates(filterCand);
   }, [selectedJob, candidates]);
+
+  const handleShowDetail = (profile) => {
+    setModalShow(true);
+    setSelectedCandidate(profile);
+  };
 
   return (
     <>
@@ -40,7 +48,11 @@ const Candidates = ({ setShowCandidates, selectedJob }) => {
             </thead>
             <tbody>
               {filterCandidates.map((candidate) => (
-                <CandidateRow key={candidate.id} className='text-center'>
+                <CandidateRow
+                  key={candidate.id}
+                  className='text-center'
+                  onClick={() => handleShowDetail(candidate.profile)}
+                >
                   <td>{candidate.profile.name}</td>
                   <td>{candidate.profile.profession}</td>
                   <td>{candidate.profile.city}</td>
@@ -60,6 +72,11 @@ const Candidates = ({ setShowCandidates, selectedJob }) => {
           </div>
         )}
       </CandidatesContainer>
+      <CandidateDetail
+        selectedCandidate={selectedCandidate}
+        show={modalShow}
+        onHide={() => setModalShow(false)}
+      />
     </>
   );
 };
