@@ -26,7 +26,6 @@ export const FormContainer = styled.div`
   margin: 30px auto;
   min-width: 280px;
   max-width: 800px;
-  border: 1px solid ${color.secondary};
-  border-radius: 20px;
+  min-height: 60vh;
   padding: 30px 25px;
 `;

@@ -15,6 +15,7 @@ export const ImgTop = styled.div`
 export const ContainerInfoJobs = styled.div`
     display: grid;
     grid-template-columns: 1fr;
+    min-height: 75vh;
   padding: 20px;
   @media(min-width: 768px){
     grid-template-columns: 1fr 3fr;
